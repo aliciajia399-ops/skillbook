@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillBook — 用小红书的方式发现 Claude Skills</title>
+<meta name="description" content="一个面向非开发者的 Claude Skills 社区平台，用文字海报的方式展示每个 Skill 能做什么。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#121212;--card:#1a1a1a;--border:#2a2a2a;--t:#f0ede6;--td:#9e9b93;--tm:#5c5a54;--red:#ff2442;--sw:170px;--th:56px}
+body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif}
+::-webkit-scrollbar{width:0;height:0}
+
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--th);background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;z-index:100}
+.logo{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;color:var(--red);width:var(--sw);flex-shrink:0;letter-spacing:2px;cursor:pointer}
+.srch{flex:1;max-width:440px;margin:0 auto;position:relative}
+.srch input{width:100%;padding:8px 16px 8px 38px;background:#2a2a2a;border:1px solid transparent;border-radius:40px;color:var(--t);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s}
+.srch input:focus{border-color:var(--red)}
+.srch input::placeholder{color:var(--tm)}
+.srch .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--tm);font-size:14px;pointer-events:none}
+
+.sidebar{position:fixed;left:0;top:var(--th);bottom:0;width:var(--sw);padding:16px 0;z-index:90}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:11px 20px;color:var(--td);text-decoration:none;font-size:14px;cursor:pointer;transition:color .15s}
+.sidebar a:hover,.sidebar a.active{color:var(--t)}
+.sidebar a .ic{font-size:18px;width:22px;text-align:center}
+
+.main{margin-left:var(--sw);margin-top:var(--th);padding:0 16px 60px}
+
+.cats{position:sticky;top:var(--th);background:var(--bg);padding:14px 0 10px;z-index:80;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cats button{flex-shrink:0;padding:5px 16px;border:none;background:none;color:var(--td);font-size:14px;font-family:inherit;cursor:pointer;border-radius:18px;transition:all .15s;white-space:nowrap}
+.cats button:hover{color:var(--t)}
+.cats button.on{background:var(--t);color:var(--bg);font-weight:500}
+
+.feed{column-count:4;column-gap:14px;padding-top:6px}
+@media(max-width:1200px){.feed{column-count:3}}
+@media(max-width:860px){.feed{column-count:2}.sidebar{display:none}.main{margin-left:0}.logo{width:auto;margin-right:16px}}
+@media(max-width:540px){.feed{column-count:1}}
+
+.card{break-inside:avoid;margin-bottom:14px;background:var(--card);border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.4)}
+
+.poster{padding:28px 24px 32px;position:relative;min-height:180px;display:flex;flex-direction:column}
+.poster .q{font-size:32px;line-height:1;opacity:.35;font-family:'Noto Serif SC',serif;margin-bottom:16px}
+.poster .bt{font-family:'Noto Serif SC',serif;font-weight:900;font-size:26px;line-height:1.45;letter-spacing:1px}
+.poster .bt .hl{background:linear-gradient(transparent 55%,rgba(255,220,60,.45) 55%);padding:0 2px}
+.poster .en{margin-top:auto;padding-top:16px;font-family:'DM Mono',monospace;font-size:11px;opacity:.3;text-align:right}
+.poster .tg{position:absolute;top:14px;right:14px;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(0,0,0,.12);font-family:'DM Mono',monospace}
+.poster .fl{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:14px;font-size:11px;opacity:.45}
+.poster .fl span{padding:2px 7px;border-radius:4px;border:1px solid currentColor;white-space:nowrap}
+.poster .fl .ar{border:none;padding:0;font-size:13px}
+
+.ci{padding:10px 14px 12px}
+.ct{font-size:13px;font-weight:500;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cm{display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--td)}
+.cm .au{display:flex;align-items:center;gap:6px}
+.cm .av{width:20px;height:20px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--td)}
+.cm .lk{display:flex;align-items:center;gap:3px}
+.cm .lk svg{width:14px;height:14px}
+
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.ov.open{display:flex}
+.modal{background:var(--card);border-radius:14px;width:90%;max-width:720px;max-height:85vh;overflow-y:auto;display:flex;position:relative}
+.mp{flex:0 0 45%;min-height:400px;padding:36px 28px;display:flex;flex-direction:column;justify-content:space-between;border-radius:14px 0 0 14px}
+.mp .q{font-size:40px;line-height:1;opacity:.3;font-family:'Noto Serif SC',serif;margin-bottom:20px}
+.mp .bt{font-family:'Noto Serif SC',serif;font-weight:900;font-size:30px;line-height:1.5;letter-spacing:1px}
+.mp .bt .hl{background:linear-gradient(transparent 55%,rgba(255,220,60,.45) 55%);padding:0 2px}
+.mp .en{margin-top:auto;padding-top:20px;font-family:'DM Mono',monospace;font-size:12px;opacity:.3}
+.mb{flex:1;padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border)}
+.mb h2{font-size:18px;font-weight:700;line-height:1.5;padding-right:30px}
+.mb .desc{font-size:14px;color:var(--td);line-height:1.8;font-weight:300}
+.mb .st{font-size:11px;color:var(--tm);letter-spacing:2px;margin-top:6px}
+.mb .tags{display:flex;flex-wrap:wrap;gap:6px}
+.mb .tags span{font-size:12px;padding:4px 10px;border-radius:14px;background:#2a2a2a;color:var(--td)}
+.mb .orig{font-size:11px;color:var(--tm);line-height:1.7;font-family:'DM Mono',monospace}
+.mb .goto{margin-top:auto;padding-top:12px}
+.mb .goto a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;background:var(--t);color:var(--bg);text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s}
+.mb .goto a:hover{opacity:.85}
+.mc{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--td);font-size:22px;cursor:pointer;z-index:10}
+.empty{text-align:center;padding:80px 20px;color:var(--tm);column-span:all}
+.empty .em{font-size:48px;margin-bottom:16px}
+
+@media(max-width:700px){.modal{flex-direction:column}.mp{flex:none;min-height:240px;border-radius:14px 14px 0 0}}
+@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo" onclick="location.reload()">SkillBook</div>
+  <div class="srch"><span class="si">🔍</span><input id="search" type="text" placeholder="搜索技能：简历、邮件、图片、Slack…"></div>
+</div>
+<div class="sidebar">
+  <a class="active"><span class="ic">✨</span>发现</a>
+  <a href="https://github.com/anthropics" target="_blank"><span class="ic">📦</span>Anthropic</a>
+  <a href="https://github.com/ComposioHQ/awesome-claude-skills" target="_blank"><span class="ic">🔗</span>ComposioHQ</a>
+  <a href="https://github.com/mattpocock/skills" target="_blank"><span class="ic">🔗</span>mattpocock</a>
+</div>
+<div class="main">
+  <div class="cats" id="cats"></div>
+  <div class="feed" id="feed"></div>
+</div>
+<div class="ov" id="ov">
+  <button class="mc" onclick="closeModal()">✕</button>
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+const THEMES=[
+  {bg:'#f5f0e8',fg:'#2a2520'},{bg:'#dceefb',fg:'#1a2e3d'},
+  {bg:'#e0f2ed',fg:'#1a332b'},{bg:'#fce8ec',fg:'#3d1a22'},
+  {bg:'#ece4f6',fg:'#2a1d3d'},{bg:'#fef3d6',fg:'#3d3018'},
+  {bg:'#e6ede4',fg:'#1f2e1d'},{bg:'#fde8db',fg:'#3d261a'},
+  {bg:'#e4eef5',fg:'#1a2533'},{bg:'#efe9df',fg:'#33291e'},
+];
+
+let ALL=[], activeCat='推荐', query='';
+
+// ── Load data ──
+fetch('./data/skills.json')
+  .then(r=>r.json())
+  .then(data=>{
+    ALL=data.skills.map((s,i)=>({...s, theme:THEMES[(s.slug.charCodeAt(0)+s.slug.length)%THEMES.length]}));
+    buildCats();
+    render();
+  })
+  .catch(()=>{
+    document.getElementById('feed').innerHTML='<div class="empty"><div class="em">📦</div><p>找不到 data/skills.json</p><p style="margin-top:8px;font-size:13px">请先运行 <code style="background:#2a2a2a;padding:2px 6px;border-radius:4px">npm run fetch</code> 获取数据</p></div>';
+  });
+
+function buildCats(){
+  const cats=['推荐',...new Set(ALL.map(s=>s.cat).filter(Boolean))];
+  const el=document.getElementById('cats');
+  el.innerHTML='';
+  cats.forEach(c=>{
+    const b=document.createElement('button');
+    b.textContent=c;
+    if(c===activeCat)b.classList.add('on');
+    b.onclick=()=>{
+      document.querySelectorAll('.cats button').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      activeCat=c;
+      render();
+    };
+    el.appendChild(b);
+  });
+}
+
+document.getElementById('search').addEventListener('input',e=>{
+  query=e.target.value.trim().toLowerCase();
+  render();
+});
+
+function fmt(n){return n>=1e3?(n/1e3).toFixed(n>=1e4?0:1)+'k':n||''}
+
+function posterHtml(s){
+  if(!s.poster){
+    // Fallback: show slug as big mono text
+    return `<span style="font-family:'DM Mono',monospace;font-size:20px;opacity:.5">${esc(s.slug)}</span>`;
+  }
+  return s.poster.split('\\n').map(l=>
+    l.replace(/<hl>(.*?)<\/hl>/g,'<span class="hl">$1</span>')
+  ).join('<br>');
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function render(){
+  let list=ALL;
+  if(activeCat!=='推荐')list=list.filter(s=>s.cat===activeCat);
+  if(query)list=list.filter(s=>{
+    const q=query;
+    return [s.name,s.slug,s.title_zh,s.desc_zh,s.description,s.cat,...(s.tags||[])]
+      .some(v=>v&&v.toLowerCase().includes(q));
+  });
+
+  const feed=document.getElementById('feed');
+  if(!list.length){
+    feed.innerHTML='<div class="empty"><div class="em">🔍</div><p>没有找到匹配的技能</p></div>';
+    return;
+  }
+
+  feed.innerHTML=list.map((s,i)=>`
+    <div class="card" onclick="openModal('${s.id}')" style="animation:fu .35s ${Math.min(i*.03,.3)}s both">
+      <div class="poster" style="background:${s.theme.bg};color:${s.theme.fg}">
+        <div class="q">&#x201C;</div>
+        <div class="bt">${posterHtml(s)}</div>
+        <div class="en">${esc(s.slug)}</div>
+        <div class="tg">${esc(s.cat)}</div>
+      </div>
+      <div class="ci">
+        <div class="ct">${esc(s.title_zh||s.name)}</div>
+        <div class="cm">
+          <div class="au">
+            <div class="av">${s.author[0]}</div>
+            <span>${esc(s.author)}</span>
+          </div>
+          <div class="lk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            ${fmt(s.stars)}
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openModal(id){
+  const s=ALL.find(x=>x.id===id);
+  if(!s)return;
+  document.getElementById('modal').innerHTML=`
+    <div class="mp" style="background:${s.theme.bg};color:${s.theme.fg}">
+      <div class="q">&#x201C;</div>
+      <div class="bt">${posterHtml(s)}</div>
+      <div class="en">${esc(s.slug)}</div>
+    </div>
+    <div class="mb">
+      <h2>${esc(s.title_zh||s.name)}</h2>
+      <div class="desc">${esc(s.desc_zh||s.description)}</div>
+      ${s.tags&&s.tags.length?`
+        <div class="st">标签</div>
+        <div class="tags">${s.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+      `:''}
+      <div class="st">原始描述</div>
+      <div class="orig">${esc(s.description)}</div>
+      <div class="goto">
+        <a href="${s.url}" target="_blank" rel="noopener">在 GitHub 上查看 ↗</a>
+      </div>
+    </div>
+  `;
+  document.getElementById('ov').classList.add('open');
+}
+function closeModal(){document.getElementById('ov').classList.remove('open')}
+document.getElementById('ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>
