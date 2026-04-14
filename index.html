@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SkillBook — 用小红书的方式发现 Claude Skills</title>
 <meta name="description" content="一个面向非开发者的 Claude Skills 社区平台，用文字海报的方式展示每个 Skill 能做什么。">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22ttp://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📕</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📕</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -194,6 +194,21 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .ai-no-key{padding:14px 18px;text-align:center;font-size:12px;color:var(--tm);line-height:1.6}
 .ai-no-key a{color:var(--red);cursor:pointer;text-decoration:underline}
 
+/* ─── Source Cards ─── */
+.src-card{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#1a1a1a;border-radius:8px;border:1px solid var(--border);font-size:12px}
+.src-card.disabled{opacity:.45}
+.src-toggle{position:relative;width:34px;height:18px;flex-shrink:0}
+.src-toggle input{display:none}
+.src-toggle .slider{position:absolute;inset:0;background:#333;border-radius:9px;cursor:pointer;transition:background .2s}
+.src-toggle .slider::before{content:'';position:absolute;left:2px;top:2px;width:14px;height:14px;background:#666;border-radius:50%;transition:all .2s}
+.src-toggle input:checked+.slider{background:var(--red)}
+.src-toggle input:checked+.slider::before{transform:translateX(16px);background:#fff}
+.src-info{flex:1;min-width:0}
+.src-name{font-family:'DM Mono',monospace;color:var(--t);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.src-meta{color:var(--tm);font-size:10px;margin-top:1px}
+.src-del{background:none;border:none;color:var(--tm);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:4px;flex-shrink:0;transition:all .15s}
+.src-del:hover{color:var(--red);background:rgba(255,36,66,.1)}
+
 /* ─── Misc ─── */
 .empty{text-align:center;padding:80px 20px;color:var(--tm);column-span:all}
 .empty .em{font-size:48px;margin-bottom:16px}
@@ -288,10 +303,29 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 
     <div class="sp-divider"></div>
 
+    <!-- Skill Sources Management -->
+    <div class="sp-section">
+      <h4>📡 数据源管理 <span class="badge">可自定义</span></h4>
+      <p class="sp-desc">管理 Skill 抓取源。支持含 SKILL.md 子目录的仓库和深层扫描模式。点击开关启用/禁用，或添加新源。</p>
+      <div id="sourcesList" style="display:flex;flex-direction:column;gap:6px;max-height:240px;overflow-y:auto"></div>
+      <div style="margin-top:10px">
+        <div class="sp-input-group">
+          <input class="sp-input" id="newSourceInput" type="text" placeholder="owner/repo 例: anthropics/skills" style="font-size:12px">
+          <button class="sp-btn sp-btn-secondary" onclick="addSource()" style="white-space:nowrap">＋ 添加</button>
+        </div>
+        <p class="sp-desc" style="margin-top:6px">可选参数：分支和子路径会自动检测。也可输入完整格式 <code style="color:var(--red);font-size:11px">owner/repo:branch:path</code></p>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="sp-btn-ghost" onclick="resetSources()">↻ 恢复默认源</button>
+      </div>
+    </div>
+
+    <div class="sp-divider"></div>
+
     <!-- Fetch from GitHub -->
     <div class="sp-section">
       <h4>🔄 从 GitHub 抓取数据 <span class="badge">免费</span></h4>
-      <p class="sp-desc">从 ComposioHQ/awesome-claude-skills 和 mattpocock/skills 抓取 Skill 列表。无需 API Key，但 GitHub 有速率限制（60次/小时，加 Token 可提高到 5000次/小时）。</p>
+      <p class="sp-desc">从上方启用的数据源抓取 Skill 列表。无需 API Key，但 GitHub 有速率限制（60次/小时，加 Token 可提高到 5000次/小时）。</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
         <button class="sp-btn sp-btn-secondary" id="fetchBtn" onclick="fetchFromGitHub()">
           🔄 抓取 Skill 列表
@@ -372,10 +406,31 @@ const THEMES=[
   {bg:'#f0e6e8',fg:'#3d1a2a'},{bg:'#e4f0f5',fg:'#1a2d33'},
 ];
 
-const REPOS = [
-  { owner: 'ComposioHQ', repo: 'awesome-claude-skills', branch: 'master' },
-  { owner: 'mattpocock', repo: 'skills', branch: 'main' },
+// ── Dynamic Skill Sources (stored in localStorage) ──
+const DEFAULT_SOURCES = [
+  { owner:'anthropics', repo:'skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'ComposioHQ', repo:'awesome-claude-skills', branch:'master', path:'', mode:'skills-dir', enabled:true },
+  { owner:'mattpocock', repo:'skills', branch:'main', path:'', mode:'skills-dir', enabled:true },
+  { owner:'obra', repo:'superpowers', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'sanjay3290', repo:'ai-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'VoltAgent', repo:'awesome-agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'travisvn', repo:'awesome-claude-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'NeoLabHQ', repo:'context-engineering-kit', branch:'master', path:'', mode:'deep-scan', enabled:true },
+  { owner:'google-labs-code', repo:'agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:false },
+  { owner:'duckdb', repo:'agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:false },
 ];
+
+function getSources(){
+  try {
+    const saved = localStorage.getItem('skillbook_sources');
+    if(saved) return JSON.parse(saved);
+  } catch(e){}
+  return DEFAULT_SOURCES;
+}
+function saveSources(sources){ localStorage.setItem('skillbook_sources', JSON.stringify(sources)); }
+
+// back-compat alias
+const REPOS = null; // no longer used directly
 
 const CAT_RULES = [
   [/doc|pdf|pptx|xlsx|spreadsheet|file|invoice|resume|organiz|epub/i, '办公提效'],
@@ -567,7 +622,7 @@ function toggleSettings(){
   document.getElementById('settingsPanel').classList.toggle('open', settingsOpen);
   document.getElementById('panelOverlay').classList.toggle('open', settingsOpen);
   document.getElementById('settingsBtn').classList.toggle('active', settingsOpen);
-  if(settingsOpen) checkSavedKey();
+  if(settingsOpen){ checkSavedKey(); renderSources(); }
 }
 
 // ── API Key Management ──
@@ -621,91 +676,236 @@ function clearLog(logId){
   document.getElementById(logId).classList.remove('show');
 }
 
-// ── Fetch Skills from GitHub ──
+// ── Source Management UI ──
+function renderSources(){
+  const sources = getSources();
+  const el = document.getElementById('sourcesList');
+  if(!el) return;
+  el.innerHTML = sources.map((s,i)=>`
+    <div class="src-card ${s.enabled?'':'disabled'}">
+      <label class="src-toggle">
+        <input type="checkbox" ${s.enabled?'checked':''} onchange="toggleSource(${i},this.checked)">
+        <span class="slider"></span>
+      </label>
+      <div class="src-info">
+        <div class="src-name">${esc(s.owner)}/${esc(s.repo)}</div>
+        <div class="src-meta">${esc(s.branch)}${s.path?' · /'+esc(s.path):''} · ${esc(s.mode)}</div>
+      </div>
+      <button class="src-del" onclick="deleteSource(${i})" title="删除">✕</button>
+    </div>
+  `).join('');
+}
+
+function toggleSource(idx, enabled){
+  const sources = getSources();
+  if(sources[idx]) sources[idx].enabled = enabled;
+  saveSources(sources);
+  renderSources();
+}
+
+function deleteSource(idx){
+  const sources = getSources();
+  const s = sources[idx];
+  if(!confirm(`确定删除 ${s.owner}/${s.repo}？`)) return;
+  sources.splice(idx,1);
+  saveSources(sources);
+  renderSources();
+}
+
+function addSource(){
+  const input = document.getElementById('newSourceInput');
+  const raw = input.value.trim();
+  if(!raw) return;
+
+  // Parse: owner/repo or owner/repo:branch or owner/repo:branch:path
+  const parts = raw.split(':');
+  const slug = parts[0].replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,'');
+  const [owner, repo] = slug.split('/');
+  if(!owner||!repo){ alert('格式错误，请输入 owner/repo'); return; }
+
+  const branch = parts[1] || 'main';
+  const path = parts[2] || '';
+  const mode = path ? 'skills-dir' : 'skills-dir';
+
+  const sources = getSources();
+  if(sources.some(s=>s.owner===owner && s.repo===repo)){
+    alert(`${owner}/${repo} 已存在`); return;
+  }
+
+  sources.push({ owner, repo, branch, path, mode, enabled:true });
+  saveSources(sources);
+  input.value='';
+  renderSources();
+}
+
+function resetSources(){
+  if(!confirm('恢复为默认数据源列表？')) return;
+  localStorage.removeItem('skillbook_sources');
+  renderSources();
+}
+
+// ── Fetch Skills from GitHub (multi-source) ──
 async function fetchFromGitHub(){
   const btn=document.getElementById('fetchBtn');
   btn.disabled=true;
   btn.innerHTML='<span class="spinner"></span> 抓取中\u2026';
   clearLog('fetchLog');
-  showStatus('fetchStatus','\u6b63\u5728\u4ece GitHub \u6293\u53d6\u2026','working');
+  showStatus('fetchStatus','正在从 GitHub 抓取\u2026','working');
 
   const ghToken = document.getElementById('ghToken').value.trim();
   const headers = ghToken ? { Authorization: `Bearer ${ghToken}` } : {};
   const allSkills = [];
+  const sources = getSources().filter(s=>s.enabled);
+
+  appendLog('fetchLog', `共 ${sources.length} 个启用的数据源`, 'wr');
 
   try {
-    for(const {owner, repo, branch} of REPOS){
-      appendLog('fetchLog', `\ud83d\udce6 ${owner}/${repo}`, 'wr');
+    for(const src of sources){
+      const {owner, repo, branch, path, mode} = src;
+      appendLog('fetchLog', `📦 ${owner}/${repo}${path?'/'+path:''}`, 'wr');
 
       let stars = 0;
       try {
         const d = await (await fetch(`https://api.github.com/repos/${owner}/${repo}`, {headers})).json();
         stars = d.stargazers_count || 0;
-        appendLog('fetchLog', `\u2b50 ${stars} stars`);
-      } catch(e){ appendLog('fetchLog','\u65e0\u6cd5\u83b7\u53d6 star \u6570','er'); }
+        appendLog('fetchLog', `⭐ ${stars} stars`);
+      } catch(e){ appendLog('fetchLog','无法获取 star 数','er'); }
+
+      // Determine the content path to scan
+      const contentPath = path ? `${path}` : '';
+      const apiUrl = contentPath
+        ? `https://api.github.com/repos/${owner}/${repo}/contents/${contentPath}?ref=${branch}`
+        : `https://api.github.com/repos/${owner}/${repo}/contents?ref=${branch}`;
 
       let items;
       try {
-        items = await (await fetch(`https://api.github.com/repos/${owner}/${repo}/contents?ref=${branch}`, {headers})).json();
+        items = await (await fetch(apiUrl, {headers})).json();
         if(!Array.isArray(items)) throw new Error(items.message || 'Not array');
       } catch(e){
-        appendLog('fetchLog', `\u274c \u83b7\u53d6\u76ee\u5f55\u5931\u8d25: ${e.message}`, 'er');
+        appendLog('fetchLog', `✗ 获取目录失败: ${e.message}`, 'er');
         continue;
       }
 
       const dirs = items.filter(i=>i.type==='dir');
-      appendLog('fetchLog', `\ud83d\udcc1 ${dirs.length} \u4e2a\u76ee\u5f55`);
+      appendLog('fetchLog', `📁 ${dirs.length} 个子目录`);
 
       let found=0;
-      for(const d of dirs){
-        try {
-          const contents = await (await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${d.name}?ref=${branch}`, {headers})).json();
-          if(!Array.isArray(contents) || !contents.some(f=>f.name==='SKILL.md')) continue;
-        } catch{ continue; }
 
-        try {
-          const md = await (await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${d.name}/SKILL.md`)).text();
-          const fm = parseFrontmatter(md);
-          const name = fm.name || d.name;
-          const description = fm.description || '';
-          const cat = inferCat(name, description);
-          const existing = ALL.find(s => s.slug === d.name && s.author === owner);
-
-          allSkills.push({
-            id: `${owner}-${d.name}`,
-            slug: d.name, name, description, cat,
-            author: owner, stars,
-            url: `https://github.com/${owner}/${repo}/tree/${branch}/${d.name}`,
-            poster: existing?.poster || null,
-            title_zh: existing?.title_zh || null,
-            desc_zh: existing?.desc_zh || null,
-            tags: existing?.tags || [],
-          });
-          found++;
-          appendLog('fetchLog', `\u2713 ${d.name}`, 'ok');
-        } catch(e){
-          appendLog('fetchLog', `\u2717 ${d.name}: ${e.message}`, 'er');
+      if(mode==='deep-scan'){
+        // Deep scan: recursively look for SKILL.md in nested dirs
+        for(const d of dirs){
+          const subItems = await fetchDirSkills(owner, repo, branch, `${contentPath?contentPath+'/':''}${d.name}`, headers, stars);
+          for(const sk of subItems){
+            const existing = ALL.find(s => s.slug===sk.slug && s.author===owner);
+            sk.poster = existing?.poster || null;
+            sk.title_zh = existing?.title_zh || null;
+            sk.desc_zh = existing?.desc_zh || null;
+            sk.tags = existing?.tags || [];
+            allSkills.push(sk);
+            found++;
+          }
+          await new Promise(r=>setTimeout(r,80));
         }
-        await new Promise(r=>setTimeout(r,120));
+      } else {
+        // skills-dir: each subdir might contain SKILL.md
+        for(const d of dirs){
+          const dirPath = contentPath ? `${contentPath}/${d.name}` : d.name;
+          try {
+            const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${dirPath}/SKILL.md`;
+            const res = await fetch(rawUrl);
+            if(!res.ok) continue;
+            const md = await res.text();
+            const fm = parseFrontmatter(md);
+            const name = fm.name || d.name;
+            const description = fm.description || '';
+            const cat = inferCat(name, description);
+            const existing = ALL.find(s => s.slug === d.name && s.author === owner);
+
+            allSkills.push({
+              id: `${owner}-${d.name}`,
+              slug: d.name, name, description, cat,
+              author: owner, stars,
+              url: `https://github.com/${owner}/${repo}/tree/${branch}/${dirPath}`,
+              poster: existing?.poster || null,
+              title_zh: existing?.title_zh || null,
+              desc_zh: existing?.desc_zh || null,
+              tags: existing?.tags || [],
+            });
+            found++;
+            appendLog('fetchLog', `✓ ${d.name}`, 'ok');
+          } catch(e){
+            appendLog('fetchLog', `✗ ${d.name}: ${e.message}`, 'er');
+          }
+          await new Promise(r=>setTimeout(r,80));
+        }
       }
-      appendLog('fetchLog', `\u2192 \u627e\u5230 ${found} \u4e2a Skills`, 'wr');
+
+      appendLog('fetchLog', `→ ${owner}/${repo}: 找到 ${found} 个 Skills`, 'wr');
     }
 
+    // Deduplicate by slug+author
+    const seen = new Set();
+    const deduped = allSkills.filter(s=>{
+      const key = `${s.author}-${s.slug}`;
+      if(seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
     const newData = {
-      version: '1.0.0',
+      version: '2.0.0',
       last_updated: new Date().toISOString().split('T')[0],
-      total: allSkills.length,
-      skills: allSkills,
+      total: deduped.length,
+      skills: deduped,
     };
     processData(newData);
     saveData();
-    showStatus('fetchStatus', `\u2713 \u6210\u529f\u6293\u53d6 ${allSkills.length} \u4e2a Skills`, 'ok');
+    showStatus('fetchStatus', `✓ 成功抓取 ${deduped.length} 个 Skills（去重后）`, 'ok');
   } catch(e){
-    showStatus('fetchStatus', `\u274c ${e.message}`, 'err');
+    showStatus('fetchStatus', `✗ ${e.message}`, 'err');
   }
 
   btn.disabled=false;
-  btn.innerHTML='\ud83d\udd04 \u6293\u53d6 Skill \u5217\u8868';
+  btn.innerHTML='🔄 抓取 Skill 列表';
+}
+
+// Deep scan helper: recursively find SKILL.md in nested directories
+async function fetchDirSkills(owner, repo, branch, dirPath, headers, stars){
+  const results = [];
+  try {
+    const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${dirPath}/SKILL.md`;
+    const res = await fetch(rawUrl);
+    if(res.ok){
+      const md = await res.text();
+      const fm = parseFrontmatter(md);
+      const slug = dirPath.split('/').pop();
+      const name = fm.name || slug;
+      const description = fm.description || '';
+      results.push({
+        id: `${owner}-${slug}`,
+        slug, name, description,
+        cat: inferCat(name, description),
+        author: owner, stars,
+        url: `https://github.com/${owner}/${repo}/tree/${branch}/${dirPath}`,
+      });
+      appendLog('fetchLog', `✓ ${dirPath}`, 'ok');
+      return results;
+    }
+  } catch{}
+
+  // No SKILL.md here, try subdirs
+  try {
+    const items = await (await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${branch}`, {headers})).json();
+    if(Array.isArray(items)){
+      const subdirs = items.filter(i=>i.type==='dir');
+      for(const sd of subdirs){
+        const sub = await fetchDirSkills(owner, repo, branch, `${dirPath}/${sd.name}`, headers, stars);
+        results.push(...sub);
+        await new Promise(r=>setTimeout(r,80));
+      }
+    }
+  } catch{}
+  return results;
 }
 
 function parseFrontmatter(md){
