@@ -194,6 +194,11 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .ai-no-key{padding:14px 18px;text-align:center;font-size:12px;color:var(--tm);line-height:1.6}
 .ai-no-key a{color:var(--red);cursor:pointer;text-decoration:underline}
 
+/* ─── Provider Buttons ─── */
+.sp-provider-btn{padding:5px 12px;border:1px solid var(--border);border-radius:6px;background:none;color:var(--td);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;transition:all .15s}
+.sp-provider-btn:hover{border-color:#555;color:var(--t)}
+.sp-provider-btn.active{border-color:var(--red);color:var(--red);background:rgba(255,36,66,.08)}
+
 /* ─── Source Cards ─── */
 .src-card{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#1a1a1a;border-radius:8px;border:1px solid var(--border);font-size:12px}
 .src-card.disabled{opacity:.45}
@@ -333,6 +338,15 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
           <span id="keyStatusDot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0"></span>
           <span style="font-size:12px;color:var(--td)" id="keyStatusLabel">未设置 Anthropic API Key</span>
         </div>
+        <!-- Provider selector -->
+        <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap">
+          <button class="sp-provider-btn active" data-provider="anthropic" onclick="selectProvider('anthropic')">Anthropic</button>
+          <button class="sp-provider-btn" data-provider="openrouter" onclick="selectProvider('openrouter')">OpenRouter</button>
+          <button class="sp-provider-btn" data-provider="custom" onclick="selectProvider('custom')">自定义 API</button>
+        </div>
+        <div id="customUrlRow" style="display:none;margin-bottom:6px">
+          <input class="sp-input" id="customApiUrl" type="text" placeholder="https://your-api.com/v1/chat/completions" style="font-size:11px">
+        </div>
         <div id="keyDisplay" style="display:none">
           <div class="sp-key-display">
             <span id="keyMask">sk-ant-•••••••••</span>
@@ -341,11 +355,14 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
         </div>
         <div id="keyInput">
           <div class="sp-input-group">
-            <input class="sp-input" id="apiKey" type="password" placeholder="sk-ant-api03-..." style="font-size:11px">
+            <input class="sp-input" id="apiKey" type="password" placeholder="sk-ant-api03-..." style="font-size:11px" id="apiKey">
             <button class="sp-btn sp-btn-primary" onclick="saveApiKey()" style="padding:8px 14px;font-size:12px">保存</button>
           </div>
         </div>
         <p class="sp-desc" style="margin-top:6px;font-size:10px;opacity:.6">Key 仅存在浏览器本地，不会上传到任何服务器。没有 Key 也能抓取，但不会生成中文海报。</p>
+        <div id="providerHint" class="sp-desc" style="margin-top:4px;font-size:10px">
+          <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--red)">获取 Anthropic Key →</a>
+        </div>
       </div>
 
       <!-- Step 2: GitHub Token (optional) -->
@@ -632,17 +649,78 @@ function toggleSettings(){
   if(settingsOpen){ checkSavedKey(); renderSources(); }
 }
 
-// ── API Key Management ──
+// ── API Provider & Key Management ──
+const PROVIDERS = {
+  anthropic: {
+    name: 'Anthropic',
+    url: 'https://api.anthropic.com/v1/messages',
+    format: 'anthropic',
+    placeholder: 'sk-ant-api03-...',
+    hint: '<a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--red)">获取 Anthropic Key →</a>',
+    model: 'claude-sonnet-4-20250514',
+  },
+  openrouter: {
+    name: 'OpenRouter',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    format: 'openai',
+    placeholder: 'sk-or-v1-...',
+    hint: '<a href="https://openrouter.ai/keys" target="_blank" style="color:var(--red)">获取 OpenRouter Key →</a>　支持 Claude / GPT / Gemini 等多模型',
+    model: 'anthropic/claude-sonnet-4',
+  },
+  custom: {
+    name: '自定义',
+    url: '',
+    format: 'openai',
+    placeholder: 'your-api-key',
+    hint: '填写任何 OpenAI 兼容 API（如 DeepSeek、Moonshot、零一万物等）',
+    model: '',
+  },
+};
+
+function getProvider(){ return localStorage.getItem('skillbook_provider') || 'anthropic'; }
+function setProvider(p){ localStorage.setItem('skillbook_provider', p); }
+
+function selectProvider(p){
+  setProvider(p);
+  document.querySelectorAll('.sp-provider-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.provider===p);
+  });
+  const cfg = PROVIDERS[p];
+  document.getElementById('apiKey').placeholder = cfg.placeholder;
+  document.getElementById('providerHint').innerHTML = cfg.hint;
+  document.getElementById('customUrlRow').style.display = p==='custom' ? 'block' : 'none';
+
+  // Load saved custom URL
+  if(p==='custom'){
+    document.getElementById('customApiUrl').value = localStorage.getItem('skillbook_custom_url') || '';
+  }
+  checkSavedKey();
+}
+
 function checkSavedKey(){
   const key = localStorage.getItem('skillbook_anthropic_key');
+  const provider = getProvider();
   const dot = document.getElementById('keyStatusDot');
   const label = document.getElementById('keyStatusLabel');
+  const providerName = PROVIDERS[provider]?.name || provider;
+
+  // Restore provider button state
+  document.querySelectorAll('.sp-provider-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.provider===provider);
+  });
+  document.getElementById('customUrlRow').style.display = provider==='custom' ? 'block' : 'none';
+  document.getElementById('apiKey').placeholder = PROVIDERS[provider]?.placeholder || '';
+  document.getElementById('providerHint').innerHTML = PROVIDERS[provider]?.hint || '';
+  if(provider==='custom'){
+    document.getElementById('customApiUrl').value = localStorage.getItem('skillbook_custom_url') || '';
+  }
+
   if(key){
     document.getElementById('keyDisplay').style.display='block';
     document.getElementById('keyInput').style.display='none';
     document.getElementById('keyMask').textContent = key.slice(0,10) + '\u2022'.repeat(8) + key.slice(-4);
     if(dot) dot.style.background='#4ade80';
-    if(label){ label.textContent='✓ API Key 已就绪 — 抓取后自动生成中文海报'; label.style.color='#4ade80'; }
+    if(label){ label.textContent=`✓ ${providerName} Key 已就绪 — 抓取后自动生成中文海报`; label.style.color='#4ade80'; }
   } else {
     document.getElementById('keyDisplay').style.display='none';
     document.getElementById('keyInput').style.display='block';
@@ -654,10 +732,14 @@ function checkSavedKey(){
 function saveApiKey(){
   const key = document.getElementById('apiKey').value.trim();
   if(!key){ showStatus('keyStatus','请输入 API Key','err'); return; }
-  if(!key.startsWith('sk-')){ showStatus('keyStatus','API Key 格式不对，应以 sk- 开头','err'); return; }
   localStorage.setItem('skillbook_anthropic_key', key);
+  // Save custom URL if custom provider
+  if(getProvider()==='custom'){
+    const url = document.getElementById('customApiUrl').value.trim();
+    if(url) localStorage.setItem('skillbook_custom_url', url);
+  }
   document.getElementById('apiKey').value='';
-  showStatus('keyStatus','\u2713 已保存到浏览器本地','ok');
+  showStatus('keyStatus','✓ 已保存到浏览器本地','ok');
   checkSavedKey();
 }
 
@@ -981,7 +1063,67 @@ function inferCat(name,desc){
   return '\u5176\u4ed6';
 }
 
-// ── Generate Posters via Claude API ──
+// ── Generate Posters via LLM API (multi-provider) ──
+
+// Universal LLM call that adapts to provider
+async function callLLM(prompt){
+  const apiKey = getApiKey();
+  if(!apiKey) throw new Error('未设置 API Key');
+  const provider = getProvider();
+  const cfg = PROVIDERS[provider];
+  const apiUrl = provider==='custom'
+    ? (localStorage.getItem('skillbook_custom_url') || '')
+    : cfg.url;
+  if(!apiUrl) throw new Error('未设置 API 地址');
+
+  if(cfg.format==='anthropic'){
+    // Anthropic native format
+    const res = await fetch(apiUrl, {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true',
+      },
+      body:JSON.stringify({
+        model: cfg.model,
+        max_tokens: 2000,
+        messages:[{role:'user', content: prompt}],
+      }),
+    });
+    if(!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0,120)}`);
+    const data = await res.json();
+    return data.content?.[0]?.text || '';
+  } else {
+    // OpenAI-compatible format (OpenRouter, DeepSeek, Moonshot, etc.)
+    const model = provider==='custom'
+      ? (localStorage.getItem('skillbook_custom_model') || 'claude-sonnet-4-20250514')
+      : cfg.model;
+    const headers = {
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    };
+    // OpenRouter needs extra headers
+    if(provider==='openrouter'){
+      headers['HTTP-Referer'] = location.href;
+      headers['X-Title'] = 'SkillBook';
+    }
+    const res = await fetch(apiUrl, {
+      method:'POST',
+      headers,
+      body:JSON.stringify({
+        model,
+        max_tokens: 2000,
+        messages:[{role:'user', content: prompt}],
+      }),
+    });
+    if(!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0,120)}`);
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || '';
+  }
+}
+
 async function generatePosters(forceAll=false){
   const apiKey = getApiKey();
   if(!apiKey){ showStatus('genStatus','\u8bf7\u5148\u8bbe\u7f6e API Key','err'); return; }
@@ -1006,18 +1148,7 @@ async function generatePosters(forceAll=false){
     appendLog('genLog',`Batch ${Math.floor(i/8)+1}/${Math.ceil(pending.length/8)} (${batch.map(s=>s.slug).join(', ')})`,'wr');
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version':'2023-06-01',
-          'anthropic-dangerous-direct-browser-access':'true',
-        },
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:2000,
-          messages:[{role:'user',content:`你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
+      const prompt = `你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
 
 每个 Skill 提供了 slug、name、英文描述（desc）和正文摘要（content）。请仔细阅读这些信息，理解这个 Skill 的核心功能和使用场景，然后生成：
 
@@ -1041,13 +1172,9 @@ async function generatePosters(forceAll=false){
 Skills:
 ${entries}
 
-仅返回合法 JSON 数组，不要 markdown 或其他文字。`}],
-        }),
-      });
+仅返回合法 JSON 数组，不要 markdown 或其他文字。`;
 
-      if(!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0,120)}`);
-      const data = await res.json();
-      const raw = data.content?.[0]?.text || '';
+      const raw = await callLLM(prompt);
       const results = JSON.parse(raw.replace(/```json|```/g,'').trim());
 
       for(const r of results){
@@ -1184,18 +1311,7 @@ async function sendAiMsg(){
   ).join(',\n');
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true',
-      },
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1200,
-        messages:[{role:'user',content:`你是 SkillBook 的 AI 推荐助手。用户描述了一个需求，你要从下面的 Skills 列表中推荐最匹配的 1-5 个 Skill。
+    const prompt = `你是 SkillBook 的 AI 推荐助手。用户描述了一个需求，你要从下面的 Skills 列表中推荐最匹配的 1-5 个 Skill。
 
 Skills 列表:
 [${skillsSummary}]
@@ -1212,13 +1328,9 @@ Skills 列表:
 - skills 数组里填 id 字段的值
 - 最多推荐 5 个，选最相关的
 - reply 要自然、友好，像朋友聊天
-- 如果没有匹配的，skills 留空，reply 里说明原因`}],
-      }),
-    });
+- 如果没有匹配的，skills 留空，reply 里说明原因`;
 
-    if(!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0,120)}`);
-    const data = await res.json();
-    const raw = data.content?.[0]?.text || '';
+    const raw = await callLLM(prompt);
     const result = JSON.parse(raw.replace(/```json|```/g,'').trim());
 
     // Remove loading
