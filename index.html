@@ -605,7 +605,7 @@ async function performSearch(){
     smpResults=raw.map(normalizeSmp);
     const localSlugs=new Set(ALL.map(s=>`${s.slug}|${s.author}`.toLowerCase()));
     smpResults=smpResults.filter(s=>!localSlugs.has(`${s.slug}|${s.author}`.toLowerCase()));
-    smpResults.forEach(s=>{const c=getSmpCache(s.id);if(c){s.poster=c.poster;s.title_zh=c.title_zh;s.desc_zh=c.desc_zh;s.tags=c.tags}});
+    smpResults.forEach(s=>{const c=getSmpCache(s.id);if(c){s.poster=c.poster;s.title_zh=c.title_zh;s.desc_zh=c.desc_zh;s.tags=c.tags;s.audience=c.audience||''}});
     const localCount=ALL.filter(s=>[s.name,s.slug,s.title_zh,s.desc_zh,s.description,s.cat,...(s.tags||[])].some(v=>v&&v.toLowerCase().includes(q.toLowerCase()))).length;
     hint.innerHTML=`<span class="sh-tag sh-local">本地 ${localCount}</span> + <span class="sh-tag sh-smp">SkillsMP ${smpResults.length}</span>`;
     render();
@@ -662,7 +662,7 @@ function render(){
         <div class="q">\u201C</div>
         <div class="bt">${posterHtml(s)}</div>
         <div class="en">${esc(s.slug)}</div>
-        <div class="tg">${esc(s.cat)}</div>
+        <div class="tg">${esc(s.audience||s.cat)}</div>
       </div>
       <div class="ci">
         <div class="ct">${esc(s.title_zh||s.name)}</div>
@@ -840,24 +840,46 @@ async function genSmpPosters(skills){
     `- slug: ${s.slug}\n  name: ${s.name}\n  desc: ${(s.description||'').slice(0,200)||'N/A'}\n  content: ${(s.content||'').slice(0,300)||'N/A'}`
   ).join('\n');
   try{
-    const prompt=`你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
+    const prompt=`你是小红书爆款文案专家，现在要为 AI 工具写「推荐卡片」。你的目标读者不是开发者，而是普通职场人、学生、自媒体创作者。
 
-每个 Skill 提供了 slug、name、英文描述（desc）和正文摘要（content）。请仔细阅读这些信息，理解这个 Skill 的核心功能和使用场景，然后生成：
+核心原则：像给朋友安利好物一样写——"我发现了一个超好用的东西，你一定要试试"。
 
-输出 JSON 数组，每个对象包含：
+每个 Skill 有 slug、name、英文描述（desc）和正文摘要（content）。请仔细读懂它到底能做什么，然后用「利他」的角度生成内容。
+
+输出 JSON 数组，每个对象：
 - "slug": 原样返回
-- "title_zh": 中文短标题（3-8字），精准概括功能，不要直译英文
-- "poster": 2-5 行中文海报文案，用 \\n 连接。要求：
-  · 像杂志封面标题一样有冲击力
-  · 用 <hl></hl> 高亮 1-2 个关键词
-  · 突出「这个技能能帮用户做什么」而不是技术实现
-  · 口语化、有画面感，让非技术用户也能秒懂
-- "desc_zh": 1-2 句中文描述，自然口语，解释这个工具的实际用途
-- "tags": 2-3 个中文关键词标签
+- "audience": "所有人" | "创作者" | "职场人" | "开发者" — 判断这个工具最适合谁
+- "title_zh": 中文短标题（4-10字）—— 必须让人一看就知道「用了它我能得到什么好处」
+  ✗ 不要写：Gmail助手、PDF全能助手、Word 助手、代码审查工具
+  ✓ 要写：50封邮件5分钟清完、PDF合同秒翻中文、年终总结一键生成、代码上线前自动体检
+  标题要有具体场景或具体好处，不能是泛泛的「XX助手」「XX专家」「XX工具」
 
-好的海报示例：
-"用 Claude\\n帮你写\\n<hl>Word 文档</hl>"
-"在发布前\\n让 AI\\n<hl>质疑</hl>你的\\n每一个<hl>假设</hl>"
+- "poster": 2-4 行中文海报文案，用 \\n 连接
+  · 第一行：用一个具体场景或痛点开头（让读者觉得「说的就是我」）
+  · 中间行：这个工具怎么解决问题（要有画面感）
+  · 用 <hl></hl> 高亮最抓眼球的 1-2 个词
+  · 绝对不要出现：API、SDK、CLI、框架、组件、服务器、部署、编译、重构 这类术语
+  · 如果这个工具确实是开发者专用的，可以用开发者能共情的场景（比如"上线前 bug 漏检"而不是"自动化测试工具"）
+
+- "desc_zh": 1-2 句「给朋友发微信推荐这个工具时你会怎么说」—— 口语、具体、有好处
+  ✗ 不要写：帮你开发、调试和优化基于 Claude API 的应用程序
+  ✓ 要写：就是说你跟 Claude 说一句话，它就真的帮你把邮件发了、把会议建了，不是生成一段文字让你自己去操作
+
+- "tags": 2-3 个标签，用普通人能搜到的词（不要用技术术语做标签）
+
+对比示例（差 vs 好）：
+
+slug: gmail
+  差：标题「Gmail助手」海报「Claude 帮你 | 管理 | Gmail」
+  好：标题「50封邮件5分钟清完」海报「周一打开邮箱\\n<hl>99+</hl> 未读\\nClaude 帮你分类回复\\n重要的一封不漏」
+
+slug: docx  
+  差：标题「Word 助手」海报「用 Claude | 帮你写 | Word 文档」
+  好：标题「年终总结一键生成」海报「领导突然要<hl>述职报告</hl>\\n把你今年干的事\\n丢给 Claude\\n排版好的 Word <hl>直接交</hl>」
+
+slug: git-guardrails-claude-code
+  差：标题「Git安全锁」海报「自动拦截 | 危险的 Git 命令」
+  好：标题「再也不怕误删代码」海报「手滑打了<hl>force push</hl>？\\n这个技能会\\n在你搞砸之前\\n<hl>拦住你</hl>」
 
 Skills:
 ${entries}
@@ -869,8 +891,8 @@ ${entries}
     for(const r of results){
       const s=skills.find(x=>x.slug===r.slug);
       if(s){
-        s.poster=r.poster; s.title_zh=r.title_zh; s.desc_zh=r.desc_zh; s.tags=r.tags||[];
-        setSmpCache(s.id, {poster:r.poster, title_zh:r.title_zh, desc_zh:r.desc_zh, tags:r.tags||[]});
+        s.poster=r.poster; s.title_zh=r.title_zh; s.desc_zh=r.desc_zh; s.tags=r.tags||[]; s.audience=r.audience||'';
+        setSmpCache(s.id, {poster:r.poster, title_zh:r.title_zh, desc_zh:r.desc_zh, tags:r.tags||[], audience:r.audience||''});
       }
     }
   }catch(e){ console.warn('SMP poster gen error:', e); }
@@ -1388,26 +1410,46 @@ async function generatePosters(forceAll=false){
     appendLog('genLog',`Batch ${Math.floor(i/8)+1}/${Math.ceil(pending.length/8)} (${batch.map(s=>s.slug).join(', ')})`,'wr');
 
     try {
-      const prompt = `你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
+      const prompt = `你是小红书爆款文案专家，现在要为 AI 工具写「推荐卡片」。你的目标读者不是开发者，而是普通职场人、学生、自媒体创作者。
 
-每个 Skill 提供了 slug、name、英文描述（desc）和正文摘要（content）。请仔细阅读这些信息，理解这个 Skill 的核心功能和使用场景，然后生成：
+核心原则：像给朋友安利好物一样写——"我发现了一个超好用的东西，你一定要试试"。
 
-输出 JSON 数组，每个对象包含：
+每个 Skill 有 slug、name、英文描述（desc）和正文摘要（content）。请仔细读懂它到底能做什么，然后用「利他」的角度生成内容。
+
+输出 JSON 数组，每个对象：
 - "slug": 原样返回
-- "title_zh": 中文短标题（3-8字），精准概括功能，不要直译英文
-- "poster": 2-5 行中文海报文案，用 \\n 连接。要求：
-  · 像杂志封面标题一样有冲击力
-  · 用 <hl></hl> 高亮 1-2 个关键词
-  · 突出「这个技能能帮用户做什么」而不是技术实现
-  · 口语化、有画面感，让非技术用户也能秒懂
-- "desc_zh": 1-2 句中文描述，自然口语，解释这个工具的实际用途
-- "tags": 2-3 个中文关键词标签
+- "audience": "所有人" | "创作者" | "职场人" | "开发者" — 判断这个工具最适合谁
+- "title_zh": 中文短标题（4-10字）—— 必须让人一看就知道「用了它我能得到什么好处」
+  ✗ 不要写：Gmail助手、PDF全能助手、Word 助手、代码审查工具
+  ✓ 要写：50封邮件5分钟清完、PDF合同秒翻中文、年终总结一键生成、代码上线前自动体检
+  标题要有具体场景或具体好处，不能是泛泛的「XX助手」「XX专家」「XX工具」
 
-好的海报示例：
-"用 Claude\\n帮你写\\n<hl>Word 文档</hl>"
-"在发布前\\n让 AI\\n<hl>质疑</hl>你的\\n每一个<hl>假设</hl>"
-"邮件太多？\\nClaude 帮你\\n<hl>读</hl> <hl>回</hl> <hl>发</hl>"
-"上传 <hl>CSV</hl>\\n自动分析\\n图表<hl>洞察</hl>"
+- "poster": 2-4 行中文海报文案，用 \\n 连接
+  · 第一行：用一个具体场景或痛点开头（让读者觉得「说的就是我」）
+  · 中间行：这个工具怎么解决问题（要有画面感）
+  · 用 <hl></hl> 高亮最抓眼球的 1-2 个词
+  · 绝对不要出现：API、SDK、CLI、框架、组件、服务器、部署、编译、重构 这类术语
+  · 如果这个工具确实是开发者专用的，可以用开发者能共情的场景（比如"上线前 bug 漏检"而不是"自动化测试工具"）
+
+- "desc_zh": 1-2 句「给朋友发微信推荐这个工具时你会怎么说」—— 口语、具体、有好处
+  ✗ 不要写：帮你开发、调试和优化基于 Claude API 的应用程序
+  ✓ 要写：就是说你跟 Claude 说一句话，它就真的帮你把邮件发了、把会议建了，不是生成一段文字让你自己去操作
+
+- "tags": 2-3 个标签，用普通人能搜到的词（不要用技术术语做标签）
+
+对比示例（差 vs 好）：
+
+slug: gmail
+  差：标题「Gmail助手」海报「Claude 帮你 | 管理 | Gmail」
+  好：标题「50封邮件5分钟清完」海报「周一打开邮箱\\n<hl>99+</hl> 未读\\nClaude 帮你分类回复\\n重要的一封不漏」
+
+slug: docx  
+  差：标题「Word 助手」海报「用 Claude | 帮你写 | Word 文档」
+  好：标题「年终总结一键生成」海报「领导突然要<hl>述职报告</hl>\\n把你今年干的事\\n丢给 Claude\\n排版好的 Word <hl>直接交</hl>」
+
+slug: git-guardrails-claude-code
+  差：标题「Git安全锁」海报「自动拦截 | 危险的 Git 命令」
+  好：标题「再也不怕误删代码」海报「手滑打了<hl>force push</hl>？\\n这个技能会\\n在你搞砸之前\\n<hl>拦住你</hl>」
 
 Skills:
 ${entries}
@@ -1419,7 +1461,7 @@ ${entries}
 
       for(const r of results){
         const skill = ALL.find(s=>s.slug===r.slug);
-        if(skill){ skill.poster=r.poster; skill.title_zh=r.title_zh; skill.desc_zh=r.desc_zh; skill.tags=r.tags||[]; }
+        if(skill){ skill.poster=r.poster; skill.title_zh=r.title_zh; skill.desc_zh=r.desc_zh; skill.tags=r.tags||[]; skill.audience=r.audience||''; }
       }
       done+=results.length;
       appendLog('genLog',`\u2713 ${results.length} \u4e2a\u6d77\u62a5\u751f\u6210\u5b8c\u6bd5`,'ok');
@@ -1558,7 +1600,7 @@ async function sendAiMsg(){
     // Restore cached posters
     smpForChat.forEach(s=>{
       const c = getSmpCache(s.id);
-      if(c){ s.poster=c.poster; s.title_zh=c.title_zh; s.desc_zh=c.desc_zh; s.tags=c.tags; }
+      if(c){ s.poster=c.poster; s.title_zh=c.title_zh; s.desc_zh=c.desc_zh; s.tags=c.tags; s.audience=c.audience||''; }
     });
     // Merge into smpResults for modal access
     const existIds = new Set(smpResults.map(s=>s.id));
