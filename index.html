@@ -214,6 +214,13 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .src-del{background:none;border:none;color:var(--tm);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:4px;flex-shrink:0;transition:all .15s}
 .src-del:hover{color:var(--red);background:rgba(255,36,66,.1)}
 
+/* ─── SkillsMP badge on cards ─── */
+.poster .smp-badge{position:absolute;top:14px;left:14px;font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(96,165,250,.25);color:#93bbfc;font-family:'DM Mono',monospace;z-index:2;letter-spacing:.5px;backdrop-filter:blur(4px)}
+.search-hint{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:11px;color:var(--tm);font-family:'DM Mono',monospace}
+.search-hint .sh-tag{padding:2px 8px;border-radius:8px;font-size:10px}
+.search-hint .sh-local{background:rgba(74,222,128,.12);color:#4ade80}
+.search-hint .sh-smp{background:rgba(96,165,250,.12);color:#60a5fa}
+
 /* ─── Misc ─── */
 .empty{text-align:center;padding:80px 20px;color:var(--tm);column-span:all}
 .empty .em{font-size:48px;margin-bottom:16px}
@@ -232,7 +239,7 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 <!-- ─── Topbar ─── -->
 <div class="topbar">
   <div class="logo" onclick="location.reload()"><span class="dot"></span>SkillBook</div>
-  <div class="srch"><span class="si">🔍</span><input id="search" type="text" placeholder="搜索技能：简历、邮件、图片、Slack…"></div>
+  <div class="srch"><span class="si">🔍</span><input id="search" type="text" placeholder="搜索技能（本地 + SkillsMP 840K+）…" onkeydown="if(event.key==='Enter')performSearch()"></div>
   <div class="topbar-actions">
     <button class="tb-btn" onclick="toggleSettings()" title="设置 & 数据更新" id="settingsBtn">⚙</button>
   </div>
@@ -244,6 +251,7 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
   <a href="https://github.com/anthropics" target="_blank" rel="noopener"><span class="ic">📦</span>Anthropic</a>
   <a href="https://github.com/ComposioHQ/awesome-claude-skills" target="_blank" rel="noopener"><span class="ic">🔗</span>ComposioHQ</a>
   <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener"><span class="ic">🔗</span>mattpocock</a>
+  <a href="https://skillsmp.com" target="_blank" rel="noopener"><span class="ic">🔌</span>SkillsMP</a>
   <div class="bottom-links">
     <a onclick="toggleSettings()"><span class="ic">⚙</span>设置</a>
   </div>
@@ -260,14 +268,14 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
     <div class="ai-header">
       <span class="ai-dot"></span>
       <span class="ai-title">AI 技能推荐</span>
-      <span class="ai-badge">Claude Powered</span>
+      <span class="ai-badge">Claude + SkillsMP</span>
       <button class="ai-toggle" id="aiToggle" onclick="toggleAiChat()" title="展开/收起">▾</button>
     </div>
     <div class="ai-messages" id="aiMessages">
       <div class="ai-messages-inner" id="aiMsgInner">
         <div class="ai-msg bot">
           <div class="ai-sender">Claude</div>
-          <div class="ai-bubble">👋 描述你想做的事，我帮你从 <strong id="aiSkillCount">0</strong> 个 Skills 里找到最合适的！<br><span style="font-size:11px;opacity:.7">例：「我要批量处理 PDF」「帮我自动发 Slack 消息」「做数据可视化」</span></div>
+          <div class="ai-bubble">👋 描述你想做的事，我帮你从 <strong id="aiSkillCount">0</strong> 个本地 Skills + <strong>SkillsMP 840K+</strong> 里找到最合适的！<br><span style="font-size:11px;opacity:.7">例：「我要批量处理 PDF」「帮我自动发 Slack 消息」「做数据可视化」</span></div>
         </div>
       </div>
     </div>
@@ -277,6 +285,7 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
     </div>
   </div>
 
+  <div class="search-hint" id="searchHint" style="display:none"></div>
   <div class="feed" id="feed"></div>
 </div>
 
@@ -304,6 +313,35 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
         <div class="sp-stat"><div class="val" id="statPoster">-</div><div class="lbl">有海报</div></div>
         <div class="sp-stat"><div class="val" id="statUpdated">-</div><div class="lbl">更新日期</div></div>
       </div>
+    </div>
+
+    <div class="sp-divider"></div>
+
+    <!-- ═══ NEW: SkillsMP API ═══ -->
+    <div class="sp-section">
+      <h4>🔌 SkillsMP API <span class="badge">840K+ Skills</span></h4>
+      <p class="sp-desc">连接 SkillsMP 获取 840K+ Agent Skills。搜索和 AI 推荐会同时查询。匿名可用但有限额。</p>
+      <div style="background:#111;border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span id="smpDot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0"></span>
+          <span style="font-size:12px;color:var(--td)" id="smpLabel">匿名模式 — 50次/天</span>
+        </div>
+        <div id="smpKeyShow" style="display:none">
+          <div class="sp-key-display"><span id="smpKeyMask"></span><button class="sp-btn-ghost" onclick="clearSmpKey()">清除</button></div>
+        </div>
+        <div id="smpKeyForm">
+          <div class="sp-input-group">
+            <input class="sp-input" id="smpKeyInput" type="password" placeholder="sk_live_skillsmp_...（可选）" style="font-size:11px">
+            <button class="sp-btn sp-btn-primary" onclick="saveSmpKey()" style="padding:8px 14px;font-size:12px">保存</button>
+          </div>
+        </div>
+        <p class="sp-desc" style="margin-top:6px;font-size:10px;opacity:.6">
+          匿名：50次/天 · 10次/分钟 · 仅关键词搜索<br>
+          有 Key：500次/天 · 30次/分钟 · 关键词 + AI 语义搜索
+        </p>
+        <a href="https://skillsmp.com/docs/api" target="_blank" style="color:var(--red);font-size:10px">获取 SkillsMP API Key →</a>
+      </div>
+      <div class="sp-status" id="smpStatus"></div>
     </div>
 
     <div class="sp-divider"></div>
@@ -411,6 +449,7 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
           <input type="file" accept=".json" onchange="importData(event)" style="display:none">
         </label>
         <button class="sp-btn sp-btn-secondary" onclick="resetData()" style="color:var(--red)">🗑 重置数据</button>
+        <button class="sp-btn sp-btn-secondary" onclick="clearSmpCache()">🗑 清除 SMP 缓存</button>
       </div>
     </div>
   </div>
@@ -469,6 +508,9 @@ const CAT_RULES = [
 
 let ALL=[], activeCat='推荐', query='', dataVersion=null;
 
+// ═══ SkillsMP State ═══
+let smpResults=[], smpSearching=false;
+
 // ── Data Load ──
 function loadData() {
   const local = localStorage.getItem('skillbook_data');
@@ -524,7 +566,7 @@ function updateStats() {
 
 // ── Categories ──
 function buildCats(){
-  const cats=['推荐',...new Set(ALL.map(s=>s.cat).filter(Boolean))];
+  const cats=['推荐',...new Set(ALL.map(s=>s.cat).filter(Boolean)),'SkillsMP'];
   const el=document.getElementById('cats');
   el.innerHTML='';
   cats.forEach(c=>{
@@ -541,11 +583,39 @@ function buildCats(){
   });
 }
 
-// ── Search ──
+// ── Search (dual: local + SkillsMP) ──
+let searchTimer=null;
 document.getElementById('search').addEventListener('input',e=>{
   query=e.target.value.trim().toLowerCase();
   render();
+  clearTimeout(searchTimer);
+  if(query.length>=2){searchTimer=setTimeout(()=>performSearch(),600)}
+  else{smpResults=[];document.getElementById('searchHint').style.display='none'}
 });
+
+async function performSearch(){
+  const q=document.getElementById('search').value.trim();
+  if(!q||q.length<2||smpSearching)return;
+  smpSearching=true;
+  const hint=document.getElementById('searchHint');
+  hint.style.display='flex';
+  hint.innerHTML='<span class="sh-tag sh-local">本地</span> + <span class="sh-tag sh-smp">SkillsMP <span class="spinner" style="width:10px;height:10px;border-width:1.5px;margin-left:4px"></span></span>';
+  try{
+    const raw=await searchSkillsMP(q,false);
+    smpResults=raw.map(normalizeSmp);
+    const localSlugs=new Set(ALL.map(s=>`${s.slug}|${s.author}`.toLowerCase()));
+    smpResults=smpResults.filter(s=>!localSlugs.has(`${s.slug}|${s.author}`.toLowerCase()));
+    smpResults.forEach(s=>{const c=getSmpCache(s.id);if(c){s.poster=c.poster;s.title_zh=c.title_zh;s.desc_zh=c.desc_zh;s.tags=c.tags}});
+    const localCount=ALL.filter(s=>[s.name,s.slug,s.title_zh,s.desc_zh,s.description,s.cat,...(s.tags||[])].some(v=>v&&v.toLowerCase().includes(q.toLowerCase()))).length;
+    hint.innerHTML=`<span class="sh-tag sh-local">本地 ${localCount}</span> + <span class="sh-tag sh-smp">SkillsMP ${smpResults.length}</span>`;
+    render();
+    const need=smpResults.filter(s=>!s.poster).slice(0,6);
+    if(need.length&&getApiKey()){await genSmpPosters(need);render()}
+  }catch(e){
+    hint.innerHTML='<span class="sh-tag sh-local">本地</span> + <span class="sh-tag sh-smp" style="background:rgba(255,36,66,.12);color:#ff6b7f">SkillsMP 失败</span>';
+  }
+  smpSearching=false;
+}
 
 // ── Render ──
 function fmt(n){return n>=1e3?(n/1e3).toFixed(n>=1e4?0:1)+'k':n||''}
@@ -561,21 +631,34 @@ function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 
 function render(){
   let list=ALL;
-  if(activeCat!=='推荐')list=list.filter(s=>s.cat===activeCat);
-  if(query)list=list.filter(s=>{
-    return [s.name,s.slug,s.title_zh,s.desc_zh,s.description,s.cat,...(s.tags||[])]
-      .some(v=>v&&v.toLowerCase().includes(query));
-  });
+  let smpList=[];
+
+  if(activeCat==='SkillsMP'){
+    list=[];smpList=smpResults;
+  } else {
+    if(activeCat!=='推荐')list=list.filter(s=>s.cat===activeCat);
+    if(query)list=list.filter(s=>{
+      return [s.name,s.slug,s.title_zh,s.desc_zh,s.description,s.cat,...(s.tags||[])]
+        .some(v=>v&&v.toLowerCase().includes(query));
+    });
+    if(query) smpList=smpResults;
+  }
 
   const feed=document.getElementById('feed');
-  if(!list.length){
-    feed.innerHTML='<div class="empty"><div class="em">🔍</div><p>没有找到匹配的技能</p></div>';
+  const combined=[...list,...smpList];
+
+  if(!combined.length){
+    const msg=activeCat==='SkillsMP'?'在搜索框输入关键词搜索 SkillsMP 840K+ Skills':'没有找到匹配的技能';
+    feed.innerHTML=`<div class="empty"><div class="em">🔍</div><p>${msg}</p></div>`;
     return;
   }
 
-  feed.innerHTML=list.map((s,i)=>`
-    <div class="card" onclick="openModal('${s.id}')" style="animation:fu .35s ${Math.min(i*.03,.3)}s both">
+  feed.innerHTML=combined.map((s,i)=>{
+    const isSmp=s._source==='skillsmp';
+    return `
+    <div class="card" onclick="${isSmp?`openSmpModal('${s.id}')`:`openModal('${s.id}')`}" style="animation:fu .35s ${Math.min(i*.03,.3)}s both">
       <div class="poster" style="background:${s.theme.bg};color:${s.theme.fg}">
+        ${isSmp?'<div class="smp-badge">SkillsMP</div>':''}
         <div class="q">\u201C</div>
         <div class="bt">${posterHtml(s)}</div>
         <div class="en">${esc(s.slug)}</div>
@@ -595,10 +678,38 @@ function render(){
         </div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ── Modal ──
+function openSmpModal(id){
+  const s=smpResults.find(x=>x.id===id);
+  if(!s)return;
+  document.getElementById('modal').innerHTML=`
+    <div class="mp" style="background:${s.theme.bg};color:${s.theme.fg}">
+      <div class="q">\u201C</div>
+      <div class="bt">${posterHtml(s)}</div>
+      <div class="en">${esc(s.slug)}</div>
+    </div>
+    <div class="mb">
+      <h2>${esc(s.title_zh||s.name)}</h2>
+      <div style="display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;background:rgba(96,165,250,.15);color:#60a5fa;margin-bottom:8px;font-family:'DM Mono',monospace">来自 SkillsMP · ⭐ ${s.stars||0}</div>
+      <div class="desc">${esc(s.desc_zh||s.description)}</div>
+      ${s.tags&&s.tags.length?`
+        <div class="st">标签</div>
+        <div class="tags">${s.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+      `:''}
+      <div class="st">原始描述</div>
+      <div class="orig">${esc(s.description)}</div>
+      <div class="goto">
+        <a href="${s.url}" target="_blank" rel="noopener">在 GitHub 上查看 ↗</a>
+      </div>
+    </div>
+  `;
+  document.getElementById('ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
 function openModal(id){
   const s=ALL.find(x=>x.id===id);
   if(!s)return;
@@ -637,6 +748,135 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ════════════════════════════════════════
+   SkillsMP API Integration
+   ════════════════════════════════════════ */
+
+function getSmpKey(){ return localStorage.getItem('skillbook_smp_key') || ''; }
+
+function saveSmpKey(){
+  const k=document.getElementById('smpKeyInput').value.trim();
+  if(!k){ showStatus('smpStatus','请输入 Key','err'); return; }
+  localStorage.setItem('skillbook_smp_key', k);
+  document.getElementById('smpKeyInput').value='';
+  showStatus('smpStatus','✓ SkillsMP Key 已保存','ok');
+  checkSmpKey();
+}
+
+function clearSmpKey(){
+  localStorage.removeItem('skillbook_smp_key');
+  showStatus('smpStatus','已清除','info');
+  checkSmpKey();
+}
+
+function checkSmpKey(){
+  const k=getSmpKey(), dot=document.getElementById('smpDot'), lbl=document.getElementById('smpLabel');
+  if(k){
+    document.getElementById('smpKeyShow').style.display='block';
+    document.getElementById('smpKeyForm').style.display='none';
+    document.getElementById('smpKeyMask').textContent=k.slice(0,12)+'\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022'+k.slice(-4);
+    dot.style.background='#4ade80'; lbl.textContent='✓ Key 就绪 — 500次/天 + AI 语义搜索'; lbl.style.color='#4ade80';
+  } else {
+    document.getElementById('smpKeyShow').style.display='none';
+    document.getElementById('smpKeyForm').style.display='block';
+    dot.style.background='#fbbf24'; lbl.textContent='匿名模式 — 50次/天 · 仅关键词搜索'; lbl.style.color='#fbbf24';
+  }
+}
+
+async function searchSkillsMP(q, useAI=false){
+  const k=getSmpKey();
+  if(useAI && !k) useAI=false;
+  const url=useAI
+    ? `https://skillsmp.com/api/v1/skills/ai-search?q=${encodeURIComponent(q)}`
+    : `https://skillsmp.com/api/v1/skills/search?q=${encodeURIComponent(q)}&limit=20&sortBy=stars`;
+  const h={};
+  if(k) h['Authorization']=`Bearer ${k}`;
+  const res=await fetch(url, {headers:h});
+  if(res.status===429) throw new Error('SkillsMP 速率限制，请稍后再试');
+  if(!res.ok) throw new Error(`SkillsMP ${res.status}`);
+  const data=await res.json();
+  // Handle 3-layer nesting: data.data.skills
+  if(data.success && data.data && data.data.skills) return data.data.skills;
+  if(data.data && Array.isArray(data.data)) return data.data;
+  if(data.skills && Array.isArray(data.skills)) return data.skills;
+  return [];
+}
+
+function normalizeSmp(raw){
+  const slug=raw.name||raw.slug||'unknown';
+  return {
+    id:`smp-${raw.id||slug}`, slug, name:raw.name||slug,
+    author:raw.author||'unknown', description:raw.description||'',
+    content:raw.content||raw.description||'',
+    url:raw.githubUrl||raw.url||'#', stars:raw.stars||0,
+    cat:inferCat(raw.name||'', raw.description||''),
+    theme:THEMES[(slug.charCodeAt(0)+slug.length)%THEMES.length],
+    _source:'skillsmp',
+    poster:null, title_zh:null, desc_zh:null, tags:[],
+  };
+}
+
+// ── SMP poster cache (localStorage) ──
+function getSmpCache(id){
+  try{ const r=localStorage.getItem(`smp_poster_${id}`); return r?JSON.parse(r):null; }catch{ return null; }
+}
+function setSmpCache(id, d){
+  try{ localStorage.setItem(`smp_poster_${id}`, JSON.stringify(d)); }catch(e){
+    const ks=Object.keys(localStorage).filter(k=>k.startsWith('smp_poster_'));
+    if(ks.length>20){ ks.slice(0,10).forEach(k=>localStorage.removeItem(k)); try{localStorage.setItem(`smp_poster_${id}`,JSON.stringify(d))}catch{} }
+  }
+}
+function clearSmpCache(){
+  const ks=Object.keys(localStorage).filter(k=>k.startsWith('smp_poster_'));
+  ks.forEach(k=>localStorage.removeItem(k));
+  smpResults.forEach(s=>{s.poster=null;s.title_zh=null;s.desc_zh=null;s.tags=[]});
+  render();
+  alert(`已清除 ${ks.length} 条 SkillsMP 海报缓存`);
+}
+
+// Generate Chinese posters for SkillsMP results via LLM
+async function genSmpPosters(skills){
+  if(!skills.length) return;
+  const entries=skills.map(s=>
+    `- slug: ${s.slug}\n  name: ${s.name}\n  desc: ${(s.description||'').slice(0,200)||'N/A'}\n  content: ${(s.content||'').slice(0,300)||'N/A'}`
+  ).join('\n');
+  try{
+    const prompt=`你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
+
+每个 Skill 提供了 slug、name、英文描述（desc）和正文摘要（content）。请仔细阅读这些信息，理解这个 Skill 的核心功能和使用场景，然后生成：
+
+输出 JSON 数组，每个对象包含：
+- "slug": 原样返回
+- "title_zh": 中文短标题（3-8字），精准概括功能，不要直译英文
+- "poster": 2-5 行中文海报文案，用 \\n 连接。要求：
+  · 像杂志封面标题一样有冲击力
+  · 用 <hl></hl> 高亮 1-2 个关键词
+  · 突出「这个技能能帮用户做什么」而不是技术实现
+  · 口语化、有画面感，让非技术用户也能秒懂
+- "desc_zh": 1-2 句中文描述，自然口语，解释这个工具的实际用途
+- "tags": 2-3 个中文关键词标签
+
+好的海报示例：
+"用 Claude\\n帮你写\\n<hl>Word 文档</hl>"
+"在发布前\\n让 AI\\n<hl>质疑</hl>你的\\n每一个<hl>假设</hl>"
+
+Skills:
+${entries}
+
+仅返回合法 JSON 数组，不要 markdown 或其他文字。`;
+
+    const raw=await callLLM(prompt);
+    const results=JSON.parse(raw.replace(/\`\`\`json|\`\`\`/g,'').trim());
+    for(const r of results){
+      const s=skills.find(x=>x.slug===r.slug);
+      if(s){
+        s.poster=r.poster; s.title_zh=r.title_zh; s.desc_zh=r.desc_zh; s.tags=r.tags||[];
+        setSmpCache(s.id, {poster:r.poster, title_zh:r.title_zh, desc_zh:r.desc_zh, tags:r.tags||[]});
+      }
+    }
+  }catch(e){ console.warn('SMP poster gen error:', e); }
+}
+
+/* ════════════════════════════════════════
    Settings Panel
    ════════════════════════════════════════ */
 let settingsOpen = false;
@@ -646,7 +886,7 @@ function toggleSettings(){
   document.getElementById('settingsPanel').classList.toggle('open', settingsOpen);
   document.getElementById('panelOverlay').classList.toggle('open', settingsOpen);
   document.getElementById('settingsBtn').classList.toggle('active', settingsOpen);
-  if(settingsOpen){ checkSavedKey(); renderSources(); }
+  if(settingsOpen){ checkSavedKey(); checkSmpKey(); renderSources(); }
 }
 
 // ── API Provider & Key Management ──
@@ -1268,15 +1508,18 @@ function appendAiMsg(role, html){
 
 function buildRecoCards(skillIds){
   const cards = skillIds.map(id=>{
-    const s = ALL.find(x=>x.id===id || x.slug===id);
+    let s = ALL.find(x=>x.id===id || x.slug===id);
+    const isSmp = !s;
+    if(!s) s = smpResults.find(x=>x.id===id || x.slug===id);
     if(!s) return '';
     const poster = s.poster
       ? s.poster.split('\\n').map(l=>l.replace(/<hl>(.*?)<\/hl>/g,'<span class="hl">$1</span>')).join('<br>')
       : '';
     const tagHtml = (s.tags||[]).map(t=>`<span class="rc-tag">${esc(t)}</span>`).join('');
-    return `<div class="ai-reco-card" onclick="openModal('${s.id}')" style="border-left:3px solid ${s.theme.bg}">
+    const onclick = isSmp ? `openSmpModal('${s.id}')` : `openModal('${s.id}')`;
+    return `<div class="ai-reco-card" onclick="${onclick}" style="border-left:3px solid ${s.theme.bg}">
       ${poster ? `<div class="rc-poster" style="background:${s.theme.bg};color:${s.theme.fg}">${poster}</div>` : ''}
-      <div class="rc-name">${esc(s.title_zh||s.name)}</div>
+      <div class="rc-name">${esc(s.title_zh||s.name)}${isSmp?' <span style="font-size:9px;color:#60a5fa">[SkillsMP]</span>':''}</div>
       <div class="rc-desc">${esc(s.desc_zh||s.description)}</div>
       <div class="rc-tags">${tagHtml}</div>
     </div>`;
@@ -1291,7 +1534,7 @@ async function sendAiMsg(){
 
   const apiKey = getApiKey();
   if(!apiKey){
-    appendAiMsg('bot','⚠️ 请先在 <a onclick="toggleSettings()" style="color:var(--red);cursor:pointer">设置</a> 中填写 Anthropic API Key，才能使用 AI 推荐。');
+    appendAiMsg('bot','⚠️ 请先在 <a onclick="toggleSettings()" style="color:var(--red);cursor:pointer">设置</a> 中填写 API Key，才能使用 AI 推荐。');
     return;
   }
 
@@ -1305,7 +1548,31 @@ async function sendAiMsg(){
   const btn = document.getElementById('aiSendBtn');
   btn.disabled = true;
 
-  // Build skills summary for Claude
+  // ═══ Search SkillsMP for additional context ═══
+  let smpContext = '';
+  let smpForChat = [];
+  try {
+    const hasSmpKey = !!getSmpKey();
+    const smpRaw = await searchSkillsMP(msg, hasSmpKey);
+    smpForChat = smpRaw.slice(0,5).map(normalizeSmp);
+    // Restore cached posters
+    smpForChat.forEach(s=>{
+      const c = getSmpCache(s.id);
+      if(c){ s.poster=c.poster; s.title_zh=c.title_zh; s.desc_zh=c.desc_zh; s.tags=c.tags; }
+    });
+    // Merge into smpResults for modal access
+    const existIds = new Set(smpResults.map(s=>s.id));
+    for(const s of smpForChat){
+      if(!existIds.has(s.id)){ smpResults.push(s); existIds.add(s.id); }
+    }
+    if(smpForChat.length > 0){
+      smpContext = '\n\nSkillsMP 搜索结果（840K+ 外部 Skills 库）:\n' + smpForChat.map(s=>
+        `{id:"${s.id}",name:"${s.name}",slug:"${s.slug}",desc:"${(s.description||'').slice(0,100)}",source:"skillsmp"}`
+      ).join(',\n');
+    }
+  } catch(e){ console.warn('SkillsMP search for AI chat failed:', e); }
+
+  // Build local skills summary for Claude
   const skillsSummary = ALL.map(s=>
     `{id:"${s.id}",name:"${s.title_zh||s.name}",slug:"${s.slug}",cat:"${s.cat}",desc:"${(s.desc_zh||s.description||'').slice(0,80)}",tags:${JSON.stringify(s.tags||[])}}`
   ).join(',\n');
@@ -1313,20 +1580,22 @@ async function sendAiMsg(){
   try {
     const prompt = `你是 SkillBook 的 AI 推荐助手。用户描述了一个需求，你要从下面的 Skills 列表中推荐最匹配的 1-5 个 Skill。
 
-Skills 列表:
+本地 Skills 列表:
 [${skillsSummary}]
+${smpContext}
 
 用户需求: "${msg}"
 
 请用以下 JSON 格式回复（不要 markdown，不要多余文字）：
 {
-  "reply": "用一两句中文简要说明推荐理由",
+  "reply": "用一两句中文简要说明推荐理由，如果有 SkillsMP 的结果也提一下",
   "skills": ["skill_id_1", "skill_id_2"]
 }
 
 注意：
-- skills 数组里填 id 字段的值
+- skills 数组里填 id 字段的值（本地的和 SkillsMP 的都可以）
 - 最多推荐 5 个，选最相关的
+- 优先推荐本地有海报的 Skill，其次推荐 SkillsMP 的
 - reply 要自然、友好，像朋友聊天
 - 如果没有匹配的，skills 留空，reply 里说明原因`;
 
@@ -1339,6 +1608,13 @@ Skills 列表:
     // Show reply + cards
     const cardsHtml = buildRecoCards(result.skills||[]);
     appendAiMsg('bot', esc(result.reply) + cardsHtml);
+
+    // Generate posters for recommended SkillsMP results in background
+    const needPoster = smpForChat.filter(s=>!s.poster && (result.skills||[]).includes(s.id));
+    if(needPoster.length > 0){
+      await genSmpPosters(needPoster);
+      render();
+    }
 
   } catch(e){
     loadDiv.remove();
