@@ -844,12 +844,15 @@ async function fetchFromGitHub(){
             const fm = parseFrontmatter(md);
             const name = fm.name || d.name;
             const description = fm.description || '';
-            const cat = inferCat(name, description);
+            // Extract body content after frontmatter (skip --- blocks), take first 500 chars
+            const body = md.replace(/^---[\s\S]*?---\s*/,'').trim().slice(0,500);
+            const cat = inferCat(name, description + ' ' + body);
             const existing = ALL.find(s => s.slug === d.name && s.author === owner);
 
             allSkills.push({
               id: `${owner}-${d.name}`,
               slug: d.name, name, description, cat,
+              content: body,
               author: owner, stars,
               url: `https://github.com/${owner}/${repo}/tree/${branch}/${dirPath}`,
               poster: existing?.poster || null,
@@ -929,10 +932,12 @@ async function fetchDirSkills(owner, repo, branch, dirPath, headers, stars){
       const slug = dirPath.split('/').pop();
       const name = fm.name || slug;
       const description = fm.description || '';
+      const body = md.replace(/^---[\s\S]*?---\s*/,'').trim().slice(0,500);
       results.push({
         id: `${owner}-${slug}`,
         slug, name, description,
-        cat: inferCat(name, description),
+        content: body,
+        cat: inferCat(name, description + ' ' + body),
         author: owner, stars,
         url: `https://github.com/${owner}/${repo}/tree/${branch}/${dirPath}`,
       });
@@ -995,7 +1000,7 @@ async function generatePosters(forceAll=false){
   for(let i=0; i<pending.length; i+=8){
     const batch = pending.slice(i, i+8);
     const entries = batch.map(s=>
-      `- slug: ${s.slug}\n  name: ${s.name}\n  desc: ${(s.description||'').slice(0,150)||'N/A'}`
+      `- slug: ${s.slug}\n  name: ${s.name}\n  desc: ${(s.description||'').slice(0,200)||'N/A'}\n  content: ${(s.content||'').slice(0,300)||'N/A'}`
     ).join('\n');
 
     appendLog('genLog',`Batch ${Math.floor(i/8)+1}/${Math.ceil(pending.length/8)} (${batch.map(s=>s.slug).join(', ')})`,'wr');
@@ -1012,24 +1017,31 @@ async function generatePosters(forceAll=false){
         body:JSON.stringify({
           model:'claude-sonnet-4-20250514',
           max_tokens:2000,
-          messages:[{role:'user',content:`You generate Chinese poster text for a Xiaohongshu-style card about Claude AI Skills.
+          messages:[{role:'user',content:`你是 SkillBook 的中文文案编辑，为 Claude AI Skills 生成小红书风格的中文海报卡片。
 
-For each skill below, output a JSON array of objects with:
-- "slug": exact slug from input
-- "title_zh": short Chinese title (3-8 chars)
-- "poster": 2-5 short Chinese lines joined by \\n. Wrap 1-2 key phrases in <hl></hl>. Punchy, magazine-headline style.
-- "desc_zh": 1-2 sentence Chinese description (natural, useful, non-technical)
-- "tags": array of 2-3 Chinese keywords
+每个 Skill 提供了 slug、name、英文描述（desc）和正文摘要（content）。请仔细阅读这些信息，理解这个 Skill 的核心功能和使用场景，然后生成：
 
-Good poster examples:
+输出 JSON 数组，每个对象包含：
+- "slug": 原样返回
+- "title_zh": 中文短标题（3-8字），精准概括功能，不要直译英文
+- "poster": 2-5 行中文海报文案，用 \\n 连接。要求：
+  · 像杂志封面标题一样有冲击力
+  · 用 <hl></hl> 高亮 1-2 个关键词
+  · 突出「这个技能能帮用户做什么」而不是技术实现
+  · 口语化、有画面感，让非技术用户也能秒懂
+- "desc_zh": 1-2 句中文描述，自然口语，解释这个工具的实际用途
+- "tags": 2-3 个中文关键词标签
+
+好的海报示例：
 "用 Claude\\n帮你写\\n<hl>Word 文档</hl>"
 "在发布前\\n让 AI\\n<hl>质疑</hl>你的\\n每一个<hl>假设</hl>"
 "邮件太多？\\nClaude 帮你\\n<hl>读</hl> <hl>回</hl> <hl>发</hl>"
+"上传 <hl>CSV</hl>\\n自动分析\\n图表<hl>洞察</hl>"
 
 Skills:
 ${entries}
 
-Respond ONLY with a valid JSON array. No markdown, no extra text.`}],
+仅返回合法 JSON 数组，不要 markdown 或其他文字。`}],
         }),
       });
 
