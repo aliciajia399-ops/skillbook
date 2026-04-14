@@ -28,8 +28,8 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .logo{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;color:var(--red);width:var(--sw);flex-shrink:0;letter-spacing:2px;cursor:pointer;user-select:none;display:flex;align-items:center;gap:8px}
 .logo .dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.srch{flex:1;max-width:440px;margin:0 auto;position:relative}
-.srch input{width:100%;padding:8px 16px 8px 38px;background:#222;border:1px solid transparent;border-radius:40px;color:var(--t);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+.srch{flex:1;max-width:220px;margin:0 auto;position:relative}
+.srch input{width:100%;padding:6px 14px 6px 32px;background:#222;border:1px solid transparent;border-radius:40px;color:var(--t);font-size:12px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
 .srch input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,36,66,.1)}
 .srch input::placeholder{color:var(--tm)}
 .srch .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--tm);font-size:14px;pointer-events:none}
@@ -151,6 +151,49 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .sp-log .er{color:#ff6b7f}
 .sp-log .wr{color:#fbbf24}
 
+/* ─── AI Chat ─── */
+.ai-chat{margin:16px 0 20px;border-radius:16px;background:var(--card);border:1px solid var(--border);overflow:hidden;transition:all .3s}
+.ai-chat.focused{border-color:rgba(255,36,66,.3);box-shadow:0 0 0 3px rgba(255,36,66,.08),0 8px 32px rgba(0,0,0,.3)}
+.ai-header{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)}
+.ai-header .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+.ai-header .ai-title{font-size:14px;font-weight:600;letter-spacing:.5px}
+.ai-header .ai-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(255,36,66,.12);color:var(--red);font-family:'DM Mono',monospace}
+.ai-header .ai-toggle{margin-left:auto;background:none;border:none;color:var(--tm);font-size:16px;cursor:pointer;padding:4px 8px;border-radius:6px;transition:all .15s}
+.ai-header .ai-toggle:hover{color:var(--t);background:rgba(255,255,255,.05)}
+.ai-messages{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.ai-chat.expanded .ai-messages{max-height:520px;overflow-y:auto}
+.ai-messages-inner{padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.ai-msg{max-width:88%;animation:fu .3s both}
+.ai-msg.bot{align-self:flex-start}
+.ai-msg.user{align-self:flex-end}
+.ai-bubble{padding:10px 16px;border-radius:14px;font-size:13px;line-height:1.7}
+.ai-msg.bot .ai-bubble{background:#1e1e1e;color:var(--td);border:1px solid var(--border);border-bottom-left-radius:4px}
+.ai-msg.user .ai-bubble{background:var(--red);color:#fff;border-bottom-right-radius:4px}
+.ai-msg .ai-sender{font-size:10px;color:var(--tm);margin-bottom:4px;font-family:'DM Mono',monospace}
+.ai-reco-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px}
+.ai-reco-card{background:#1a1a1a;border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:all .2s}
+.ai-reco-card:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.ai-reco-card .rc-name{font-size:13px;font-weight:600;color:var(--t);margin-bottom:4px}
+.ai-reco-card .rc-desc{font-size:11px;color:var(--td);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ai-reco-card .rc-tags{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.ai-reco-card .rc-tag{font-size:10px;padding:2px 6px;border-radius:8px;background:rgba(255,36,66,.1);color:var(--red);font-family:'DM Mono',monospace}
+.ai-reco-card .rc-poster{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:700;line-height:1.5;margin:6px 0 4px;padding:8px 10px;border-radius:6px;letter-spacing:.5px}
+.ai-reco-card .rc-poster .hl{background:linear-gradient(transparent 55%,rgba(255,220,60,.45) 55%);padding:0 2px}
+.ai-input-row{display:flex;gap:8px;padding:12px 18px;border-top:1px solid var(--border);background:rgba(255,255,255,.02)}
+.ai-input{flex:1;padding:10px 16px;background:#1a1a1a;border:1px solid var(--border);border-radius:12px;color:var(--t);font-size:13px;font-family:inherit;outline:none;resize:none;min-height:42px;max-height:100px;transition:border-color .2s}
+.ai-input:focus{border-color:rgba(255,36,66,.4)}
+.ai-input::placeholder{color:var(--tm)}
+.ai-send{padding:10px 18px;border:none;border-radius:12px;background:var(--red);color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.ai-send:hover:not(:disabled){background:var(--red-dim);transform:translateY(-1px)}
+.ai-send:disabled{opacity:.5;cursor:not-allowed}
+.ai-loading{display:flex;gap:4px;padding:4px 0}
+.ai-loading span{width:6px;height:6px;border-radius:50%;background:var(--tm);animation:bounce .6s infinite alternate}
+.ai-loading span:nth-child(2){animation-delay:.15s}
+.ai-loading span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{to{opacity:.3;transform:translateY(-4px)}}
+.ai-no-key{padding:14px 18px;text-align:center;font-size:12px;color:var(--tm);line-height:1.6}
+.ai-no-key a{color:var(--red);cursor:pointer;text-decoration:underline}
+
 /* ─── Misc ─── */
 .empty{text-align:center;padding:80px 20px;color:var(--tm);column-span:all}
 .empty .em{font-size:48px;margin-bottom:16px}
@@ -191,6 +234,29 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 <div class="main">
   <div class="cats" id="cats"></div>
   <div id="statBar"></div>
+
+  <!-- ─── AI Chat Recommender ─── -->
+  <div class="ai-chat expanded" id="aiChat">
+    <div class="ai-header">
+      <span class="ai-dot"></span>
+      <span class="ai-title">AI 技能推荐</span>
+      <span class="ai-badge">Claude Powered</span>
+      <button class="ai-toggle" id="aiToggle" onclick="toggleAiChat()" title="展开/收起">▾</button>
+    </div>
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-messages-inner" id="aiMsgInner">
+        <div class="ai-msg bot">
+          <div class="ai-sender">Claude</div>
+          <div class="ai-bubble">👋 描述你想做的事，我帮你从 <strong id="aiSkillCount">0</strong> 个 Skills 里找到最合适的！<br><span style="font-size:11px;opacity:.7">例：「我要批量处理 PDF」「帮我自动发 Slack 消息」「做数据可视化」</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-input-row">
+      <textarea class="ai-input" id="aiInput" placeholder="描述你想用 Claude 做什么…" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAiMsg()}"></textarea>
+      <button class="ai-send" id="aiSendBtn" onclick="sendAiMsg()">发送 ↗</button>
+    </div>
+  </div>
+
   <div class="feed" id="feed"></div>
 </div>
 
@@ -776,6 +842,146 @@ function resetData(){
   localStorage.removeItem('skillbook_data');
   location.reload();
 }
+/* ════════════════════════════════════════
+   AI Chat Recommender
+   ════════════════════════════════════════ */
+
+let aiExpanded = true;
+
+function toggleAiChat(){
+  aiExpanded = !aiExpanded;
+  document.getElementById('aiChat').classList.toggle('expanded', aiExpanded);
+  document.getElementById('aiToggle').textContent = aiExpanded ? '▾' : '▸';
+}
+
+function updateAiSkillCount(){
+  const el = document.getElementById('aiSkillCount');
+  if(el) el.textContent = ALL.length;
+}
+
+// Call after data loads
+const origProcessData = processData;
+processData = function(data){
+  origProcessData(data);
+  updateAiSkillCount();
+};
+updateAiSkillCount();
+
+function appendAiMsg(role, html){
+  const inner = document.getElementById('aiMsgInner');
+  const div = document.createElement('div');
+  div.className = `ai-msg ${role}`;
+  if(role==='bot') div.innerHTML = `<div class="ai-sender">Claude</div><div class="ai-bubble">${html}</div>`;
+  else div.innerHTML = `<div class="ai-bubble">${esc(html)}</div>`;
+  inner.appendChild(div);
+  const msgBox = document.getElementById('aiMessages');
+  msgBox.scrollTop = msgBox.scrollHeight;
+  return div;
+}
+
+function buildRecoCards(skillIds){
+  const cards = skillIds.map(id=>{
+    const s = ALL.find(x=>x.id===id || x.slug===id);
+    if(!s) return '';
+    const poster = s.poster
+      ? s.poster.split('\\n').map(l=>l.replace(/<hl>(.*?)<\/hl>/g,'<span class="hl">$1</span>')).join('<br>')
+      : '';
+    const tagHtml = (s.tags||[]).map(t=>`<span class="rc-tag">${esc(t)}</span>`).join('');
+    return `<div class="ai-reco-card" onclick="openModal('${s.id}')" style="border-left:3px solid ${s.theme.bg}">
+      ${poster ? `<div class="rc-poster" style="background:${s.theme.bg};color:${s.theme.fg}">${poster}</div>` : ''}
+      <div class="rc-name">${esc(s.title_zh||s.name)}</div>
+      <div class="rc-desc">${esc(s.desc_zh||s.description)}</div>
+      <div class="rc-tags">${tagHtml}</div>
+    </div>`;
+  }).filter(Boolean).join('');
+  return cards ? `<div class="ai-reco-cards">${cards}</div>` : '';
+}
+
+async function sendAiMsg(){
+  const input = document.getElementById('aiInput');
+  const msg = input.value.trim();
+  if(!msg) return;
+
+  const apiKey = getApiKey();
+  if(!apiKey){
+    appendAiMsg('bot','⚠️ 请先在 <a onclick="toggleSettings()" style="color:var(--red);cursor:pointer">设置</a> 中填写 Anthropic API Key，才能使用 AI 推荐。');
+    return;
+  }
+
+  input.value='';
+  input.style.height='auto';
+  appendAiMsg('user', msg);
+
+  // Show loading
+  const loadDiv = appendAiMsg('bot','<div class="ai-loading"><span></span><span></span><span></span></div>');
+
+  const btn = document.getElementById('aiSendBtn');
+  btn.disabled = true;
+
+  // Build skills summary for Claude
+  const skillsSummary = ALL.map(s=>
+    `{id:"${s.id}",name:"${s.title_zh||s.name}",slug:"${s.slug}",cat:"${s.cat}",desc:"${(s.desc_zh||s.description||'').slice(0,80)}",tags:${JSON.stringify(s.tags||[])}}`
+  ).join(',\n');
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true',
+      },
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1200,
+        messages:[{role:'user',content:`你是 SkillBook 的 AI 推荐助手。用户描述了一个需求，你要从下面的 Skills 列表中推荐最匹配的 1-5 个 Skill。
+
+Skills 列表:
+[${skillsSummary}]
+
+用户需求: "${msg}"
+
+请用以下 JSON 格式回复（不要 markdown，不要多余文字）：
+{
+  "reply": "用一两句中文简要说明推荐理由",
+  "skills": ["skill_id_1", "skill_id_2"]
+}
+
+注意：
+- skills 数组里填 id 字段的值
+- 最多推荐 5 个，选最相关的
+- reply 要自然、友好，像朋友聊天
+- 如果没有匹配的，skills 留空，reply 里说明原因`}],
+      }),
+    });
+
+    if(!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0,120)}`);
+    const data = await res.json();
+    const raw = data.content?.[0]?.text || '';
+    const result = JSON.parse(raw.replace(/```json|```/g,'').trim());
+
+    // Remove loading
+    loadDiv.remove();
+
+    // Show reply + cards
+    const cardsHtml = buildRecoCards(result.skills||[]);
+    appendAiMsg('bot', esc(result.reply) + cardsHtml);
+
+  } catch(e){
+    loadDiv.remove();
+    appendAiMsg('bot',`❌ 请求失败：${esc(e.message)}<br><span style="font-size:11px;opacity:.6">请检查 API Key 是否有效</span>`);
+  }
+
+  btn.disabled = false;
+}
+
+// Auto-resize textarea
+document.getElementById('aiInput').addEventListener('input',function(){
+  this.style.height='auto';
+  this.style.height=Math.min(this.scrollHeight,100)+'px';
+});
+
 </script>
 </body>
 </html>
