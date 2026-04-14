@@ -322,57 +322,64 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 
     <div class="sp-divider"></div>
 
-    <!-- Fetch from GitHub -->
+    <!-- ═══ One-click: Fetch + Generate ═══ -->
     <div class="sp-section">
-      <h4>🔄 从 GitHub 抓取数据 <span class="badge">免费</span></h4>
-      <p class="sp-desc">从上方启用的数据源抓取 Skill 列表。无需 API Key，但 GitHub 有速率限制（60次/小时，加 Token 可提高到 5000次/小时）。</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <button class="sp-btn sp-btn-secondary" id="fetchBtn" onclick="fetchFromGitHub()">
-          🔄 抓取 Skill 列表
+      <h4>🚀 一键抓取 & 生成中文海报</h4>
+      <p class="sp-desc">从上方启用的数据源抓取 Skill 列表，然后自动用 Claude 生成中文海报文案。</p>
+
+      <!-- Step 1: API Key -->
+      <div style="background:#111;border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin:8px 0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span id="keyStatusDot" style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0"></span>
+          <span style="font-size:12px;color:var(--td)" id="keyStatusLabel">未设置 Anthropic API Key</span>
+        </div>
+        <div id="keyDisplay" style="display:none">
+          <div class="sp-key-display">
+            <span id="keyMask">sk-ant-•••••••••</span>
+            <button class="sp-btn-ghost" onclick="clearApiKey()">清除</button>
+          </div>
+        </div>
+        <div id="keyInput">
+          <div class="sp-input-group">
+            <input class="sp-input" id="apiKey" type="password" placeholder="sk-ant-api03-..." style="font-size:11px">
+            <button class="sp-btn sp-btn-primary" onclick="saveApiKey()" style="padding:8px 14px;font-size:12px">保存</button>
+          </div>
+        </div>
+        <p class="sp-desc" style="margin-top:6px;font-size:10px;opacity:.6">Key 仅存在浏览器本地，不会上传到任何服务器。没有 Key 也能抓取，但不会生成中文海报。</p>
+      </div>
+
+      <!-- Step 2: GitHub Token (optional) -->
+      <input class="sp-input" id="ghToken" type="password" placeholder="GitHub Token（可选，提高 API 限额 60→5000次/小时）" style="font-size:11px">
+
+      <!-- Step 3: Action buttons -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button class="sp-btn sp-btn-primary" id="fetchBtn" onclick="fetchFromGitHub()">
+          🚀 抓取并生成海报
         </button>
-      </div>
-      <input class="sp-input" id="ghToken" type="password" placeholder="GitHub Token（可选，提高 API 限额）" style="font-size:11px">
-      <div class="sp-status" id="fetchStatus"></div>
-      <div class="sp-log" id="fetchLog"></div>
-    </div>
-
-    <div class="sp-divider"></div>
-
-    <!-- Anthropic API Key -->
-    <div class="sp-section">
-      <h4>🔑 Anthropic API Key <span class="badge">海报生成</span></h4>
-      <p class="sp-desc">用 Claude API 为每个 Skill 生成中文海报文案。Key 仅存在浏览器本地（localStorage），不会上传到任何服务器。</p>
-      <div id="keyDisplay" style="display:none">
-        <div class="sp-key-display">
-          <span id="keyMask">sk-ant-•••••••••</span>
-          <button class="sp-btn-ghost" onclick="clearApiKey()">清除</button>
-        </div>
-      </div>
-      <div id="keyInput">
-        <div class="sp-input-group">
-          <input class="sp-input" id="apiKey" type="password" placeholder="sk-ant-api03-...">
-          <button class="sp-btn sp-btn-primary" onclick="saveApiKey()">保存</button>
-        </div>
-      </div>
-      <div class="sp-status" id="keyStatus"></div>
-    </div>
-
-    <div class="sp-divider"></div>
-
-    <!-- Generate Posters -->
-    <div class="sp-section">
-      <h4>🎨 生成中文海报</h4>
-      <p class="sp-desc">用 Claude API 为没有海报文案的 Skill 批量生成中文标题、描述和海报文案。每批处理 8 个，需先设置 API Key。</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="sp-btn sp-btn-primary" id="genBtn" onclick="generatePosters()">
-          🎨 生成海报文案
+        <button class="sp-btn sp-btn-secondary" id="genBtn" onclick="generatePosters()">
+          🎨 仅补生成海报
         </button>
         <button class="sp-btn sp-btn-secondary" id="genAllBtn" onclick="generatePosters(true)">
-          全部重新生成
+          ↻ 全部重新生成
         </button>
       </div>
+
+      <!-- Pipeline status indicator -->
+      <div id="pipelineSteps" style="display:none;margin-top:12px;padding:10px 14px;background:#111;border-radius:8px;border:1px solid var(--border)">
+        <div style="display:flex;gap:16px;font-size:11px;font-family:'DM Mono',monospace">
+          <span id="step1" style="color:var(--tm)">① 抓取数据</span>
+          <span style="color:var(--tm)">→</span>
+          <span id="step2" style="color:var(--tm)">② 生成海报</span>
+          <span style="color:var(--tm)">→</span>
+          <span id="step3" style="color:var(--tm)">③ 完成</span>
+        </div>
+      </div>
+
+      <div class="sp-status" id="fetchStatus"></div>
       <div class="sp-status" id="genStatus"></div>
+      <div class="sp-log" id="fetchLog"></div>
       <div class="sp-log" id="genLog"></div>
+      <div class="sp-status" id="keyStatus"></div>
     </div>
 
     <div class="sp-divider"></div>
@@ -628,13 +635,19 @@ function toggleSettings(){
 // ── API Key Management ──
 function checkSavedKey(){
   const key = localStorage.getItem('skillbook_anthropic_key');
+  const dot = document.getElementById('keyStatusDot');
+  const label = document.getElementById('keyStatusLabel');
   if(key){
     document.getElementById('keyDisplay').style.display='block';
     document.getElementById('keyInput').style.display='none';
     document.getElementById('keyMask').textContent = key.slice(0,10) + '\u2022'.repeat(8) + key.slice(-4);
+    if(dot) dot.style.background='#4ade80';
+    if(label){ label.textContent='✓ API Key 已就绪 — 抓取后自动生成中文海报'; label.style.color='#4ade80'; }
   } else {
     document.getElementById('keyDisplay').style.display='none';
     document.getElementById('keyInput').style.display='block';
+    if(dot) dot.style.background='#fbbf24';
+    if(label){ label.textContent='⚠ 未设置 API Key — 抓取后不会生成中文海报'; label.style.color='#fbbf24'; }
   }
 }
 
@@ -748,9 +761,22 @@ function resetSources(){
 async function fetchFromGitHub(){
   const btn=document.getElementById('fetchBtn');
   btn.disabled=true;
+  document.getElementById('genBtn').disabled=true;
+  document.getElementById('genAllBtn').disabled=true;
   btn.innerHTML='<span class="spinner"></span> 抓取中\u2026';
   clearLog('fetchLog');
+  clearLog('genLog');
   showStatus('fetchStatus','正在从 GitHub 抓取\u2026','working');
+
+  // Show pipeline
+  const pipeline = document.getElementById('pipelineSteps');
+  const s1 = document.getElementById('step1');
+  const s2 = document.getElementById('step2');
+  const s3 = document.getElementById('step3');
+  pipeline.style.display='block';
+  s1.style.color='#fbbf24'; s1.textContent='① 抓取数据…';
+  s2.style.color='var(--tm)'; s2.textContent='② 生成海报';
+  s3.style.color='var(--tm)'; s3.textContent='③ 完成';
 
   const ghToken = document.getElementById('ghToken').value.trim();
   const headers = ghToken ? { Authorization: `Bearer ${ghToken}` } : {};
@@ -860,13 +886,35 @@ async function fetchFromGitHub(){
     };
     processData(newData);
     saveData();
-    showStatus('fetchStatus', `✓ 成功抓取 ${deduped.length} 个 Skills（去重后）`, 'ok');
+
+    // Auto-generate Chinese posters if API key is available
+    s1.style.color='#4ade80'; s1.textContent='① 抓取完成 ✓';
+    const noPoster = ALL.filter(s=>!s.poster).length;
+    if(noPoster > 0 && getApiKey()){
+      s2.style.color='#fbbf24'; s2.textContent=`② 生成海报…(${noPoster}个)`;
+      showStatus('fetchStatus', `✓ 抓取 ${deduped.length} 个 Skills，正在为 ${noPoster} 个生成中文海报…`, 'working');
+      await generatePosters(false);
+      s2.style.color='#4ade80'; s2.textContent='② 海报完成 ✓';
+      s3.style.color='#4ade80'; s3.textContent='③ 全部完成 ✓';
+      showStatus('fetchStatus', `✓ 全部完成！共 ${deduped.length} 个 Skills`, 'ok');
+    } else if(noPoster > 0){
+      s2.style.color='#ff6b7f'; s2.textContent='② 跳过（无 Key）';
+      s3.style.color='#fbbf24'; s3.textContent='③ 部分完成';
+      showStatus('fetchStatus', `✓ 抓取 ${deduped.length} 个 Skills，其中 ${noPoster} 个缺少中文海报。请设置 API Key 后点「仅补生成海报」`, 'ok');
+    } else {
+      s2.style.color='#4ade80'; s2.textContent='② 无需生成';
+      s3.style.color='#4ade80'; s3.textContent='③ 全部完成 ✓';
+      showStatus('fetchStatus', `✓ 成功抓取 ${deduped.length} 个 Skills，全部已有中文海报`, 'ok');
+    }
   } catch(e){
     showStatus('fetchStatus', `✗ ${e.message}`, 'err');
+    s1.style.color='#ff6b7f'; s1.textContent='① 抓取失败 ✗';
   }
 
   btn.disabled=false;
-  btn.innerHTML='🔄 抓取 Skill 列表';
+  document.getElementById('genBtn').disabled=false;
+  document.getElementById('genAllBtn').disabled=false;
+  btn.innerHTML='🚀 抓取并生成海报';
 }
 
 // Deep scan helper: recursively find SKILL.md in nested directories
