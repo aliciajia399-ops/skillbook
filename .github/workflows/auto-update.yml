@@ -1,9 +1,11 @@
 name: Auto Update Skills
 
 on:
+  # 每天 UTC 08:00（北京时间 16:00）自动运行
   schedule:
     - cron: '0 8 * * *'
   
+  # 也可以手动触发
   workflow_dispatch:
     inputs:
       skip_skillsmp:
@@ -67,7 +69,7 @@ jobs:
       - name: 📊 Show stats
         run: |
           echo "=== Skills Data ==="
-          node -e "
+          node --input-type=commonjs -e "
             const d=JSON.parse(require('fs').readFileSync('public/data/skills.json','utf-8'));
             console.log('Total:', d.total);
             console.log('With poster:', d.skills.filter(s=>s.poster).length);
@@ -83,10 +85,11 @@ jobs:
           git config user.email "bot@skillbook.dev"
           git add public/data/skills.json
           
+          # Check if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            TOTAL=$(node -e "console.log(JSON.parse(require('fs').readFileSync('public/data/skills.json','utf-8')).total)")
+            TOTAL=$(node --input-type=commonjs -e "console.log(JSON.parse(require('fs').readFileSync('public/data/skills.json','utf-8')).total)")
             git commit -m "🤖 Auto-update: ${TOTAL} skills [$(date +%Y-%m-%d)]"
             git push
             echo "✅ Pushed update with ${TOTAL} skills"
