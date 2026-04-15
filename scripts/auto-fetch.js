@@ -26,8 +26,8 @@ const __dirname = path.dirname(__filename);
 
 // ── Config ──
 const DATA_PATH = path.join(__dirname, '..', 'public', 'data', 'skills.json');
-const GH_TOKEN = process.env.GITHUB_TOKEN || '';
-const SMP_KEY = process.env.SKILLSMP_API_KEY || '';
+const GH_TOKEN = (process.env.GITHUB_TOKEN || '').trim();
+const SMP_KEY = (process.env.SKILLSMP_API_KEY || '').trim();
 const SKIP_SMP = process.argv.includes('--skip-skillsmp');
 const ONLY_SMP = process.argv.includes('--only-skillsmp');
 
@@ -38,8 +38,8 @@ const SOURCES = [
   { owner:'mattpocock', repo:'skills', branch:'main', path:'', mode:'skills-dir', enabled:true },
   { owner:'obra', repo:'superpowers', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
   { owner:'sanjay3290', repo:'ai-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
-  { owner:'VoltAgent', repo:'awesome-agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
-  { owner:'travisvn', repo:'awesome-claude-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
+  { owner:'VoltAgent', repo:'awesome-agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:false },
+  { owner:'travisvn', repo:'awesome-claude-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:false },
   { owner:'NeoLabHQ', repo:'context-engineering-kit', branch:'master', path:'', mode:'deep-scan', enabled:true },
 ];
 
@@ -372,8 +372,34 @@ async function main() {
     console.log(`\n  SkillsMP 总计: ${smpSkills.length} 个`);
   }
 
-  // Step 3: Merge & deduplicate
+  // Step 3: Merge & deduplicate — PRESERVE existing poster data
   const all = [...ghSkills, ...smpSkills];
+  
+  // Build lookup maps from existing data (by author-slug AND by slug alone as fallback)
+  const existingByKey = new Map();
+  const existingBySlug = new Map();
+  for (const s of existing.skills) {
+    existingByKey.set(`${s.author}-${s.slug}`.toLowerCase(), s);
+    if (!existingBySlug.has(s.slug.toLowerCase())) {
+      existingBySlug.set(s.slug.toLowerCase(), s);
+    }
+  }
+
+  // For each newly fetched skill, restore poster data from existing
+  for (const s of all) {
+    if (!s.poster) {
+      const prev = existingByKey.get(`${s.author}-${s.slug}`.toLowerCase()) 
+                || existingBySlug.get(s.slug.toLowerCase());
+      if (prev) {
+        s.poster = prev.poster || null;
+        s.title_zh = prev.title_zh || null;
+        s.desc_zh = prev.desc_zh || null;
+        s.tags = prev.tags || [];
+        s.audience = prev.audience || null;
+      }
+    }
+  }
+
   const seen = new Map();
   for (const s of all) {
     const key = `${s.author}-${s.slug}`.toLowerCase();
@@ -381,7 +407,7 @@ async function main() {
       seen.set(key, s);
     }
   }
-  // Also merge in existing skills that weren't re-fetched
+  // Also keep existing skills that weren't re-fetched (e.g. from sources now disabled)
   for (const s of existing.skills) {
     const key = `${s.author}-${s.slug}`.toLowerCase();
     if (!seen.has(key)) {
