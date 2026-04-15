@@ -1,0 +1,93 @@
+name: Auto Update Skills
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  
+  workflow_dispatch:
+    inputs:
+      skip_skillsmp:
+        description: '跳过 SkillsMP 抓取'
+        required: false
+        type: boolean
+        default: false
+      force_poster:
+        description: '强制重新生成所有海报'
+        required: false
+        type: boolean
+        default: false
+      max_posters:
+        description: '最多生成海报数量（0=不限）'
+        required: false
+        type: number
+        default: 0
+
+jobs:
+  fetch-and-generate:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Fetch Skills from GitHub + SkillsMP
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          SKILLSMP_API_KEY: ${{ secrets.SKILLSMP_API_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ inputs.skip_skillsmp }}" = "true" ]; then
+            ARGS="--skip-skillsmp"
+          fi
+          node scripts/auto-fetch.js $ARGS
+
+      - name: 🎨 Generate Chinese Posters
+        env:
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          LLM_PROVIDER: openrouter
+        run: |
+          ARGS=""
+          if [ "${{ inputs.force_poster }}" = "true" ]; then
+            ARGS="--force-all"
+          fi
+          MAX="${{ inputs.max_posters }}"
+          if [ -n "$MAX" ] && [ "$MAX" != "0" ]; then
+            ARGS="$ARGS --max $MAX"
+          fi
+          node scripts/auto-poster.js $ARGS
+
+      - name: 📊 Show stats
+        run: |
+          echo "=== Skills Data ==="
+          node -e "
+            const d=JSON.parse(require('fs').readFileSync('public/data/skills.json','utf-8'));
+            console.log('Total:', d.total);
+            console.log('With poster:', d.skills.filter(s=>s.poster).length);
+            console.log('Without poster:', d.skills.filter(s=>!s.poster).length);
+            console.log('Updated:', d.last_updated);
+            const a={};d.skills.forEach(s=>{const k=s.audience||'无';a[k]=(a[k]||0)+1;});
+            console.log('Audiences:', JSON.stringify(a));
+          "
+
+      - name: 💾 Commit & Push
+        run: |
+          git config user.name "SkillBook Bot"
+          git config user.email "bot@skillbook.dev"
+          git add public/data/skills.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TOTAL=$(node -e "console.log(JSON.parse(require('fs').readFileSync('public/data/skills.json','utf-8')).total)")
+            git commit -m "🤖 Auto-update: ${TOTAL} skills [$(date +%Y-%m-%d)]"
+            git push
+            echo "✅ Pushed update with ${TOTAL} skills"
+          fi
