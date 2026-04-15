@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename);
 
 const DATA_PATH = path.join(__dirname, '..', 'public', 'data', 'skills.json');
 const PROVIDER = process.env.LLM_PROVIDER || 'anthropic';
-const API_KEY = process.env.ANTHROPIC_API_KEY || process.env.OPENROUTER_KEY || '';
+const API_KEY = (process.env.ANTHROPIC_API_KEY || process.env.OPENROUTER_KEY || '').trim();
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '8');
 const BATCH_DELAY = parseInt(process.env.BATCH_DELAY || '1500');
 const FORCE_ALL = process.argv.includes('--force-all');
