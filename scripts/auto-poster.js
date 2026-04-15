@@ -26,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DATA_PATH = path.join(__dirname, '..', 'public', 'data', 'skills.json');
-const PROVIDER = process.env.LLM_PROVIDER || 'anthropic';
+const PROVIDER = (process.env.LLM_PROVIDER || 'anthropic').trim();
 const API_KEY = (process.env.ANTHROPIC_API_KEY || process.env.OPENROUTER_KEY || '').trim();
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '8');
 const BATCH_DELAY = parseInt(process.env.BATCH_DELAY || '1500');
@@ -50,11 +50,12 @@ function callLLM(prompt) {
         'anthropic-version': '2023-06-01',
       };
       body = JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',        // ← 修复: 更新为最新 Sonnet 4.6
         max_tokens: 2000,
         messages: [{ role: 'user', content: prompt }],
       });
     } else {
+      // openrouter
       hostname = 'openrouter.ai';
       reqPath = '/api/v1/chat/completions';
       headers = {
@@ -64,7 +65,7 @@ function callLLM(prompt) {
         'X-Title': 'SkillBook',
       };
       body = JSON.stringify({
-        model: 'anthropic/claude-sonnet-4',
+        model: 'anthropic/claude-sonnet-4',  // OpenRouter 上 sonnet-4 有效且稳定
         max_tokens: 2000,
         messages: [{ role: 'user', content: prompt }],
       });
@@ -79,6 +80,8 @@ function callLLM(prompt) {
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
         if (res.statusCode >= 400) {
+          // ← 修复: 打印完整错误体，方便调试 Invalid character 等问题
+          console.error(`    API Error ${res.statusCode} body: ${data.slice(0, 500)}`);
           reject(new Error(`API ${res.statusCode}: ${data.slice(0, 200)}`));
           return;
         }
@@ -152,6 +155,7 @@ async function main() {
   console.log('  SkillBook Auto-Poster');
   console.log('═══════════════════════════════════');
   console.log(`  Provider: ${PROVIDER}`);
+  console.log(`  API Key 前8位: ${API_KEY.slice(0, 8)}...`);  // ← 修复: 打印前8位方便排查 key 问题
   console.log(`  Batch: ${BATCH_SIZE} / delay ${BATCH_DELAY}ms`);
   console.log(`  Mode: ${FORCE_ALL ? '全部重新生成' : '仅补缺'}`);
 
