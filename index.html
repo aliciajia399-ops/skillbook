@@ -57,10 +57,10 @@ body{background:var(--bg);color:var(--t);font-family:'Noto Sans SC',sans-serif;o
 .cats button:hover{color:var(--t)}
 .cats button.on{background:var(--t);color:var(--bg);font-weight:500}
 
-.feed{column-count:4;column-gap:14px;padding-top:6px}
-@media(max-width:1200px){.feed{column-count:3}}
-@media(max-width:860px){.feed{column-count:2}.sidebar{display:none}.main{margin-left:0}.logo{width:auto;margin-right:16px}}
-@media(max-width:540px){.feed{column-count:1}}
+.feed{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:6px;align-items:start}
+@media(max-width:1200px){.feed{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.feed{grid-template-columns:repeat(2,1fr)}.sidebar{display:none}.main{margin-left:0}.logo{width:auto;margin-right:16px}}
+@media(max-width:540px){.feed{grid-template-columns:1fr}}
 
 /* ─── Cards ─── */
 .card{break-inside:avoid;margin-bottom:14px;background:var(--card);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;border:1px solid transparent}
