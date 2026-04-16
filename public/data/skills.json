@@ -11,17 +11,17 @@
       "content": "Algorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorithms).\n\nThis happens in two steps:\n1. Algorithmic Philosophy Creation (.md file)\n2. Express by creating p5.js generative art (.html + .js files)\n\nFirst, undertake this task:\n\n## ALGORITHMIC PHILOSOPHY CREATION\n\nTo begin, create an ALGORITHMIC PHILOSOPHY (not static images or templates) that will be in",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
-      "poster": "想做个<hl>炫酷</hl>的个人网站\n但美术功底为零？\n几行代码就能生成\n<hl>动态艺术</hl>背景效果",
-      "title_zh": "代码画出艺术作品",
-      "desc_zh": "用代码生成艺术作品的工具，粒子效果、流场动画这些炫酷视觉，不用会画画也能做出来。",
+      "poster": "想做个性化数字艺术\n但只会<hl>复制粘贴</hl>\n用代码自动生成\n每次都是<hl>独一无二</hl>的作品",
+      "title_zh": "代码画出艺术品",
+      "desc_zh": "想创作独特的数字艺术？用算法代码生成流动粒子、噪声图案等艺术效果，每次运行都不一样。",
       "tags": [
+        "数字艺术",
         "创意编程",
-        "艺术生成",
-        "视觉效果"
+        "生成艺术"
       ],
-      "audience": "开发者"
+      "audience": "创作者"
     },
     {
       "id": "anthropics-brand-guidelines",
@@ -31,7 +31,7 @@
       "content": "# Anthropic Brand Styling\n\n## Overview\n\nTo access Anthropic's official brand identity and style resources, use this skill.\n\n**Keywords**: branding, corporate identity, visual identity, post-processing, styling, brand colors, typography, Anthropic brand, visual formatting, visual design\n\n## Brand Guidelines\n\n### Colors\n\n**Main Colors:**\n\n- Dark: `#141413` - Primary text and dark backgrounds\n- Light: `#faf9f5` - Light backgrounds and text on dark\n- Mid Gray: `#b0aea5` - Secondary elements\n- Light ",
       "cat": "营销增长",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
       "poster": "做PPT配色总是很丑？\n用 Anthropic <hl>官方配色</hl>\n让你的设计瞬间\n<hl>高级感</hl>满满",
       "title_zh": "品牌配色一键应用",
@@ -51,15 +51,15 @@
       "content": "These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.\n\nComplete this in two steps:\n1. Design Philosophy Creation (.md file)\n2. Express by creating it on a canvas (.pdf file or .png file)\n\nFirst, undertake this task:\n\n## DESIGN PHILOSOPHY CREATION\n\nTo begin, create a VISUAL PHILOSOPHY (not layouts or templates) that will be interpreted through:\n- Form, space, color, composition\n- Images, g",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
-      "poster": "老板要<hl>宣传海报</hl>\n不会 PS 怎么办？\n描述需求，直接给你\nPNG/PDF <hl>成品文件</hl>",
-      "title_zh": "设计图直接输出文件",
-      "desc_zh": "专门做平面设计的 AI，海报、信息图、插画都能做，直接输出可用的文件，不用会设计软件。",
+      "poster": "老板要个宣传海报\n设计师说要等<hl>三天</hl>\n现在描述需求\n<hl>立马</hl>生成PNG直接用",
+      "title_zh": "海报信息图一键做",
+      "desc_zh": "需要做海报、信息图但不会PS？告诉AI你要什么样的设计，直接生成可用的图片文件。",
       "tags": [
-        "平面设计",
         "海报制作",
-        "信息图"
+        "信息图",
+        "平面设计"
       ],
       "audience": "创作者"
     },
@@ -71,7 +71,7 @@
       "content": "# Building LLM-Powered Applications with Claude\n\nThis skill helps you build LLM-powered applications with Claude. Choose the right surface based on your needs, detect the project language, then read the relevant language-specific documentation.\n\n## Before You Start\n\nScan the target file (or, if no target file, the prompt and project) for non-Anthropic provider markers — `import openai`, `from openai`, `langchain_openai`, `OpenAI(`, `gpt-4`, `gpt-5`, file names like `agent-openai.py` or `*-generi",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
       "poster": "想做个<hl>聊天机器人</hl>\n但不知道怎么接入？\nClaude API <hl>一键集成</hl>\n你的想法秒变应用",
       "title_zh": "AI应用快速搭建",
@@ -91,7 +91,7 @@
       "content": "# Doc Co-Authoring Workflow\n\nThis skill provides a structured workflow for guiding users through collaborative document creation. Act as an active guide, walking users through three stages: Context Gathering, Refinement & Structure, and Reader Testing.\n\n## When to Offer This Workflow\n\n**Trigger conditions:**\n- User mentions writing documentation: \"write a doc\", \"draft a proposal\", \"create a spec\", \"write up\"\n- User mentions specific doc types: \"PRD\", \"design doc\", \"decision doc\", \"RFC\"\n- User se",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring",
       "poster": "写<hl>项目提案</hl>思路乱？\n跟着结构化流程\n从想法到成稿\n逻辑<hl>清晰</hl>条理分明",
       "title_zh": "技术文档结构化写作",
@@ -111,7 +111,7 @@
       "content": "# DOCX creation, editing, and analysis\n\n## Overview\n\nA .docx file is a ZIP archive containing XML files.\n\n## Quick Reference\n\n| Task | Approach |\n|------|----------|\n| Read/analyze content | `pandoc` or unpack for raw XML |\n| Create new document | Use `docx-js` - see Creating New Documents below |\n| Edit existing document | Unpack → edit XML → repack - see Editing Existing Documents below |\n\n### Converting .doc to .docx\n\nLegacy `.doc` files must be converted before editing:\n\n```bash\npython scrip",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/docx",
       "poster": "用 Claude\\n帮你处理\\n<hl>Word</hl> 文档",
       "title_zh": "Word 文档处理",
@@ -131,7 +131,7 @@
       "content": "This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.\n\nThe user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.\n\n## Design Thinking\n\nBefore coding, understand the context and commit to a BOLD aesthetic direction:\n- *",
       "cat": "设计媒体",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
       "poster": "做的网页总是很<hl>朴素</hl>？\n用这套设计系统\n让你的界面瞬间\n<hl>颜值爆表</hl>",
       "title_zh": "网页界面高颜值设计",
@@ -151,7 +151,7 @@
       "content": "## When to use this skill\nTo write internal communications, use this skill for:\n- 3P updates (Progress, Plans, Problems)\n- Company newsletters\n- FAQ responses\n- Status reports\n- Leadership updates\n- Project updates\n- Incident reports\n\n## How to use this skill\n\nTo write any internal communication:\n\n1. **Identify the communication type** from the request\n2. **Load the appropriate guideline file** from the `examples/` directory:\n    - `examples/3p-updates.md` - For Progress/Plans/Problems team upda",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
       "poster": "不知道怎么写<hl>工作汇报</hl>？\n用公司认可的格式\n进度、计划、问题\n<hl>一目了然</hl>",
       "title_zh": "公司内部邮件模板",
@@ -171,7 +171,7 @@
       "content": "# MCP Server Development Guide\n\n## Overview\n\nCreate MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. The quality of an MCP server is measured by how well it enables LLMs to accomplish real-world tasks.\n\n---\n\n# Process\n\n## 🚀 High-Level Workflow\n\nCreating a high-quality MCP server involves four main phases:\n\n### Phase 1: Deep Research and Planning\n\n#### 1.1 Understand Modern MCP Design\n\n**API Coverage vs. Workflow Tools:**\nBalan",
       "cat": "设计媒体",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
       "poster": "想让AI<hl>调用你的系统</hl>？\nMCP协议帮你搭桥\n让AI直接操作\n<hl>真实业务</hl>数据",
       "title_zh": "AI工具连接外部服务",
@@ -191,7 +191,7 @@
       "content": "# PDF Processing Guide\n\n## Overview\n\nThis guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see REFERENCE.md. If you need to fill out a PDF form, read FORMS.md and follow its instructions.\n\n## Quick Start\n\n```python\nfrom pypdf import PdfReader, PdfWriter\n\n# Read a PDF\nreader = PdfReader(\"document.pdf\")\nprint(f\"Pages: {len(reader.pages)}\")\n\n# Extract text\ntext = \"\"\nfor page in reader.",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/pdf",
       "poster": "<hl>PDF</hl>\\n提取 合并\\n标注 一站搞定",
       "title_zh": "PDF 处理",
@@ -211,7 +211,7 @@
       "content": "# PPTX Skill\n\n## Quick Reference\n\n| Task | Guide |\n|------|-------|\n| Read/analyze content | `python -m markitdown presentation.pptx` |\n| Edit or create from template | Read [editing.md](editing.md) |\n| Create from scratch | Read [pptxgenjs.md](pptxgenjs.md) |\n\n---\n\n## Reading Content\n\n```bash\n# Text extraction\npython -m markitdown presentation.pptx\n\n# Visual overview\npython scripts/thumbnail.py presentation.pptx\n\n# Raw XML\npython scripts/office/unpack.py presentation.pptx unpacked/\n```\n\n---\n\n##",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/pptx",
       "poster": "<hl>PPT</hl>\\n一键生成\\n排版 模板\\n全自动",
       "title_zh": "演示文稿",
@@ -231,7 +231,7 @@
       "content": "# Skill Creator\n\nA skill for creating new skills and iteratively improving them.\n\nAt a high level, the process of creating a skill goes like this:\n\n- Decide what you want the skill to do and roughly how it should do it\n- Write a draft of the skill\n- Create a few test prompts and run claude-with-access-to-the-skill on them\n- Help the user evaluate the results both qualitatively and quantitatively\n  - While the runs happen in the background, draft some quantitative evals if there aren't any (if th",
       "cat": "写作创作",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
       "poster": "想让AI干点特殊活儿？\n比如自动分析销售数据\n几行描述丢给它\n<hl>专属技能</hl>立马能用",
       "title_zh": "自定义AI技能秒上线",
@@ -251,15 +251,15 @@
       "content": "# Slack GIF Creator\n\nA toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack.\n\n## Slack Requirements\n\n**Dimensions:**\n- Emoji GIFs: 128x128 (recommended)\n- Message GIFs: 480x480\n\n**Parameters:**\n- FPS: 10-30 (lower is smaller file size)\n- Colors: 48-128 (fewer = smaller file size)\n- Duration: Keep under 3 seconds for emoji GIFs\n\n## Core Workflow\n\n```python\nfrom core.gif_builder import GIFBuilder\nfrom PIL import Image, ImageDraw\n\n# 1. Create builder\nbuilder = GI",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator",
-      "poster": "群聊总是发同样的emoji\n想要<hl>独特</hl>表情包？\n专为 Slack 定制\n<hl>动态 GIF</hl> 让你成为群宠",
-      "title_zh": "Slack表情包定制",
-      "desc_zh": "专门为 Slack 做动态表情包的工具，可以做反应 emoji 和自定义贴纸，让团队聊天更有趣。",
+      "poster": "群聊没有合适表情包\n想要个<hl>专属GIF</hl>\n描述想法就能做出来\n让你成为群里<hl>表情包大王</hl>",
+      "title_zh": "表情包GIF秒制作",
+      "desc_zh": "想做个性化GIF表情包？特别优化了Slack聊天场景，轻松制作动态emoji和搞笑GIF。",
       "tags": [
-        "表情包制作",
-        "Slack",
-        "动画 GIF"
+        "GIF制作",
+        "表情包",
+        "聊天工具"
       ],
       "audience": "职场人"
     },
@@ -271,7 +271,7 @@
       "content": "# Theme Factory Skill\n\nThis skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.\n\n## Purpose\n\nTo apply consistent, professional styling to presentation slide decks, use this skill. Each theme includes:\n- A cohesive color palette with hex codes\n- Complementary font pairings for headers and body text\n- A distinct visual identity suitable for differe",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/theme-factory",
       "poster": "又要做<hl>高大上</hl>的PPT？\n10套专业配色方案\n一键换装\n丑陋文档<hl>瞬间翻身</hl>",
       "title_zh": "PPT秒变设计师作品",
@@ -291,7 +291,7 @@
       "content": "# Web Artifacts Builder\n\nTo build powerful frontend claude.ai artifacts, follow these steps:\n1. Initialize the frontend repo using `scripts/init-artifact.sh`\n2. Develop your artifact by editing the generated code\n3. Bundle all code into a single HTML file using `scripts/bundle-artifact.sh`\n4. Display artifact to user\n5. (Optional) Test the artifact\n\n**Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui\n\n## Design & Style Guidelines\n\nVERY IMPORTANT: To avoid what ",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
       "poster": "构建精美的\\n<hl>React</hl>\\n前端组件",
       "title_zh": "Artifacts 构建器",
@@ -311,7 +311,7 @@
       "content": "# Web Application Testing\n\nTo test local web applications, write native Python Playwright scripts.\n\n**Helper Scripts Available**:\n- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)\n\n**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as bl",
       "cat": "写作创作",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
       "poster": "网站做好了不敢发布？\n怕用户点了就崩溃\n自动模拟<hl>真人操作</hl>\n<hl>每个按钮</hl>都帮你测",
       "title_zh": "网站上线前自动体检",
@@ -331,7 +331,7 @@
       "content": "# Requirements for Outputs\n\n## All Excel files\n\n### Professional Font\n- Use a consistent, professional font (e.g., Arial, Times New Roman) for all deliverables unless otherwise instructed by the user\n\n### Zero Formula Errors\n- Every Excel model MUST be delivered with ZERO formula errors (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)\n\n### Preserve Existing Templates (when updating templates)\n- Study and EXACTLY match existing format, style, and conventions when modifying files\n- Never impose standardize",
       "cat": "办公提效",
       "author": "anthropics",
-      "stars": 118234,
+      "stars": 118500,
       "url": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
       "poster": "公式 图表\\n数据转换\\n<hl>Excel</hl> 全搞定",
       "title_zh": "电子表格",
@@ -351,7 +351,7 @@
       "content": "# Artifacts Builder\n\nTo build powerful frontend claude.ai artifacts, follow these steps:\n1. Initialize the frontend repo using `scripts/init-artifact.sh`\n2. Develop your artifact by editing the generated code\n3. Bundle all code into a single HTML file using `scripts/bundle-artifact.sh`\n4. Display artifact to user\n5. (Optional) Test the artifact\n\n**Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui\n\n## Design & Style Guidelines\n\nVERY IMPORTANT: To avoid what is o",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/artifacts-builder",
       "poster": "想做个<hl>交互式</hl>网页\n但不会写代码？\n拖拉拽组装组件\n<hl>专业效果</hl>轻松搞定",
       "title_zh": "零基础做酷炫网页",
@@ -371,7 +371,7 @@
       "content": "# Anthropic Brand Styling\n\n## Overview\n\nTo access Anthropic's official brand identity and style resources, use this skill.\n\n**Keywords**: branding, corporate identity, visual identity, post-processing, styling, brand colors, typography, Anthropic brand, visual formatting, visual design\n\n## Brand Guidelines\n\n### Colors\n\n**Main Colors:**\n\n- Dark: `#141413` - Primary text and dark backgrounds\n- Light: `#faf9f5` - Light backgrounds and text on dark\n- Mid Gray: `#b0aea5` - Secondary elements\n- Light ",
       "cat": "营销增长",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/brand-guidelines",
       "poster": "一键统一\\n你的\\n<hl>品牌</hl>视觉",
       "title_zh": "品牌视觉规范",
@@ -391,7 +391,7 @@
       "content": "These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.\n\nComplete this in two steps:\n1. Design Philosophy Creation (.md file)\n2. Express by creating it on a canvas (.pdf file or .png file)\n\nFirst, undertake this task:\n\n## DESIGN PHILOSOPHY CREATION\n\nTo begin, create a VISUAL PHILOSOPHY (not layouts or templates) that will be interpreted through:\n- Form, space, color, composition\n- Images, g",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/canvas-design",
       "poster": "Claude\\n也能做\\n<hl>视觉设计</hl>",
       "title_zh": "画布设计",
@@ -411,7 +411,7 @@
       "content": "# Changelog Generator\n\nThis skill transforms technical git commits into polished, user-friendly changelogs that your customers and users will actually understand and appreciate.\n\n## When to Use This Skill\n\n- Preparing release notes for a new version\n- Creating weekly or monthly product update summaries\n- Documenting changes for customers\n- Writing changelog entries for app store submissions\n- Generating update notifications\n- Creating internal release documentation\n- Maintaining a public changel",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/changelog-generator",
       "poster": "git 提交\\n自动变成\\n<hl>更新日志</hl>",
       "title_zh": "更新日志生成",
@@ -431,7 +431,7 @@
       "content": "# Competitive Ads Extractor\n\nThis skill extracts your competitors' ads from ad libraries and analyzes what's working—the problems they're highlighting, use cases they're targeting, and copy/creative that's resonating.\n\n## When to Use This Skill\n\n- Researching competitor ad strategies\n- Finding inspiration for your own ads\n- Understanding market positioning\n- Identifying successful ad patterns\n- Analyzing messaging that works\n- Discovering new use cases or pain points\n- Planning ad campaigns with",
       "cat": "营销增长",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/competitive-ads-extractor",
       "poster": "竞争对手\\n在投什么<hl>广告</hl>\\nAI 帮你<hl>扒</hl>",
       "title_zh": "竞品广告分析",
@@ -451,7 +451,7 @@
       "content": "# Connect Apps\n\nConnect Claude to 1000+ apps. Actually send emails, create issues, post messages - not just generate text about it.\n\n## Quick Start\n\n### Step 1: Install the Plugin\n\n```\n/plugin install composio-toolrouter\n```\n\n### Step 2: Run Setup\n\n```\n/composio-toolrouter:setup\n```\n\nThis will:\n- Ask for your free API key (get one at [platform.composio.dev](https://platform.composio.dev/?utm_source=Github&utm_content=AwesomeSkills))\n- Configure Claude's connection to 1000+ apps\n- Take about 60 s",
       "cat": "写作创作",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/connect-apps",
       "poster": "让 Claude\\n<hl>发邮件</hl>\\n发 Slack\\n建 <hl>Issue</hl>",
       "title_zh": "连接 500+ 应用",
@@ -471,7 +471,7 @@
       "content": "# Connect\n\nConnect Claude to any app. Stop generating text about what you could do - actually do it.\n\n## When to Use This Skill\n\nUse this skill when you need Claude to:\n\n- **Send that email** instead of drafting it\n- **Create that issue** instead of describing it\n- **Post that message** instead of suggesting it\n- **Update that database** instead of explaining how\n\n## What Changes\n\n| Without Connect | With Connect |\n|-----------------|--------------|\n| \"Here's a draft email...\" | Sends the email ",
       "cat": "开发工具",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/connect",
       "poster": "不想再复制粘贴了\nAI直接连你的<hl>邮箱微信</hl>\n说一句话\n邮件自动发、群消息自动发",
       "title_zh": "AI直接帮你干活",
@@ -491,7 +491,7 @@
       "content": "# Content Research Writer\n\nThis skill acts as your writing partner, helping you research, outline, draft, and refine content while maintaining your unique voice and style.\n\n## When to Use This Skill\n\n- Writing blog posts, articles, or newsletters\n- Creating educational content or tutorials\n- Drafting thought leadership pieces\n- Researching and writing case studies\n- Producing technical documentation with sources\n- Writing with proper citations and references\n- Improving hooks and introductions\n-",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer",
       "poster": "<hl>写作</hl>这件事\\n交给 AI\\n帮你调研\\n帮你改稿",
       "title_zh": "内容研究写作",
@@ -511,7 +511,7 @@
       "content": "# Developer Growth Analysis\n\nThis skill provides personalized feedback on your recent coding work by analyzing your Claude Code chat interactions and identifying patterns that reveal strengths and areas for growth.\n\n## When to Use This Skill\n\nUse this skill when you want to:\n- Understand your development patterns and habits from recent work\n- Identify specific technical gaps or recurring challenges\n- Discover which topics would benefit from deeper study\n- Get curated learning resources tailored ",
       "cat": "营销增长",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/developer-growth-analysis",
       "poster": "<hl>开发者</hl>\\n社区增长\\n数据<hl>分析</hl>",
       "title_zh": "开发者增长分析",
@@ -531,7 +531,7 @@
       "content": "# Domain Name Brainstormer\n\nThis skill helps you find the perfect domain name for your project by generating creative options and checking what's actually available to register.\n\n## When to Use This Skill\n\n- Starting a new project or company\n- Launching a product or service\n- Creating a personal brand or portfolio site\n- Rebranding an existing project\n- Registering a domain for a side project\n- Finding available alternatives when your first choice is taken\n\n## What This Skill Does\n\n1. **Understa",
       "cat": "写作创作",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/domain-name-brainstormer",
       "poster": "想一个\\n好<hl>域名</hl>\\n顺便查\\n能不能<hl>注册</hl>",
       "title_zh": "域名创意生成器",
@@ -551,7 +551,7 @@
       "content": "# File Organizer\n\nThis skill acts as your personal organization assistant, helping you maintain a clean, logical file structure across your computer without the mental overhead of constant manual organization.\n\n## When to Use This Skill\n\n- Your Downloads folder is a chaotic mess\n- You can't find files because they're scattered everywhere\n- You have duplicate files taking up space\n- Your folder structure doesn't make sense anymore\n- You want to establish better organization habits\n- You're starti",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/file-organizer",
       "poster": "文件太<hl>乱</hl>？\\nClaude 帮你\\n<hl>整理</hl>",
       "title_zh": "智能文件整理",
@@ -571,7 +571,7 @@
       "content": "# Image Enhancer\n\nThis skill takes your images and screenshots and makes them look better—sharper, clearer, and more professional.\n\n## When to Use This Skill\n\n- Improving screenshot quality for blog posts or documentation\n- Enhancing images before sharing on social media\n- Preparing images for presentations or reports\n- Upscaling low-resolution images\n- Sharpening blurry photos\n- Cleaning up compressed images\n\n## What This Skill Does\n\n1. **Analyzes Image Quality**: Checks resolution, sharpness, ",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/image-enhancer",
       "poster": "模糊的图\\n一键变\\n<hl>高清</hl>",
       "title_zh": "图片增强",
@@ -591,7 +591,7 @@
       "content": "## When to use this skill\nTo write internal communications, use this skill for:\n- 3P updates (Progress, Plans, Problems)\n- Company newsletters\n- FAQ responses\n- Status reports\n- Leadership updates\n- Project updates\n- Incident reports\n\n## How to use this skill\n\nTo write any internal communication:\n\n1. **Identify the communication type** from the request\n2. **Load the appropriate guideline file** from the `examples/` directory:\n    - `examples/3p-updates.md` - For Progress/Plans/Problems team upda",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/internal-comms",
       "poster": "公司<hl>内部</hl>\\n通知 周报\\nAI 帮你<hl>写</hl>",
       "title_zh": "内部沟通",
@@ -611,7 +611,7 @@
       "content": "# Invoice Organizer\n\nThis skill transforms chaotic folders of invoices, receipts, and financial documents into a clean, tax-ready filing system without manual effort.\n\n## When to Use This Skill\n\n- Preparing for tax season and need organized records\n- Managing business expenses across multiple vendors\n- Organizing receipts from a messy folder or email downloads\n- Setting up automated invoice filing for ongoing bookkeeping\n- Archiving financial records by year or category\n- Reconciling expenses fo",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/invoice-organizer",
       "poster": "<hl>发票</hl>收据\\n自动整理\\n报税无忧",
       "title_zh": "发票整理助手",
@@ -631,7 +631,7 @@
       "content": "# LangSmith Fetch - Agent Debugging Skill\n\nDebug LangChain and LangGraph agents by fetching execution traces directly from LangSmith Studio in your terminal.\n\n## When to Use This Skill\n\nAutomatically activate when user mentions:\n- 🐛 \"Debug my agent\" or \"What went wrong?\"\n- 🔍 \"Show me recent traces\" or \"What happened?\"\n- ❌ \"Check for errors\" or \"Why did it fail?\"\n- 💾 \"Analyze memory operations\" or \"Check LTM\"\n- 📊 \"Review agent performance\" or \"Check token usage\"\n- 🔧 \"What tools were called?\"",
       "cat": "开发工具",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch",
       "poster": "AI助手又<hl>抽风</hl>了？\n调用记录一键调取\n哪一步出错<hl>一目了然</hl>\n不用再瞎猜了",
       "title_zh": "AI出bug秒查病因",
@@ -651,7 +651,7 @@
       "content": "# Lead Research Assistant\n\nThis skill helps you identify and qualify potential leads for your business by analyzing your product/service, understanding your ideal customer profile, and providing actionable outreach strategies.\n\n## When to Use This Skill\n\n- Finding potential customers or clients for your product/service\n- Building a list of companies to reach out to for partnerships\n- Identifying target accounts for sales outreach\n- Researching companies that match your ideal customer profile\n- P",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/lead-research-assistant",
       "poster": "找到<hl>客户</hl>\\n分析需求\\n制定<hl>策略</hl>",
       "title_zh": "潜在客户研究",
@@ -671,7 +671,7 @@
       "content": "# MCP Server Development Guide\n\n## Overview\n\nTo create high-quality MCP (Model Context Protocol) servers that enable LLMs to effectively interact with external services, use this skill. An MCP server provides tools that allow LLMs to access external services and APIs. The quality of an MCP server is measured by how well it enables LLMs to accomplish real-world tasks using the tools provided.\n\n---\n\n# Process\n\n## 🚀 High-Level Workflow\n\nCreating a high-quality MCP server involves four main phases:",
       "cat": "设计媒体",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/mcp-builder",
       "poster": "<hl>MCP</hl>\\nServer\\n从零到一",
       "title_zh": "MCP 服务器构建",
@@ -691,7 +691,7 @@
       "content": "# Meeting Insights Analyzer\n\nThis skill transforms your meeting transcripts into actionable insights about your communication patterns, helping you become a more effective communicator and leader.\n\n## When to Use This Skill\n\n- Analyzing your communication patterns across multiple meetings\n- Getting feedback on your leadership and facilitation style\n- Identifying when you avoid difficult conversations\n- Understanding your speaking habits and filler words\n- Tracking improvement in communication sk",
       "cat": "写作创作",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer",
       "poster": "<hl>会议</hl>录音\\n谁说得多\\n谁在<hl>回避</hl>",
       "title_zh": "会议纪要分析器",
@@ -711,7 +711,7 @@
       "content": "# Raffle Winner Picker\n\nThis skill randomly selects winners from lists, spreadsheets, or Google Sheets for giveaways and contests.\n\n## When to Use This Skill\n\n- Running social media giveaways\n- Picking raffle winners at events\n- Randomly selecting participants for surveys or tests\n- Choosing winners from contest submissions\n- Fair distribution of limited spots or resources\n- Random team assignments\n\n## What This Skill Does\n\n1. **Random Selection**: Uses cryptographically random selection\n2. **Mu",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/raffle-winner-picker",
       "poster": "公平<hl>抽奖</hl>\\n密码学级别\\n<hl>随机</hl>数",
       "title_zh": "抽奖器",
@@ -731,7 +731,7 @@
       "content": "# Skill Creator\n\nThis skill provides guidance for creating effective skills.\n\n## About Skills\n\nSkills are modular, self-contained packages that extend Claude's capabilities by providing\nspecialized knowledge, workflows, and tools. Think of them as \"onboarding guides\" for specific\ndomains or tasks—they transform Claude from a general-purpose agent into a specialized agent\nequipped with procedural knowledge that no model can fully possess.\n\n### What Skills Provide\n\n1. Specialized workflows - Multi",
       "cat": "营销增长",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/skill-creator",
       "poster": "创建你的\\n第一个\\nClaude <hl>Skill</hl>",
       "title_zh": "Skill 创建指南",
@@ -751,7 +751,7 @@
       "content": "## When to use this skill\n\nUse this skill when you need to:\n- **Create new Claude skills** with proper structure and metadata\n- **Generate skill packages** ready for distribution\n- **Automatically share created skills** on Slack channels for team visibility\n- **Validate skill structure** before sharing\n- **Package and distribute** skills to your team\n\nAlso use this skill when:\n- **User says he wants to create/share his skill** \n\nThis skill is ideal for:\n- Creating skills as part of team workflow",
       "cat": "开发工具",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/skill-share",
       "poster": "做了个<hl>超好用</hl>的AI技能\n想分享给同事？\n自动打包发群\n让全团队都能用",
       "title_zh": "团队技能一键分享",
@@ -771,7 +771,7 @@
       "content": "# Slack GIF Creator - Flexible Toolkit\n\nA toolkit for creating animated GIFs optimized for Slack. Provides validators for Slack's constraints, composable animation primitives, and optional helper utilities. **Apply these tools however needed to achieve the creative vision.**\n\n## Slack's Requirements\n\nSlack has specific requirements for GIFs based on their use:\n\n**Message GIFs:**\n- Max size: ~2MB\n- Optimal dimensions: 480x480\n- Typical FPS: 15-20\n- Color limit: 128-256\n- Duration: 2-5s\n\n**Emoji G",
       "cat": "设计媒体",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/slack-gif-creator",
       "poster": "给 <hl>Slack</hl>\\n做 <hl>GIF</hl>",
       "title_zh": "Slack GIF 制作",
@@ -791,7 +791,7 @@
       "content": "# Tailored Resume Generator\n\n## When to Use This Skill\n\n- Applying for a specific job position\n- Customizing your resume for different industries or roles\n- Highlighting relevant experience for career transitions\n- Optimizing your resume for ATS (Applicant Tracking Systems)\n- Creating multiple resume versions for different job applications\n- Emphasizing specific skills mentioned in job postings\n\n## What This Skill Does\n\n1. **Analyzes Job Descriptions**: Extracts key requirements, skills, qualifi",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/tailored-resume-generator",
       "poster": "分析<hl>职位</hl>\\n匹配经验\\n生成<hl>简历</hl>",
       "title_zh": "定制简历生成器",
@@ -811,7 +811,7 @@
       "content": "# Insert instructions below",
       "cat": "开发工具",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/template-skill",
       "poster": "要给 Claude 新增技能\n但不知道从哪开始？\n这个<hl>标准模板</hl>\n让你5分钟完成<hl>技能定义</hl>",
       "title_zh": "技能模板快速搭建",
@@ -831,7 +831,7 @@
       "content": "# Theme Factory Skill\n\nThis skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.\n\n## Purpose\n\nTo apply consistent, professional styling to presentation slide decks, use this skill. Each theme includes:\n- A cohesive color palette with hex codes\n- Complementary font pairings for headers and body text\n- A distinct visual identity suitable for differe",
       "cat": "办公提效",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/theme-factory",
       "poster": "10 种<hl>主题</hl>\\n一键换装",
       "title_zh": "主题工厂",
@@ -851,7 +851,7 @@
       "content": "# Twitter Algorithm Optimizer\n\n## When to Use This Skill\n\nUse this skill when you need to:\n- **Optimize tweet drafts** for maximum reach and engagement\n- **Understand why** a tweet might not perform well algorithmically\n- **Rewrite tweets** to align with Twitter's ranking mechanisms\n- **Improve content strategy** based on the actual ranking algorithms\n- **Debug underperforming content** and increase visibility\n- **Maximize engagement signals** that Twitter's algorithms track\n\n## What This Skill ",
       "cat": "写作创作",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/twitter-algorithm-optimizer",
       "poster": "用<hl>算法</hl>\\n优化你的\\n每一条<hl>推文</hl>",
       "title_zh": "推特算法优化",
@@ -871,7 +871,7 @@
       "content": "# YouTube Video Downloader\n\nDownload YouTube videos with full control over quality and format settings.\n\n## Quick Start\n\nThe simplest way to download a video:\n\n```bash\npython scripts/download_video.py \"https://www.youtube.com/watch?v=VIDEO_ID\"\n```\n\nThis downloads the video in best available quality as MP4 to `/mnt/user-data/outputs/`.\n\n## Options\n\n### Quality Settings\n\nUse `-q` or `--quality` to specify video quality:\n\n- `best` (default): Highest quality available\n- `1080p`: Full HD\n- `720p`: HD",
       "cat": "营销增长",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/video-downloader",
       "poster": "YouTube\\n视频<hl>下载</hl>",
       "title_zh": "视频下载",
@@ -891,7 +891,7 @@
       "content": "# Web Application Testing\n\nTo test local web applications, write native Python Playwright scripts.\n\n**Helper Scripts Available**:\n- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)\n\n**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as bl",
       "cat": "写作创作",
       "author": "ComposioHQ",
-      "stars": 54105,
+      "stars": 54187,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/webapp-testing",
       "poster": "前端应用\\n<hl>自动测试</hl>",
       "title_zh": "Web 应用测试",
@@ -911,7 +911,7 @@
       "content": "# Design an Interface\n\nBased on \"Design It Twice\" from \"A Philosophy of Software Design\": your first idea is unlikely to be the best. Generate multiple radically different designs, then compare.\n\n## Workflow\n\n### 1. Gather Requirements\n\nBefore designing, understand:\n\n- [ ] What problem does this module solve?\n- [ ] Who are the callers? (other modules, external users, tests)\n- [ ] What are the key operations?\n- [ ] Any constraints? (performance, compatibility, existing patterns)\n- [ ] What should",
       "cat": "设计媒体",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/design-an-interface",
       "poster": "用<hl>子代理</hl>\\n并行生成\\n多套<hl>界面</hl>",
       "title_zh": "界面设计",
@@ -931,7 +931,7 @@
       "content": "1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.\n\nConsider that information is a directed acyclic graph, and that pieces of information can depend on other pieces of information. Make sure that the order of the sections and their contents respects these dependencies.\n\nConfirm the sections with the user.\n\n2. For each section:\n\n2a. Rewrite the section to improve clarity, coherence, and flow. Use maximum 240 charac",
       "cat": "写作创作",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/edit-article",
       "poster": "你的文章\\n值得一个\\n好<hl>编辑</hl>",
       "title_zh": "文章编辑",
@@ -951,7 +951,7 @@
       "content": "# Setup Git Guardrails\n\nSets up a PreToolUse hook that intercepts and blocks dangerous git commands before Claude executes them.\n\n## What Gets Blocked\n\n- `git push` (all variants including `--force`)\n- `git reset --hard`\n- `git clean -f` / `git clean -fd`\n- `git branch -D`\n- `git checkout .` / `git restore .`\n\nWhen blocked, Claude sees a message telling it that it does not have authority to access these commands.\n\n## Steps\n\n### 1. Ask scope\n\nAsk the user: install for **this project only** (`.cla",
       "cat": "开发工具",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/git-guardrails-claude-code",
       "poster": "半夜改代码手一抖\n<hl>git push --force</hl> 差点发出去\n这个安全卫士帮你拦截\n危险命令<hl>执行前先确认</hl>",
       "title_zh": "代码误操作自动拦截",
@@ -971,7 +971,7 @@
       "content": "# GitHub Issue Triage\n\nTriage issues in the current repo using a label-based state machine. Infer the repo from `git remote`. Use `gh` for all GitHub operations.\n\n## Reference docs\n\n- [AGENT-BRIEF.md](AGENT-BRIEF.md) — how to write durable agent briefs\n- [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) — how the `.out-of-scope/` knowledge base works\n\n## Labels\n\n| Label             | Type     | Description                              |\n| ----------------- | -------- | ---------------------------------------- ",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/github-triage",
       "poster": "<hl>Issue</hl> 和 PR\\n自动分类",
       "title_zh": "GitHub Issue 分流",
@@ -991,7 +991,7 @@
       "content": "Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.\n\nAsk the questions one at a time.\n\nIf a question can be answered by exploring the codebase, explore the codebase instead.",
       "cat": "写作创作",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/grill-me",
       "poster": "在发布前\\n让 AI\\n<hl>质疑</hl>你的\\n每一个<hl>假设</hl>",
       "title_zh": "观点质疑器",
@@ -1011,7 +1011,7 @@
       "content": "# Improve Codebase Architecture\n\nExplore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as GitHub issue RFCs.\n\nA **deep module** (John Ousterhout, \"A Philosophy of Software Design\") has a small interface hiding a large implementation. Deep modules are more testable, more AI-navigable, and let you test at the boundary instead of inside.\n\n## Process\n\n### 1. Explore the codebase\n\nUse the Agent too",
       "cat": "设计媒体",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/improve-codebase-architecture",
       "poster": "代码越写越乱\n改一个功能<hl>牵一发动全身</hl>\nAI 深度分析你的代码\n给出<hl>重构建议</hl>和优化方案",
       "title_zh": "代码架构体检报告",
@@ -1031,7 +1031,7 @@
       "content": "# Migrate to Shoehorn\n\n## Why shoehorn?\n\n`shoehorn` lets you pass partial data in tests while keeping TypeScript happy. It replaces `as` assertions with type-safe alternatives.\n\n**Test code only.** Never use shoehorn in production code.\n\nProblems with `as` in tests:\n\n- Trained not to use it\n- Must manually specify target type\n- Double-as (`as unknown as Type`) for intentionally wrong data\n\n## Install\n\n```bash\nnpm i @total-typescript/shoehorn\n```\n\n## Migration patterns\n\n### Large objects with few",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/migrate-to-shoehorn",
       "poster": "测试里到处都是 <hl>as 断言</hl>\nTypeScript 各种报错\n用 shoehorn 替换\n测试数据<hl>既安全又简洁</hl>",
       "title_zh": "测试代码类型安全升级",
@@ -1051,7 +1051,7 @@
       "content": "# Obsidian Vault\n\n## Vault location\n\n`/mnt/d/Obsidian Vault/AI Research/`\n\nMostly flat at root level.\n\n## Naming conventions\n\n- **Index notes**: aggregate related topics (e.g., `Ralph Wiggum Index.md`, `Skills Index.md`, `RAG Index.md`)\n- **Title case** for all note names\n- No folders for organization - use links and index notes instead\n\n## Linking\n\n- Use Obsidian `[[wikilinks]]` syntax: `[[Note Title]]`\n- Notes link to dependencies/related notes at the bottom\n- Index notes are just lists of `[[",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/obsidian-vault",
       "poster": "<hl>Obsidian</hl>\\n笔记管理\\n知识<hl>图谱</hl>",
       "title_zh": "Obsidian 知识库",
@@ -1071,7 +1071,7 @@
       "content": "# PRD to Issues\n\nBreak a PRD into independently-grabbable GitHub issues using vertical slices (tracer bullets).\n\n## Process\n\n### 1. Locate the PRD\n\nAsk the user for the PRD GitHub issue number (or URL).\n\nIf the PRD is not already in your context window, fetch it with `gh issue view <number>` (with comments).\n\n### 2. Explore the codebase (optional)\n\nIf you have not already explored the codebase, do so to understand the current state of the code.\n\n### 3. Draft vertical slices\n\nBreak the PRD into *",
       "cat": "开发工具",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/prd-to-issues",
       "poster": "产品给了个<hl>20页需求文档</hl>\n不知道从哪开始做？\n自动拆解成独立工单\n每个都能<hl>单独开发测试</hl>",
       "title_zh": "需求文档拆解工单",
@@ -1091,7 +1091,7 @@
       "content": "# PRD to Plan\n\nBreak a PRD into a phased implementation plan using vertical slices (tracer bullets). Output is a Markdown file in `./plans/`.\n\n## Process\n\n### 1. Confirm the PRD is in context\n\nThe PRD should already be in the conversation. If it isn't, ask the user to paste it or point you to the file.\n\n### 2. Explore the codebase\n\nIf you have not already explored the codebase, do so to understand the current architecture, existing patterns, and integration layers.\n\n### 3. Identify durable archi",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/prd-to-plan",
       "poster": "拿到产品需求后\n不知道<hl>怎么排期</hl>？\n自动生成分阶段开发计划\n每个版本都能<hl>独立上线</hl>",
       "title_zh": "需求转开发计划",
@@ -1111,7 +1111,7 @@
       "content": "# QA Session\n\nRun an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and file GitHub issues that are durable, user-focused, and use the project's domain language.\n\n## For each issue the user raises\n\n### 1. Listen and lightly clarify\n\nLet the user describe the problem in their own words. Ask **at most 2-3 short clarifying questions** focused on:\n\n- What they expected vs what actually happened\n- Steps to reproduce (if not obv",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/qa",
       "poster": "测试发现了<hl>一堆Bug</hl>\n口头描述不清楚\n对话式收集问题\n自动整理成<hl>规范工单</hl>",
       "title_zh": "Bug反馈自动建单",
@@ -1131,7 +1131,7 @@
       "content": "This skill will be invoked when the user wants to create a refactor request. You should go through the steps below. You may skip steps if you don't consider them necessary.\n\n1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.\n\n2. Explore the repo to verify their assertions and understand the current state of the codebase.\n\n3. Ask whether they have considered other options, and present other options to them.\n\n4. Interview the u",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/request-refactor-plan",
       "poster": "想重构老代码\n但怕<hl>改出新Bug</hl>？\n制定详细重构计划\n每一步都<hl>安全可回滚</hl>",
       "title_zh": "重构方案安全规划",
@@ -1151,7 +1151,7 @@
       "content": "# Scaffold Exercises\n\nCreate exercise directory structures that pass `pnpm ai-hero-cli internal lint`, then commit with `git commit`.\n\n## Directory naming\n\n- **Sections**: `XX-section-name/` inside `exercises/` (e.g., `01-retrieval-skill-building`)\n- **Exercises**: `XX.YY-exercise-name/` inside a section (e.g., `01.03-retrieval-with-bm25`)\n- Section number = `XX`, exercise number = `XX.YY`\n- Names are dash-case (lowercase, hyphens)\n\n## Exercise variants\n\nEach exercise needs at least one of these",
       "cat": "营销增长",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/scaffold-exercises",
       "poster": "要做在线课程\n一个个创建<hl>练习文件夹</hl>\n累到怀疑人生\n现在直接生成<hl>标准结构</hl>",
       "title_zh": "课程练习自动搭架子",
@@ -1171,7 +1171,7 @@
       "content": "# Setup Pre-Commit Hooks\n\n## What This Sets Up\n\n- **Husky** pre-commit hook\n- **lint-staged** running Prettier on all staged files\n- **Prettier** config (if missing)\n- **typecheck** and **test** scripts in the pre-commit hook\n\n## Steps\n\n### 1. Detect package manager\n\nCheck for `package-lock.json` (npm), `pnpm-lock.yaml` (pnpm), `yarn.lock` (yarn), `bun.lockb` (bun). Use whichever is present. Default to npm if unclear.\n\n### 2. Install dependencies\n\nInstall as devDependencies:\n\n```\nhusky lint-stag",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/setup-pre-commit",
       "poster": "熬夜改bug改到眼花\n忘记<hl>格式检查</hl>\n领导看代码想骂人\n现在提交前<hl>自动检测</hl>",
       "title_zh": "代码上线前自动体检",
@@ -1191,7 +1191,7 @@
       "content": "# Test-Driven Development\n\n## Philosophy\n\n**Core principle**: Tests should verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't.\n\n**Good tests** are integration-style: they exercise real code paths through public APIs. They describe _what_ the system does, not _how_ it does it. A good test reads like a specification - \"user can checkout with valid cart\" tells you exactly what capability exists. These tests survive refactors because they",
       "cat": "营销增长",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/tdd",
       "poster": "辛苦写完功能\n一测试<hl>各种报错</hl>\n改了又坏别的地方\n先写测试<hl>零bug上线</hl>",
       "title_zh": "写代码不出bug秘籍",
@@ -1211,7 +1211,7 @@
       "content": "# Triage Issue\n\nInvestigate a reported problem, find its root cause, and create a GitHub issue with a TDD fix plan. This is a mostly hands-off workflow - minimize questions to the user.\n\n## Process\n\n### 1. Capture the problem\n\nGet a brief description of the issue from the user. If they haven't provided one, ask ONE question: \"What's the problem you're seeing?\"\n\nDo NOT ask follow-up questions yet. Start investigating immediately.\n\n### 2. Explore and diagnose\n\nUse the Agent tool with subagent_type",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/triage-issue",
       "poster": "用户反馈系统<hl>又崩了</hl>\n翻遍代码找不到原因\nAI帮你追根溯源\n<hl>精准定位</hl>问题根本",
       "title_zh": "系统故障秒定位",
@@ -1231,7 +1231,7 @@
       "content": "# Ubiquitous Language\n\nExtract and formalize domain terminology from the current conversation into a consistent glossary, saved to a local file.\n\n## Process\n\n1. **Scan the conversation** for domain-relevant nouns, verbs, and concepts\n2. **Identify problems**:\n   - Same word used for different concepts (ambiguity)\n   - Different words used for the same concept (synonyms)\n   - Vague or overloaded terms\n3. **Propose a canonical glossary** with opinionated term choices\n4. **Write to `UBIQUITOUS_LANG",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/ubiquitous-language",
       "poster": "开会时大家说的\n<hl>同一个词</hl>\n理解完全不同\nAI整理出<hl>标准词典</hl>",
       "title_zh": "团队黑话统一词典",
@@ -1251,7 +1251,7 @@
       "content": "This skill will be invoked when the user wants to create a PRD. You may skip steps if you don't consider them necessary.\n\n1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.\n\n2. Explore the repo to verify their assertions and understand the current state of the codebase.\n\n3. Interview the user relentlessly about every aspect of this plan until you reach a shared understanding. Walk down each branch of the design tree, resolvin",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/write-a-prd",
       "poster": "老板要<hl>PRD文档</hl>\n不知道怎么写专业\n说说想法和需求\n标准文档<hl>自动生成</hl>",
       "title_zh": "产品需求文档代写",
@@ -1271,7 +1271,7 @@
       "content": "# Writing Skills\n\n## Process\n\n1. **Gather requirements** - ask user about:\n   - What task/domain does the skill cover?\n   - What specific use cases should it handle?\n   - Does it need executable scripts or just instructions?\n   - Any reference materials to include?\n\n2. **Draft the skill** - create:\n   - SKILL.md with concise instructions\n   - Additional reference files if content exceeds 500 lines\n   - Utility scripts if deterministic operations needed\n\n3. **Review with user** - present draft an",
       "cat": "办公提效",
       "author": "mattpocock",
-      "stars": 15401,
+      "stars": 15476,
       "url": "https://github.com/mattpocock/skills/tree/main/write-a-skill",
       "poster": "想让AI学会\n<hl>你的专业技能</hl>\n不知道怎么教它\n结构化<hl>技能包</hl>一键生成",
       "title_zh": "AI技能包制作器",
@@ -1291,7 +1291,7 @@
       "content": "# Brainstorming Ideas Into Designs\n\nHelp turn ideas into fully formed designs and specs through natural collaborative dialogue.\n\nStart by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval.\n\n<HARD-GATE>\nDo NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approv",
       "cat": "写作创作",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/brainstorming",
       "poster": "模糊的<hl>想法</hl>\\n变成\\n成熟的<hl>方案</hl>",
       "title_zh": "结构化头脑风暴",
@@ -1311,7 +1311,7 @@
       "content": "# Dispatching Parallel Agents\n\n## Overview\n\nYou delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.\n\nWhen you have multiple unrelated failures (different test files, different subsystems, different bugs), investigating the",
       "cat": "办公提效",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/dispatching-parallel-agents",
       "poster": "一堆事情要处理\n<hl>同时进行</hl>忙不过来\n派发给多个AI分身\n<hl>并行完成</hl>效率翻倍",
       "title_zh": "多任务AI分身术",
@@ -1331,7 +1331,7 @@
       "content": "# Executing Plans\n\n## Overview\n\nLoad plan, review critically, execute all tasks, report when complete.\n\n**Announce at start:** \"I'm using the executing-plans skill to implement this plan.\"\n\n**Note:** Tell your human partner that Superpowers works much better with access to subagents. The quality of its work will be significantly higher if run on a platform with subagent support (such as Claude Code or Codex). If subagents are available, use superpowers:subagent-driven-development instead of this",
       "cat": "写作创作",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/executing-plans",
       "poster": "写了详细开发计划\n但执行起来总是<hl>遗漏细节</hl>\nClaude 按计划逐步执行\n每个节点都会<hl>主动汇报</hl>进度",
       "title_zh": "项目计划自动执行",
@@ -1351,7 +1351,7 @@
       "content": "# Finishing a Development Branch\n\n## Overview\n\nGuide completion of development work by presenting clear options and handling chosen workflow.\n\n**Core principle:** Verify tests → Present options → Execute choice → Clean up.\n\n**Announce at start:** \"I'm using the finishing-a-development-branch skill to complete this work.\"\n\n## The Process\n\n### Step 1: Verify Tests\n\n**Before presenting options, verify tests pass:**\n\n```bash\n# Run project's test suite\nnpm test / cargo test / pytest / go test ./...\n`",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch",
       "poster": "分支开发完了\\n下一步<hl>怎么做</hl>",
       "title_zh": "完成开发分支",
@@ -1371,7 +1371,7 @@
       "content": "# Code Review Reception\n\n## Overview\n\nCode review requires technical evaluation, not emotional performance.\n\n**Core principle:** Verify before implementing. Ask before assuming. Technical correctness over social comfort.\n\n## The Response Pattern\n\n```\nWHEN receiving code review feedback:\n\n1. READ: Complete feedback without reacting\n2. UNDERSTAND: Restate requirement in own words (or ask)\n3. VERIFY: Check against codebase reality\n4. EVALUATE: Technically sound for THIS codebase?\n5. RESPOND: Techni",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/receiving-code-review",
       "poster": "收到同事的<hl>代码评审</hl>意见\n不确定建议是否合理\nClaude 帮你技术验证\n避免盲目修改<hl>引入新bug</hl>",
       "title_zh": "代码评审意见处理",
@@ -1391,7 +1391,7 @@
       "content": "# Requesting Code Review\n\nDispatch superpowers:code-reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.\n\n**Core principle:** Review early, review often.\n\n## When to Request Review\n\n**Mandatory:**\n- After each task in subagent-driven development\n- After completing major featur",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/requesting-code-review",
       "poster": "功能写完准备<hl>上线</hl>\n担心有隐藏bug\nClaude 专业代码评审\n问题提前<hl>全部揪出</hl>",
       "title_zh": "代码上线前自动体检",
@@ -1411,7 +1411,7 @@
       "content": "# Subagent-Driven Development\n\nExecute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.\n\n**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own con",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
       "poster": "复杂项目<hl>任务太多</hl>\n一个人搞不过来\nClaude 派遣专门agent\n每个模块<hl>独立开发</hl>",
       "title_zh": "大项目分工协作",
@@ -1431,7 +1431,7 @@
       "content": "# Systematic Debugging\n\n## Overview\n\nRandom fixes waste time and create new bugs. Quick patches mask underlying issues.\n\n**Core principle:** ALWAYS find root cause before attempting fixes. Symptom fixes are failure.\n\n**Violating the letter of this process is violating the spirit of debugging.**\n\n## The Iron Law\n\n```\nNO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST\n```\n\nIf you haven't completed Phase 1, you cannot propose fixes.\n\n## When to Use\n\nUse for ANY technical issue:\n- Test failures\n- Bugs ",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging",
       "poster": "程序<hl>莫名其妙</hl>报错\n改了半天还是不行\nClaude 系统性排查\n直击<hl>根本原因</hl>",
       "title_zh": "bug根因快速定位",
@@ -1451,15 +1451,15 @@
       "content": "# Test-Driven Development (TDD)\n\n## Overview\n\nWrite the test first. Watch it fail. Write minimal code to pass.\n\n**Core principle:** If you didn't watch the test fail, you don't know if it tests the right thing.\n\n**Violating the letter of the rules is violating the spirit of the rules.**\n\n## When to Use\n\n**Always:**\n- New features\n- Bug fixes\n- Refactoring\n- Behavior changes\n\n**Exceptions (ask your human partner):**\n- Throwaway prototypes\n- Generated code\n- Configuration files\n\nThinking \"skip TDD",
       "cat": "办公提效",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
-      "poster": "又被线上bug搞到<hl>半夜紧急修复</hl>\n先写测试再写代码\n每一行都有安全网\n<hl>稳如老狗</hl>不翻车",
+      "poster": "又怕新功能<hl>上线出bug</hl>\n先写测试再写代码\n让程序自己验证<hl>逻辑正确</hl>\n再也不用半夜被叫起来改bug",
       "title_zh": "代码上线前自动体检",
-      "desc_zh": "教你写代码前先写测试，像给代码买保险一样，bug还没出生就被拦截了。",
+      "desc_zh": "写代码前先写测试用例，确保每个功能都经过验证再上线，大大减少线上bug。",
       "tags": [
-        "代码测试",
-        "bug修复",
-        "开发技巧"
+        "编程",
+        "测试",
+        "代码质量"
       ],
       "audience": "开发者"
     },
@@ -1471,7 +1471,7 @@
       "content": "# Using Git Worktrees\n\n## Overview\n\nGit worktrees create isolated workspaces sharing the same repository, allowing work on multiple branches simultaneously without switching.\n\n**Core principle:** Systematic directory selection + safety verification = reliable isolation.\n\n**Announce at start:** \"I'm using the using-git-worktrees skill to set up an isolated workspace.\"\n\n## Directory Selection Process\n\nFollow this priority order:\n\n### 1. Check Existing Directories\n\n```bash\n# Check in priority order",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/using-git-worktrees",
       "poster": "<hl>Git</hl> 多分支\\n并行开发",
       "title_zh": "Git Worktrees",
@@ -1491,7 +1491,7 @@
       "content": "<SUBAGENT-STOP>\nIf you were dispatched as a subagent to execute a specific task, skip this skill.\n</SUBAGENT-STOP>\n\n<EXTREMELY-IMPORTANT>\nIf you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.\n\nIF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.\n\nThis is not negotiable. This is not optional. You cannot rationalize your way out of this.\n</EXTREMELY-IMPORTANT>\n\n## Instruction Priority\n\nSuperpowers skills overr",
       "cat": "开发工具",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/using-superpowers",
       "poster": "不知道Claude有哪些<hl>隐藏功能</hl>\n每次都是基础对话\nClaude 自动匹配专业技能\n发挥<hl>最大价值</hl>",
       "title_zh": "AI技能智能匹配",
@@ -1511,7 +1511,7 @@
       "content": "# Verification Before Completion\n\n## Overview\n\nClaiming work is complete without verification is dishonesty, not efficiency.\n\n**Core principle:** Evidence before claims, always.\n\n**Violating the letter of this rule is violating the spirit of this rule.**\n\n## The Iron Law\n\n```\nNO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE\n```\n\nIf you haven't run the verification command in this message, you cannot claim it passes.\n\n## The Gate Function\n\n```\nBEFORE claiming any status or expressing sati",
       "cat": "其他",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/verification-before-completion",
       "poster": "说功能做完了\n实际<hl>还有bug</hl>\nClaude 强制验证机制\n确保真正<hl>可交付</hl>",
       "title_zh": "完成前强制验证",
@@ -1531,7 +1531,7 @@
       "content": "# Writing Plans\n\n## Overview\n\nWrite comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.\n\nAssume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test",
       "cat": "办公提效",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/writing-plans",
       "poster": "接到新需求<hl>不知道从哪下手</hl>\nClaude 制定详细计划\n哪个文件改什么\n测试怎么做<hl>全都写清楚</hl>",
       "title_zh": "开发计划详细制定",
@@ -1551,7 +1551,7 @@
       "content": "# Writing Skills\n\n## Overview\n\n**Writing skills IS Test-Driven Development applied to process documentation.**\n\n**Personal skills live in agent-specific directories (`~/.claude/skills` for Claude Code, `~/.agents/skills/` for Codex)** \n\nYou write test cases (pressure scenarios with subagents), watch them fail (baseline behavior), write the skill (documentation), watch tests pass (agents comply), and refactor (close loopholes).\n\n**Core principle:** If you didn't watch an agent fail without the sk",
       "cat": "办公提效",
       "author": "obra",
-      "stars": 154641,
+      "stars": 155182,
       "url": "https://github.com/obra/superpowers/tree/main/skills/writing-skills",
       "poster": "想开发自己的AI助手？\n不知道从哪开始下手\n<hl>测试驱动</hl>的方法\n让你的AI工具<hl>稳定好用</hl>",
       "title_zh": "AI工具开发教程",
@@ -1571,7 +1571,7 @@
       "content": "# Atlassian (Jira + Confluence)\n\nFull Jira and Confluence integration with two authentication methods:\n- **OAuth 2.1** via Atlassian MCP server — browser-based consent, auto-refresh tokens, calls MCP tools\n- **API token** — email + token stored in keyring, calls REST API directly\n\n## First-Time Setup\n\n### Option 1: OAuth 2.1 via MCP Server (Recommended)\n\nNo API tokens or instance URLs needed. Uses dynamic client registration and PKCE.\n\n```bash\npip install -r requirements.txt\npython scripts/auth.",
       "cat": "开发工具",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/atlassian",
       "poster": "每天被<hl>几十个工单</hl>淹没\n手动更新状态累到崩溃\nAI帮你批量处理Jira\n<hl>5分钟</hl>搞定一天的活",
       "title_zh": "Jira任务批量处理",
@@ -1591,7 +1591,7 @@
       "content": "# Azure DevOps\n\nFull Azure DevOps integration using OAuth or PAT authentication and REST API v7.1.\n\n## First-Time Setup\n\n### Option 1: OAuth (Recommended)\n\nLogin with OAuth device code flow (shows \"Visual Studio Code\" prompt):\n```bash\npython scripts/auth.py login --org MyOrganization\n```\nFollow the URL and enter the device code to authorize. Tokens auto-refresh.\n\n### Option 2: PAT\n\nLogin with a Personal Access Token:\n```bash\npython scripts/auth.py login --org MyOrganization --pat YOUR_PAT\n```\n\nC",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/azure-devops",
       "poster": "每次发布都要<hl>手动检查</hl>一堆流程\n担心遗漏重要步骤\nAI接管你的Azure DevOps\n<hl>自动化</hl>部署不出错",
       "title_zh": "代码发布自动化",
@@ -1611,7 +1611,7 @@
       "content": "# Gemini Deep Research Skill\n\nRun autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports.\n\n## Requirements\n\n- Python 3.8+\n- httpx: `pip install -r requirements.txt`\n- GEMINI_API_KEY environment variable\n\n## Setup\n\n1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/)\n2. Set the environment variable:\n   ```bash\n   export GEMINI_API_KEY=your-api-key-here\n   ```\n   Or create a `.env` file in the skill directory.\n\n## Usage\n\n##",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research",
       "poster": "市场分析\\n竞品调研\\n<hl>深度</hl>研究",
       "title_zh": "深度研究",
@@ -1631,15 +1631,15 @@
       "content": "# ElevenLabs - Text-to-Speech & Podcast Skill\n\n## Overview\n\nThis skill converts text and documents into high-quality audio using ElevenLabs TTS API. It supports two modes: single-voice narration and two-host conversational podcast generation.\n\n## When to Use This Skill\n\nActivate when the user mentions:\n- \"create podcast\", \"generate podcast\", \"podcast from document\"\n- \"narrate document\", \"narrate this file\", \"read aloud\"\n- \"text to speech\", \"TTS\", \"convert to audio\"\n- \"audio from document\", \"audi",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/elevenlabs",
-      "poster": "短视频需要<hl>配音</hl>\n真人录音太麻烦\nAI克隆你的声音\n<hl>以假乱真</hl>的效果",
+      "poster": "视频需要旁白配音\n自己声音不够专业\n输入文字选个<hl>AI声音</hl>\n<hl>播音员级</hl>配音立刻到手",
       "title_zh": "文字秒变真人配音",
-      "desc_zh": "文字转语音超逼真，还能克隆声音，做配音、多语言视频特别好用",
+      "desc_zh": "文字直接变成超自然的AI语音，多种声音可选，做视频配音、有声读物特别好用",
       "tags": [
-        "配音制作",
-        "声音克隆",
-        "文字转语音"
+        "AI配音",
+        "文字转语音",
+        "视频旁白"
       ],
       "audience": "创作者"
     },
@@ -1651,17 +1651,17 @@
       "content": "# Gmail\n\nLightweight Gmail integration with standalone OAuth authentication. No MCP server required.\n\n> **⚠️ Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Commands\n\nAll operations via `scripts/gmail.py`. Auto-authenticates",
       "cat": "开发工具",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/gmail",
       "poster": "周一打开邮箱\n<hl>99+</hl> 未读让人崩溃\nClaude 帮你分类回复\n重要的一封不漏",
       "title_zh": "50封邮件5分钟清完",
-      "desc_zh": "再也不用被邮件淹没了，Claude 自动帮你整理邮件、写回复，效率提升10倍！",
+      "desc_zh": "邮箱爆炸的救星！自动分类重要邮件，还能帮你写回复，再也不怕漏掉老板的消息了",
       "tags": [
         "邮件管理",
-        "工作效率",
-        "自动回复"
+        "自动回复",
+        "效率工具"
       ],
-      "audience": "职场人"
+      "audience": "所有人"
     },
     {
       "id": "sanjay3290-google-calendar",
@@ -1671,15 +1671,15 @@
       "content": "# Google Calendar\n\nLightweight Google Calendar integration with standalone OAuth authentication. No MCP server required.\n\n> **⚠️ Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Commands\n\nAll operations via `scripts/gcal.py`.",
       "cat": "开发工具",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-calendar",
-      "poster": "\"帮我约下周三下午的会\"\n\"查查明天有什么安排\"\n直接<hl>说话</hl>就能管日历\n比手动点击快<hl>10倍</hl>",
-      "title_zh": "谷歌日历语音操作",
-      "desc_zh": "用说的就能管理谷歌日历，创建事件、查看安排、找空闲时间，解放你的双手",
+      "poster": "\"帮我找下周<hl>空闲时间</hl>\"\n\"约个明天的会议\"\n对Claude说句话\nGoogle日历<hl>自动搞定</hl>",
+      "title_zh": "Google日历语音操作",
+      "desc_zh": "用说的就能操作Google日历，找空闲时间、创建会议、检查冲突，比手动操作快10倍",
       "tags": [
-        "谷歌日历",
+        "Google日历",
         "语音操作",
-        "便捷管理"
+        "时间查找"
       ],
       "audience": "所有人"
     },
@@ -1691,7 +1691,7 @@
       "content": "# Google Chat\n\nLightweight Google Chat integration with standalone OAuth authentication. No MCP server required.\n\n> **⚠️ Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Commands\n\nAll operations via `scripts/chat.py`. Auto-au",
       "cat": "开发工具",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-chat",
       "poster": "群消息<hl>看不过来</hl>\n重要通知容易错过\nAI帮你整理聊天记录\n<hl>关键信息</hl>不遗漏",
       "title_zh": "团队消息助手",
@@ -1711,7 +1711,7 @@
       "content": "# Google Docs\n\nLightweight Google Docs integration with standalone OAuth authentication. No MCP server required.\n\n> **⚠️ Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Commands\n\nAll operations via `scripts/docs.py`. Auto-au",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-docs",
       "poster": "写报告、方案<hl>憋不出字</hl>\n格式排版浪费时间\nAI直接在Google Docs里\n帮你<hl>写好排好</hl>",
       "title_zh": "文档自动生成",
@@ -1731,7 +1731,7 @@
       "content": "# Google Drive\n\nLightweight Google Drive integration with standalone OAuth authentication. No MCP server required. Full read/write access.\n\n> **Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Read Commands\n\nAll operations vi",
       "cat": "写作创作",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-drive",
       "poster": "团队文件散落各处找不到？\nClaude 直接连你的 <hl>Google Drive</hl>\n批量整理、快速查找\n<hl>协作效率</hl> 提升10倍",
       "title_zh": "云端文件秒速协作",
@@ -1751,7 +1751,7 @@
       "content": "# Google Sheets\n\nLightweight Google Sheets integration with standalone OAuth authentication. No MCP server required. Full read/write access.\n\n> **Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Read Commands\n\nAll operations ",
       "cat": "写作创作",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-sheets",
       "poster": "月度报表又要熬夜做？\nClaude 连接你的 <hl>Google表格</hl>\n自动计算、生成图表\n<hl>5分钟</hl> 搞定数据分析",
       "title_zh": "表格数据一键分析",
@@ -1771,7 +1771,7 @@
       "content": "# Google Slides\n\nLightweight Google Slides integration with standalone OAuth authentication. No MCP server required. Full read/write access.\n\n> **Requires Google Workspace account.** Personal Gmail accounts are not supported.\n\n## First-Time Setup\n\nAuthenticate with Google (opens browser):\n```bash\npython scripts/auth.py login\n```\n\nCheck authentication status:\n```bash\npython scripts/auth.py status\n```\n\nLogout when needed:\n```bash\npython scripts/auth.py logout\n```\n\n## Read Commands\n\nAll operations ",
       "cat": "写作创作",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-slides",
       "poster": "临时要做PPT没时间设计？\nClaude 直接编辑 <hl>Google幻灯片</hl>\n内容+排版一步到位\n<hl>专业级</hl> 演示秒速完成",
       "title_zh": "演示文稿自动美化",
@@ -1791,7 +1791,7 @@
       "content": "# Google Cloud Text-to-Speech\n\nConverts text and documents into audio using Google Cloud TTS API. Supports Neural2, WaveNet, Studio, and Standard voices across 40+ languages.\n\n## Setup\n\nAPI key via `GOOGLE_TTS_API_KEY` env var or `skills/google-tts/config.json` with `{\"api_key\": \"...\"}`.\nRequires `ffmpeg` for multi-chunk documents. Optional: `pip install PyPDF2 python-docx` for PDF/DOCX.\n\n## Commands\n\n### List Voices\n\n```bash\npython skills/google-tts/scripts/google_tts.py voices --language en-US",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/google-tts",
       "poster": "视频配音找不到合适声音？\n40多种语言 <hl>Neural2</hl> 引擎\n文档直接转高质量音频\n<hl>广播级</hl> 效果一键生成",
       "title_zh": "文字秒变专业配音",
@@ -1811,7 +1811,7 @@
       "content": "# Imagen - AI Image Generation Skill\n\n## Overview\n\nThis skill generates images using Google Gemini's image generation model (`gemini-3-pro-image-preview`). It enables seamless image creation during any Claude Code session - whether you're building frontend UIs, creating documentation, or need visual representations of concepts.\n\n**Cross-Platform**: Works on Windows, macOS, and Linux.\n\n## When to Use This Skill\n\nAutomatically activate this skill when:\n- User requests image generation (e.g., \"gene",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen",
       "poster": "需要配图但不会画画？\nGoogle Gemini <hl>图像生成</hl>\n说出想法就能画出来\n<hl>专业插画</hl> 信手拈来",
       "title_zh": "AI绘图随手就来",
@@ -1831,7 +1831,7 @@
       "content": "# Jules Task Delegation\n\nDelegate coding tasks to Google's Jules AI agent on GitHub repositories.\n\n## Environment Variables\n\n| Variable | Required | Description |\n|----------|----------|-------------|\n| `JULES_API_KEY` | For API auth | API key from [jules.google.com/settings](https://jules.google.com/settings) |\n\n## Setup (Run Before First Command)\n\nTwo auth paths are available. Use **Path 1** for interactive use, **Path 2** for headless/agent use.\n\n### Path 1: CLI (Interactive)\n\n#### 1. Install",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/jules",
       "poster": "把任务\\n委派给\\nGoogle <hl>Jules</hl>",
       "title_zh": "Jules AI 委派",
@@ -1851,7 +1851,7 @@
       "content": "# Manus\n\nManus is an autonomous AI agent that handles complex tasks asynchronously. Particularly strong at **deep research** with parallel processing, web browsing, and generating comprehensive reports with data visualizations.\n\n## When to Use Manus\n\n- **Deep research** - Market analysis, competitive landscaping, product comparisons\n- **Stock/financial analysis** - Company research, technical analysis, price charts\n- **Product research** - Feature comparisons across brands, specs analysis\n- **Re",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/manus",
       "poster": "市场调研要花一整天？\n<hl>Manus智能体</hl> 全自动执行\n并行搜索+深度分析\n<hl>综合报告</hl> 自动送达",
       "title_zh": "复杂任务全权代理",
@@ -1871,7 +1871,7 @@
       "content": "# MSSQL Read-Only Query Skill\n\nExecute safe, read-only queries against configured Microsoft SQL Server databases.\n\n## Requirements\n\n- Python 3.8+\n- pymssql: `pip install -r requirements.txt`\n\n## Setup\n\nCreate `connections.json` in the skill directory or `~/.config/claude/mssql-connections.json`.\n\n**Security**: Set file permissions to `600` since it contains credentials:\n```bash\nchmod 600 connections.json\n```\n\n```json\n{\n  \"databases\": [\n    {\n      \"name\": \"production\",\n      \"description\": \"Main",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/mssql",
       "poster": "想查公司数据库不会写代码？\nSQL Server <hl>安全查询</hl>\n说人话就能取数据\n<hl>只读模式</hl> 绝对安全",
       "title_zh": "数据库一键查询",
@@ -1891,7 +1891,7 @@
       "content": "# MySQL Read-Only Query Skill\n\nExecute safe, read-only queries against configured MySQL databases.\n\n## Requirements\n\n- Python 3.8+\n- mysql-connector-python: `pip install -r requirements.txt`\n\n## Setup\n\nCreate `connections.json` in the skill directory or `~/.config/claude/mysql-connections.json`.\n\n**Security**: Set file permissions to `600` since it contains credentials:\n```bash\nchmod 600 connections.json\n```\n\n```json\n{\n  \"databases\": [\n    {\n      \"name\": \"production\",\n      \"description\": \"Main",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/mysql",
       "poster": "业务数据藏在数据库里？\nMySQL <hl>智能查询</hl>\n用普通话问数据问题\n<hl>秒出结果</hl> 还有分析",
       "title_zh": "MySQL数据随问随答",
@@ -1911,15 +1911,15 @@
       "content": "# NotebookLM Skill\n\nQuery NotebookLM notebooks and manage notebooks/sources via Playwright browser automation.\n\nAll commands run from the skill directory. All scripts output JSON to stdout and exit 1 on error. Use `--help` on any script for full flag reference.\n\n## Workflow\n\n1. **Authenticate**: `python scripts/auth_manager.py setup --profile <name>`\n2. **Register notebook**: `python scripts/notebook_manager.py add --url <url> --name <name> --description <desc> --topics <topics>`\n3. **Ask questi",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/notebooklm",
-      "poster": "一堆PDF和网页\n不知道怎么<hl>消化</hl>\nAI帮你生成播客\n开车路上就能听完",
-      "title_zh": "资料整理变AI播客",
-      "desc_zh": "把各种资料丢进去，AI能生成播客、笔记，让你轻松掌握复杂信息",
+      "poster": "几十份资料要研究\n看到头大找不到重点\n丢给NotebookLM<hl>智能整理</hl>\n想问什么<hl>直接聊</hl>",
+      "title_zh": "文档秒变知识库",
+      "desc_zh": "把一堆文档丢进去，AI帮你整理成可以对话的知识库，想问什么直接问",
       "tags": [
+        "资料整理",
         "知识管理",
-        "AI播客",
-        "资料整理"
+        "文档问答"
       ],
       "audience": "职场人"
     },
@@ -1931,7 +1931,7 @@
       "content": "# Outline Wiki Skill\n\nSearch, read, create, and manage documents in any Outline wiki instance. Works with all AI clients supporting the Agent Skills Standard.\n\n## Requirements\n\n- Python 3.8+\n- Dependencies: `pip install -r requirements.txt`\n\n## Setup\n\n1. Get your API key from your Outline wiki:\n   - Go to **Settings > API Tokens**\n   - Create a new token with appropriate permissions\n\n2. Configure the environment:\n   ```bash\n   cp .env.example .env\n   # Edit .env with your API key\n   ```\n\n3. Set ",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/outline",
       "poster": "公司wiki文档太多找不到？\n直接问 <hl>Outline助手</hl>\n「上季度销售数据在哪」\n<hl>秒找</hl>准确页面和答案",
       "title_zh": "团队文档一问就懂",
@@ -1951,7 +1951,7 @@
       "content": "# PostgreSQL Read-Only Query Skill\n\nExecute safe, read-only queries against configured PostgreSQL databases.\n\n## Requirements\n\n- Python 3.8+\n- psycopg2-binary: `pip install -r requirements.txt`\n\n## Setup\n\nCreate `connections.json` in the skill directory or `~/.config/claude/postgres-connections.json`.\n\n**Security**: Set file permissions to `600` since it contains credentials:\n```bash\nchmod 600 connections.json\n```\n\n```json\n{\n  \"databases\": [\n    {\n      \"name\": \"production\",\n      \"description\":",
       "cat": "办公提效",
       "author": "sanjay3290",
-      "stars": 215,
+      "stars": 216,
       "url": "https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres",
       "poster": "安全查询\\n<hl>PostgreSQL</hl>",
       "title_zh": "PostgreSQL 查询",
@@ -3498,13 +3498,13 @@
       "stars": 14,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "写文案总是没人看没人转\n11套经过验证的<hl>套路模板</hl>\n从标题到结尾\n让你的内容<hl>自带传播力</hl>",
-      "title_zh": "爆款文案万能公式",
-      "desc_zh": "专业文案师都在用的11个写作套路，不管写什么内容都有现成模板可以套。",
+      "poster": "写文案总是<hl>没思路</hl>\n11种专业提示词模板\n身份+逻辑+输出结构\n让AI秒懂你要什么<hl>风格</hl>",
+      "title_zh": "文案提示词生成器",
+      "desc_zh": "专门为内容创作设计的提示词模板，包含11种方法，让AI写出更符合你需求的文案。",
       "tags": [
-        "文案写作",
-        "内容创作",
-        "营销文案"
+        "文案",
+        "AI提示词",
+        "内容创作"
       ],
       "audience": "创作者"
     },
@@ -3582,13 +3582,13 @@
       "stars": 4,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "要写一篇<hl>深度好文</hl>\n但不知道怎么组织结构\n输入主题和要点\n完整的SEO优化文章<hl>直接出炉</hl>",
+      "poster": "要写<hl>深度文章</hl>没时间\n给个主题就能写出\n结构清晰+SEO优化\n的<hl>完整博客</hl>",
       "title_zh": "万字长文一键生成",
-      "desc_zh": "再也不用为写长文章发愁，给个主题就能生成结构完整、SEO友好的深度内容。",
+      "desc_zh": "输入主题就能生成结构完整的长文章，包含SEO优化，适合写博客和深度内容。",
       "tags": [
         "长文写作",
-        "博客文章",
-        "SEO优化"
+        "博客",
+        "SEO"
       ],
       "audience": "创作者"
     },
@@ -3666,12 +3666,12 @@
       "stars": 4,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "AI写的文章总是<hl>机器味很重</hl>\n这个工具专门优化语言风格\n让你的博客内容\n读起来像<hl>真人在聊天</hl>",
-      "title_zh": "博客文章人味十足",
-      "desc_zh": "专门解决AI写作太机械的问题，让博客文章既有人情味又符合SEO要求。",
+      "poster": "AI写的文章<hl>太机械</hl>\n加入真人语气和情感\n让读者感觉是<hl>人在说话</hl>\n不是机器人在念稿",
+      "title_zh": "博客内容人性化重写",
+      "desc_zh": "把AI生成的冷冰冰文章改写成有温度的人性化内容，同时保持SEO效果。",
       "tags": [
         "博客写作",
-        "人性化文案",
+        "人性化",
         "SEO"
       ],
       "audience": "创作者"
@@ -4221,13 +4221,13 @@
       "stars": 0,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "又要写公众号推文了\n脑袋空空不知道写什么\n输入产品信息\n<hl>10万+</hl> 爆款文案自动生成",
-      "title_zh": "爆款文案一键生成",
-      "desc_zh": "专门帮自媒体人写爆款文案的AI，什么小红书种草、公众号推文、朋友圈文案都能写，还能保持你的个人风格",
+      "poster": "又要憋文案了？\n把你的想法告诉它\n<hl>自动优化</hl>SEO关键词\n还能保持你的<hl>个人风格</hl>",
+      "title_zh": "爆款文案30分钟搞定",
+      "desc_zh": "专门帮自媒体人写文案的，能分析你的写作风格，还自动做SEO优化，再也不用熬夜憋稿子了",
       "tags": [
-        "文案生成",
-        "自媒体",
-        "营销"
+        "文案写作",
+        "SEO优化",
+        "自媒体"
       ],
       "audience": "创作者"
     },
@@ -5023,12 +5023,12 @@
       "stars": 4094,
       "cat": "自动化",
       "_source": "skillsmp",
-      "poster": "周一打开邮箱<hl>99+</hl>未读\nAI自动分类重要程度\n一键生成回复内容\n重要邮件绝不遗漏",
-      "title_zh": "邮箱清零5分钟搞定",
-      "desc_zh": "邮箱再乱也不怕，AI帮你自动分类邮件优先级，还能生成回复内容，真正实现收件箱清零",
+      "poster": "周一打开邮箱<hl>99+</hl>未读\nAI自动分类重要紧急\n智能生成回复内容\n<hl>收件箱清零</hl>不是梦",
+      "title_zh": "50封邮件5分钟清完",
+      "desc_zh": "邮箱爆满处理不过来？这个AI能帮你自动分类邮件，生成回复，让你快速达到收件箱清零",
       "tags": [
-        "邮箱管理",
-        "工作效率",
+        "邮件管理",
+        "效率工具",
         "智能回复"
       ],
       "audience": "职场人"
@@ -5082,13 +5082,13 @@
       "stars": 42,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "出差开会邮件堆成山\n让 AI <hl>自动监控</hl>收件箱\n重要邮件秒回复\n再也不怕错过商机",
-      "title_zh": "邮件机器人24小时值班",
-      "desc_zh": "像有个贴心助理一样，AI帮你盯着邮箱，自动写好回复等你确认，再也不漏重要邮件。",
+      "poster": "客户半夜发邮件怎么办\nClaude <hl>自动起草</hl>回复\n你确认后一键发送\n再也不用熬夜盯邮箱",
+      "title_zh": "邮件机器人24小时待命",
+      "desc_zh": "像有个贴身助理！AI自动监控邮箱并起草回复，你只需要点确认就行",
       "tags": [
         "邮件自动化",
-        "商务效率",
-        "智能助理"
+        "客户服务",
+        "职场助手"
       ],
       "audience": "职场人"
     },
@@ -5145,13 +5145,13 @@
       "stars": 16,
       "cat": "自动化",
       "_source": "skillsmp",
-      "poster": "每天几十封工作邮件\n重要的总是被淹没\n智能分类 <hl>自动排队</hl>\n紧急邮件第一时间处理",
-      "title_zh": "邮件智能分流助手",
-      "desc_zh": "用更智能的方式管理邮件，自动识别邮件重要程度并分流处理，让你专注处理真正重要的事",
+      "poster": "邮件太多不知道<hl>先处理哪个</hl>\n智能分析邮件类型\n按优先级<hl>自动排队</hl>\n重要的永远在最前面",
+      "title_zh": "邮件智能分流处理",
+      "desc_zh": "用了特殊算法的邮件管理工具，能智能判断邮件重要性并自动分类处理，让你的收件箱永远井井有条",
       "tags": [
         "邮件分类",
-        "智能管理",
-        "工作流程"
+        "智能排序",
+        "效率工具"
       ],
       "audience": "职场人"
     },
@@ -5208,15 +5208,15 @@
       "stars": 7,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "想让AI自动处理客服邮件\n创建专属邮箱地址\n<hl>实时</hl>接收回复客户\n7x24小时不下班",
-      "title_zh": "AI邮件机器人搭建",
-      "desc_zh": "给你的AI助手配个专门邮箱，可以自动接收和回复邮件，适合做客服机器人",
+      "poster": "想让AI代你处理邮件？\n给它申请专属邮箱地址\n<hl>24小时</hl>自动回复客户\n你睡觉时生意也在谈",
+      "title_zh": "AI助手专属邮箱",
+      "desc_zh": "给你的AI助手配个专门邮箱，让它代你自动处理客户咨询，真正实现躺赚",
       "tags": [
-        "AI客服",
+        "AI代理",
         "自动回复",
-        "邮件机器人"
+        "客服助手"
       ],
-      "audience": "开发者"
+      "audience": "创作者"
     },
     {
       "id": "smp-kursku-skills-packs-global-skillshare-import-wave-006-gmail-automation-skill-md",
@@ -5600,12 +5600,12 @@
       "stars": 1,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "邮箱里一堆<hl>发票</hl>要整理\nAI自动识别金额日期\n核对付款记录\n直接生成财务报表",
-      "title_zh": "发票账单全自动入账",
-      "desc_zh": "再也不用手工整理发票了，AI从邮件里提取发票信息，自动核对付款，生成账务记录",
+      "poster": "邮箱里一堆<hl>发票截图</hl>\n手动录账要录到天亮\nAI自动识别金额日期\n<hl>直接生成</hl>记账条目",
+      "title_zh": "发票邮件秒变账本",
+      "desc_zh": "收到的发票邮件能自动变成记账条目，AI帮你识别金额、日期，财务工作轻松很多",
       "tags": [
         "财务管理",
-        "发票处理",
+        "发票识别",
         "自动记账"
       ],
       "audience": "职场人"
@@ -5916,15 +5916,15 @@
       "stars": 2041,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "老板扔来一份<hl>英文合同</hl>\n100多页要你明天交翻译\nAI批量处理\n格式完美保留<hl>直接用</hl>",
-      "title_zh": "100页合同秒翻中文",
-      "desc_zh": "Word、PDF、PPT这些文档直接丢进去就能翻译，格式都不会乱，超适合处理工作文件！",
+      "poster": "老板丢给你一堆<hl>英文合同</hl>\n要你明天开会前看完\nAI批量翻译保持<hl>原格式</hl>\nWord表格图片位置都不变",
+      "title_zh": "100页PDF合同秒翻中文",
+      "desc_zh": "超强的文档翻译工具，PDF、Word、PPT原样翻译，格式完全不乱，一次能翻几百个文件",
       "tags": [
         "文档翻译",
-        "批量处理",
-        "格式保留"
+        "PDF翻译",
+        "批量处理"
       ],
-      "audience": "职场人"
+      "audience": "所有人"
     },
     {
       "id": "smp-travisjneuman-claude-skills-document-skills-skill-md",
@@ -5937,15 +5937,15 @@
       "stars": 41,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "Word写不出来\nPDF改不了\nPPT做不好\n<hl>一个工具</hl>统统搞定\n专业文档<hl>轻松完成</hl>",
-      "title_zh": "Office文档一键搞定",
-      "desc_zh": "Word、PDF、PPT、Excel都能处理，写报告、做演示、编辑文档什么的都不用愁了。",
+      "poster": "领导突然要<hl>述职报告</hl>\n把你今年干的事丢给AI\n自动生成Word、PPT、Excel\n<hl>排版完美</hl>直接提交",
+      "title_zh": "年终总结一键生成",
+      "desc_zh": "专业文档制作神器，能帮你写Word报告、做PPT、整理Excel表格，格式超规范",
       "tags": [
-        "Office办公",
-        "文档编辑",
-        "效率工具"
+        "办公文档",
+        "报告生成",
+        "PPT制作"
       ],
-      "audience": "所有人"
+      "audience": "职场人"
     },
     {
       "id": "smp-johpaz-hive-packages-skills-src-bundled-office-office-document-manager-skill-md",
@@ -6000,13 +6000,13 @@
       "stars": 23,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "PDF提取不了文字\nExcel数据要整理\nWord格式乱七八糟\n<hl>一站式</hl>全部解决",
-      "title_zh": "文档处理全能王",
-      "desc_zh": "PDF、Excel、Word文档的读取、编辑、转换都能做，办公学习必备工具。",
+      "poster": "各种<hl>文档格式</hl>都要处理\nPDF提取、Excel整理、Word编辑\n一个工具<hl>全搞定</hl>\n再也不用装一堆软件",
+      "title_zh": "文档编辑万能工具",
+      "desc_zh": "文档处理全能选手，PDF、Word、Excel想怎么改就怎么改，还能互相转换格式",
       "tags": [
-        "文档处理",
-        "数据整理",
-        "办公效率"
+        "文档编辑",
+        "多格式支持",
+        "办公工具"
       ],
       "audience": "所有人"
     },
@@ -6211,12 +6211,12 @@
       "stars": 4,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "堆积如山的PDF报告\n需要提取关键数据\nAI <hl>自动识别</hl>重点\n专业文档 <hl>秒生成</hl>",
-      "title_zh": "商务文档智能处理",
-      "desc_zh": "专门处理商务文档，从PDF提取数据、验证信息到生成专业报告，让文档工作变简单。",
+      "poster": "厚厚的项目文档看不完\nClaude 帮你<hl>提取要点</hl>\n数据验证、需求整理\n<hl>专业报告</hl>自动生成",
+      "title_zh": "商务文档智能分析",
+      "desc_zh": "处理复杂商务文档的利器！自动提取关键信息，验证数据，生成专业分析报告",
       "tags": [
         "商务文档",
-        "数据提取",
+        "数据分析",
         "报告生成"
       ],
       "audience": "职场人"
@@ -6460,12 +6460,12 @@
       "stars": 1,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "收到PDF想要<hl>重新编辑</hl>\nPPT内容要提取文字\n一键转换成markdown\n<hl>随便改</hl>随便用",
-      "title_zh": "任何文档秒变可编辑",
-      "desc_zh": "PDF、Word、PPT这些文档都能转成好编辑的格式，特别适合整理资料和二次创作。",
+      "poster": "收到一堆<hl>PDF资料</hl>要整理\n复制粘贴格式全乱了\nAI自动提取<hl>纯文字</hl>\n想怎么编辑就怎么编辑",
+      "title_zh": "任何文档秒变纯文字",
+      "desc_zh": "文档格式转换利器，PDF、Word、Excel统统变成纯文字，方便你二次编辑和整理",
       "tags": [
         "格式转换",
-        "内容提取",
+        "文字提取",
         "文档处理"
       ],
       "audience": "创作者"
@@ -6540,13 +6540,13 @@
       "stars": 0,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "领导临时要<hl>季度报告</hl>\n数据表格做了一周\n告诉AI你的需求\n专业Word直接<hl>拿去交差</hl>",
-      "title_zh": "报告文档一键生成",
-      "desc_zh": "不用熬夜做报告了！把你的想法告诉AI，自动生成Word、PDF、PPT，格式超专业。",
+      "poster": "又要写报告又要做表格\n把需求丢给AI\n<hl>Word PDF Excel</hl> 全套\n格式完美直接用",
+      "title_zh": "文档一键生成不加班",
+      "desc_zh": "我现在写报告、做PPT、整理Excel表格都用这个，输入要求就能生成专业文档，省了好多时间。",
       "tags": [
-        "办公文档",
-        "报告生成",
-        "职场效率"
+        "文档生成",
+        "办公自动化",
+        "报告制作"
       ],
       "audience": "职场人"
     },
@@ -6906,12 +6906,12 @@
       "stars": 343,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "融资路演PPT被投资人\n<hl>3页就关掉</hl>\n12页黄金框架\n让你的项目<hl>秒抓眼球</hl>",
-      "title_zh": "投资人看5分钟就想打钱",
-      "desc_zh": "专门教你做融资PPT的，按照投资人最爱看的套路来，什么图表用哪种、团队页怎么展示，都给你安排得明明白白",
+      "poster": "BP做了10版\n投资人还是<hl>秒拒</hl>\n用这套12页框架\n让数据和故事都<hl>会说话</hl>",
+      "title_zh": "投资人看一眼就想投钱的BP",
+      "desc_zh": "专门教你做投资人爱看的商业计划书，从框架到视觉设计都给你安排好了，再也不怕被秒拒。",
       "tags": [
+        "商业计划书",
         "融资",
-        "PPT",
         "创业"
       ],
       "audience": "创作者"
@@ -7007,13 +7007,13 @@
       "stars": 217,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "培训、汇报、提案\n<hl>任何场景</hl>都能做\n说出你的需求和听众\n专业slides<hl>马上就有</hl>",
-      "title_zh": "任何主题PPT快速制作",
-      "desc_zh": "万能PPT制作工具！不管什么主题什么场合，告诉它你要讲什么，专业幻灯片立马生成。",
+      "poster": "临时被叫做presentation\n说出你的主题和听众\n<hl>交互式</hl>幻灯片自动生成\n再也不怕突击任务",
+      "title_zh": "5分钟做出精美PPT",
+      "desc_zh": "任何主题都能快速生成PPT，支持多种格式导出，学生汇报、工作提案都能用。",
       "tags": [
         "PPT制作",
         "演示文稿",
-        "通用工具"
+        "快速生成"
       ],
       "audience": "所有人"
     },
@@ -7087,13 +7087,13 @@
       "stars": 115,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "公司汇报要求<hl>统一视觉</hl>\n品牌标准自动应用\n认知科学优化版式\n老板客户都<hl>印象深刻</hl>",
-      "title_zh": "企业级PPT标准制作",
-      "desc_zh": "做企业内部汇报PPT的救星！自动套用公司设计规范，版式专业到让人以为你请了设计师。",
+      "poster": "公司要求<hl>Oracle标准</hl>PPT\n设计规范+认知科学\n让听众记住你的内容\n技术汇报更专业",
+      "title_zh": "Oracle风格PPT专家",
+      "desc_zh": "专门做Oracle风格的PPT，符合公司设计规范，还融入了认知科学让观众更容易记住内容。",
       "tags": [
-        "企业汇报",
-        "PPT设计",
-        "品牌规范"
+        "企业PPT",
+        "设计规范",
+        "技术汇报"
       ],
       "audience": "职场人"
     },
@@ -7192,13 +7192,13 @@
       "stars": 19,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "产品方案写了<hl>20页</hl>\n向上汇报只有10分钟\n上传文档秒变slides\n重点亮点<hl>自动提炼</hl>",
-      "title_zh": "产品汇报PPT智能生成",
-      "desc_zh": "产品经理的汇报神器！把你写的方案文档丢进去，自动提炼重点做成PPT。",
+      "poster": "产品需求文档写完了\n还要做汇报PPT？\n直接转换成<hl>Google幻灯片</hl>\n老板同事都说专业",
+      "title_zh": "产品汇报PPT秒出",
+      "desc_zh": "把产品文档直接转成汇报PPT，适合产品经理做项目汇报、路线图展示，自动排版超省事。",
       "tags": [
         "产品汇报",
-        "工作汇报",
-        "PPT生成"
+        "Google幻灯片",
+        "项目管理"
       ],
       "audience": "职场人"
     },
@@ -7373,15 +7373,15 @@
       "stars": 1,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "投资人见过<hl>上千个</hl>项目\n什么套路都免疫了\n行业模板+心理分析\n让你的项目<hl>脱颖而出</hl>",
-      "title_zh": "商业路演PPT专业定制",
-      "desc_zh": "专门做融资路演的PPT工具！懂投资人心理，知道什么内容放哪一页最有说服力。",
+      "poster": "创业项目需要<hl>融资路演</hl>\n行业模板+投资人心理\nAI帮你优化每一页\n提高获投成功率",
+      "title_zh": "路演PPT获投神器",
+      "desc_zh": "专业的融资路演PPT制作工具，有各行业模板，还能分析投资人喜好帮你优化内容。",
       "tags": [
+        "创业融资",
         "投资路演",
-        "商业计划",
-        "融资PPT"
+        "商业展示"
       ],
-      "audience": "创作者"
+      "audience": "职场人"
     },
     {
       "id": "smp-foolpoet44-ai-pm-agent-claude-skills-presentation-generator-skill-md",
@@ -7622,13 +7622,13 @@
       "stars": 1625,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "老板要你调研<hl>新兴市场</hl>\n网上信息太杂太散\n多源信息自动整合\n专业报告<hl>直接交差</hl>",
-      "title_zh": "复杂调研一键出报告",
-      "desc_zh": "遇到复杂的调研任务就用它，自动从多个渠道收集信息，最后给你整理成一份完整的分析报告",
+      "poster": "老板要你研究新赛道\n网上信息太<hl>杂乱</hl>\n一键整合多方资料\n<hl>专业报告</tml>直接出炉",
+      "title_zh": "复杂问题一键深度调研",
+      "desc_zh": "像有了个专业研究员，帮你从各个渠道收集信息，整理成完整的分析报告，复杂问题不再头疼。",
       "tags": [
-        "调研",
-        "报告",
-        "分析"
+        "市场调研",
+        "报告生成",
+        "信息整理"
       ],
       "audience": "所有人"
     },
@@ -7874,12 +7874,12 @@
       "stars": 4,
       "cat": "数据分析",
       "_source": "skillsmp",
-      "poster": "一堆数据不知道\n<hl>怎么分析</hl>\n自动跑脚本出结果\n研究问题到结论<hl>一条龙</hl>",
+      "poster": "一堆数据不知道<hl>怎么分析</hl>\n从研究问题到结论\n完整的分析<hl>自动成型</hl>\n直接拿去汇报",
       "title_zh": "数据分析报告自动生成",
-      "desc_zh": "给你数据就能自动分析并生成专业报告，包括研究方法、结果解读，特别适合要交分析报告的时候用",
+      "desc_zh": "把你的数据扔进去，自动帮你做分析、写报告，从方法到结论都给你整理好，老板夸你专业。",
       "tags": [
         "数据分析",
-        "报告",
+        "工作汇报",
         "自动化"
       ],
       "audience": "职场人"
@@ -8164,13 +8164,13 @@
       "stars": 0,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "要做<hl>市场分析</hl>不知从何下手\n竞品分析、市场规模\n投资级别的专业报告\n<hl>直接拿去汇报</hl>",
+      "poster": "要做市场分析报告\n不知道从<hl>哪里下手</hl>\n市场规模、竞争格局\n<hl>投资级</hl>报告一键生成",
       "title_zh": "市场调研报告专业版",
-      "desc_zh": "专门用来写市场调研报告的，能帮你做市场规模分析、竞争对手分析，输出的报告质量很专业",
+      "desc_zh": "专门做市场研究的工具，帮你分析市场大小、竞争对手，生成投资人级别的专业报告。",
       "tags": [
-        "市场调研",
-        "竞品分析",
-        "商业分析"
+        "市场分析",
+        "竞品调研",
+        "商业报告"
       ],
       "audience": "职场人"
     },
@@ -8572,13 +8572,13 @@
       "stars": 29651,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "产品要出海\n文档翻译成<hl>10种语言</hl>\n手动翻译要1个月\n现在<hl>5分钟</hl>搞定",
-      "title_zh": "技术文档一键多语言",
-      "desc_zh": "专门给技术文档做多语言翻译的，保持原有格式和链接，特别适合产品国际化",
+      "poster": "产品要出海\n技术文档要翻译\n一页页复制粘贴？\nMkDocs <hl>批量翻译</hl>\n<hl>格式完美保持</hl>",
+      "title_zh": "文档多语言一键搞定",
+      "desc_zh": "专门给技术文档做多语言翻译的，保持原有格式和结构，特别适合产品国际化",
       "tags": [
         "文档翻译",
         "技术文档",
-        "多语言"
+        "国际化"
       ],
       "audience": "开发者"
     },
@@ -8782,13 +8782,13 @@
       "stars": 58,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "收到英文合同看不懂\n逐字逐句查字典太累\n<hl>一键翻译</hl>保留原格式\n专业术语也能<hl>准确理解</hl>",
-      "title_zh": "外语文档秒变中文",
-      "desc_zh": "不管是英文邮件、日语说明书还是韩文网页，粘贴进去就能翻译成地道中文，再也不用对着翻译软件一句句复制了",
+      "poster": "客户发来英文合同\n看得头疼想放弃？\nClaude <hl>秒翻中文</hl>\n还能保持原文语境\n<hl>专业又地道</hl>",
+      "title_zh": "文档翻译秒懂全球",
+      "desc_zh": "不管是英文邮件还是外语文档，丢给它立马变中文，而且翻译得特别自然，不像机翻那么生硬",
       "tags": [
         "翻译",
-        "外语",
-        "文档"
+        "文档处理",
+        "外语"
       ],
       "audience": "所有人"
     },
@@ -8858,15 +8858,15 @@
       "stars": 11,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "10页的行业报告看不完？\n丢个链接进去\n<hl>核心要点</hl>自动提取\n还能翻译成中文",
-      "title_zh": "长文章3分钟读完",
-      "desc_zh": "把长文章、网页链接丢给它，几秒钟就能提取出核心要点，支持28种语言",
+      "poster": "10页报告看到眼花\n<hl>丢个链接</hl>进去\n核心内容<hl>3句话</hl>搞定\n老板问什么都不慌",
+      "title_zh": "长文章3句话总结",
+      "desc_zh": "能把超长的文章、报告、网页瞬间总结成几个要点，再也不用熬夜看材料了",
       "tags": [
         "总结",
         "阅读",
         "效率"
       ],
-      "audience": "所有人"
+      "audience": "职场人"
     },
     {
       "id": "smp-foreveryh-claude-skills-tutorial-claude-skills-fumadocs-article-importer-skill-md",
@@ -9090,13 +9090,13 @@
       "stars": 1,
       "cat": "其他",
       "_source": "skillsmp",
-      "poster": "会议录音2小时\n手打记录要到半夜\n<hl>AI直接转文字</hl>\n还能自动<hl>翻译总结</hl>",
+      "poster": "会议录音2小时\n手敲文字要到半夜\nWhisper <hl>自动转文字</hl>\n还能翻译成中文\n<hl>准确率超高</hl>",
       "title_zh": "录音转文字神器",
-      "desc_zh": "会议录音、采访音频、语音备忘录都能转成文字，支持中英文和100多种语言，准确率超高",
+      "desc_zh": "支持100多种语言的语音转文字，会议录音、课堂笔记什么的直接转成文档，省时省力",
       "tags": [
-        "录音转文字",
+        "语音转文字",
         "会议记录",
-        "语音识别"
+        "笔记"
       ],
       "audience": "所有人"
     },
@@ -9482,13 +9482,13 @@
       "stars": 4094,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "工作3年还在原地踏步\n不知道下一步怎么走\n<hl>从简历到谈薪</hl>全流程指导\n让你的职业<hl>快速上升</hl>",
-      "title_zh": "职业规划全套方案",
-      "desc_zh": "职业发展一站式解决方案，从自我评估到跳槽谈薪，每个环节都有具体指导，适合任何行业任何级别",
+      "poster": "想跳槽涨薪\n但不知道从哪开始\n职业规划+简历+面试\n<hl>全套解决方案</hl>\n从迷茫到<hl>拿到offer</hl>",
+      "title_zh": "职业发展全能教练",
+      "desc_zh": "职场发展一站式解决方案，从职业规划到薪资谈判全覆盖，适合任何行业任何级别的人",
       "tags": [
         "职业规划",
-        "跳槽指导",
-        "升职加薪"
+        "求职",
+        "职场发展"
       ],
       "audience": "职场人"
     },
@@ -9503,13 +9503,13 @@
       "stars": 4094,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "跳槽涨薪不知道从哪开始？\n简历、面试、<hl>薪资谈判</hl>\n职场进阶需要的\n这里<hl>全都有</hl>",
-      "title_zh": "职场进阶全套工具箱",
-      "desc_zh": "最全的职场工具箱！简历制作、面试练习、薪资查询、LinkedIn优化，一个平台解决所有求职需求",
+      "poster": "简历、面试、跟进\n<hl>样样要钱</hl>样样不专业\n一个工具包含所有\n从<hl>0到offer</hl>全搞定",
+      "title_zh": "求职全套工具箱",
+      "desc_zh": "求职需要的所有工具都在这里，简历制作、面试练习、申请追踪，一站式解决",
       "tags": [
-        "职场",
         "求职",
-        "薪资"
+        "简历",
+        "面试"
       ],
       "audience": "职场人"
     },
@@ -9524,9 +9524,9 @@
       "stars": 4094,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "投了30家公司\n哪家到哪一步都<hl>忘了</hl>\n简历匹配、面试准备、进度跟踪\n<hl>一个工具</hl>全搞定",
-      "title_zh": "求职全流程自动跟进",
-      "desc_zh": "求职神器！能自动跟踪你投的所有公司进度，还能根据JD优化简历，面试题都给你准备好",
+      "poster": "投了20家公司<hl>全忘了</hl>\n哪家回复哪家没消息\n自动追踪+提醒\n<hl>面试机会</hl>一个不漏",
+      "title_zh": "求职申请一站管理",
+      "desc_zh": "帮你管理所有求职申请，自动匹配简历和岗位，还能生成求职信，再也不会漏掉任何面试机会",
       "tags": [
         "求职",
         "简历优化",
@@ -9566,13 +9566,13 @@
       "stars": 89,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "投了50份简历\n<hl>石沉大海</hl>\nAI帮你写成HR爱看的格式\n<hl>面试邀请</hl>翻3倍",
-      "title_zh": "简历过筛率提升神器",
-      "desc_zh": "专业简历制作工具，能生成HR系统容易识别的格式，还有多种模板，大厂求职必备",
+      "poster": "投了50份简历\n<hl>石沉大海</hl>\n可能是格式不过关\nAI帮你重新包装\n<hl>HR筛选系统</hl>直接通过",
+      "title_zh": "简历优化直通HR",
+      "desc_zh": "专业简历制作工具，能生成各种格式，还会针对ATS系统优化，大大提高简历通过率",
       "tags": [
         "简历制作",
         "求职",
-        "面试"
+        "职场"
       ],
       "audience": "职场人"
     },
@@ -9650,13 +9650,13 @@
       "stars": 5,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "简历、求职信、面试准备\n每个都要<hl>单独</hl>折腾\n一个工具管理全流程\n从投递到<hl>拿offer</hl>",
-      "title_zh": "求职材料一站式搞定",
-      "desc_zh": "求职全能助手，从简历制作到面试准备，再到进度跟踪，一条龙服务帮你拿offer",
+      "poster": "求职材料<hl>一团乱</hl>\n投哪家忘哪家\n一个系统管全部\n从简历到<hl>拿offer</hl>",
+      "title_zh": "求职操作系统",
+      "desc_zh": "把求职当项目管理，从简历制作到面试跟进，帮你系统化搞定整个求职流程",
       "tags": [
-        "求职",
+        "求职管理",
         "职业规划",
-        "面试"
+        "简历"
       ],
       "audience": "职场人"
     },
@@ -9671,13 +9671,13 @@
       "stars": 4,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "面试总是紧张\n不知道HR在想什么\n<hl>老招聘官</hl>1对1指导\n教你每个问题怎么<hl>完美回答</hl>",
-      "title_zh": "资深HR给你面试指导",
-      "desc_zh": "像有个资深HR朋友在身边，帮你改简历、练面试、分析岗位要求，让你知道面试官真正想听什么",
+      "poster": "面试总是紧张\n不知道HR想听什么\n20年招聘老司机Max\n<hl>1对1指导</hl>\n教你每个回答的<hl>套路</hl>",
+      "title_zh": "资深HR教你面试",
+      "desc_zh": "像有个资深HR朋友在身边，从简历到面试全程指导，还会给你最真实的反馈建议",
       "tags": [
         "面试指导",
-        "求职辅导",
-        "HR建议"
+        "求职",
+        "职业规划"
       ],
       "audience": "职场人"
     },
@@ -9709,13 +9709,13 @@
       "stars": 4,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "明天就要面试了\n还在网上<hl>瞎搜</hl>面试题？\n针对公司和岗位\n生成<hl>专属</hl>面试问答",
-      "title_zh": "面试题提前练一遍",
-      "desc_zh": "面试前必备！根据你要面试的公司和职位，生成专门的面试题，还能陪你模拟练习",
+      "poster": "明天就要面试了\n<hl>紧张到睡不着</hl>\n1000+真题练习\n模拟对话<hl>秒变老手</hl>",
+      "title_zh": "面试题库+模拟训练",
+      "desc_zh": "根据公司和职位生成面试题，还能陪你模拟面试对话，让你面试时不再紧张",
       "tags": [
         "面试",
-        "模拟练习",
-        "职场"
+        "求职",
+        "职场技能"
       ],
       "audience": "职场人"
     },
@@ -9810,13 +9810,13 @@
       "stars": 2,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "每天刷招聘网站\n投简历像<hl>海投</hl>一样\nAI自动匹配岗位、优化简历\n面试邀请<hl>翻倍</hl>",
-      "title_zh": "AI帮你投简历跟进度",
-      "desc_zh": "求职自动化助手，能帮你筛选合适工作、定制简历、准备面试，还会提醒你跟进进度",
+      "poster": "每天刷招聘网站\n<hl>累成狗</hl>还没效果\nAI帮你投简历跟进度\n<hl>躺着等面试</hl>通知",
+      "title_zh": "AI求职全程代理",
+      "desc_zh": "像有个求职助理一样，帮你投简历、跟进进度、准备面试，全程自动化管理",
       "tags": [
-        "求职",
+        "求职自动化",
         "简历",
-        "自动化"
+        "面试"
       ],
       "audience": "职场人"
     },
@@ -10227,13 +10227,13 @@
       "stars": 4094,
       "cat": "设计媒体",
       "_source": "skillsmp",
-      "poster": "想开网店卖复古装饰画\n但不会设计？\n一句话描述，AI 直接给你\n<hl>1950 年代</hl>风格海报成品",
-      "title_zh": "复古海报一句话生成",
-      "desc_zh": "专门生成复古风海报的 AI，输入想法就能做出 50-70 年代那种老式旅行海报，开 Etsy 店或装饰房间都超棒。",
+      "poster": "想开个文创小店\n但设计费动辄几千块\n输入想法就能生成<hl>复古海报</hl>\n直接上架<hl>开卖</hl>",
+      "title_zh": "复古海报5秒生成",
+      "desc_zh": "想做复古海报但不会设计？输入文字就能生成1950-70年代风格的海报，特别适合开网店卖文创产品。",
       "tags": [
         "海报设计",
         "复古风格",
-        "AI 绘画"
+        "文创产品"
       ],
       "audience": "创作者"
     },
@@ -10248,13 +10248,13 @@
       "stars": 578,
       "cat": "营销增长",
       "_source": "skillsmp",
-      "poster": "想要<hl>专业</hl>级 AI 画作\n但提示词总是写不好？\n从 Logo 到海报到产品图\n<hl>批量生成</hl>不重样",
-      "title_zh": "AI 绘画全能助手",
-      "desc_zh": "AI 绘画的全能助手，帮你优化提示词，批量生成图片，从 Logo 设计到产品展示图都能搞定。",
+      "poster": "Logo、海报、产品图\n啥都要做但<hl>啥都不会</hl>\n一个工具搞定所有\n从灵感到<hl>成品</hl>全包了",
+      "title_zh": "全能视觉创作助手",
+      "desc_zh": "做自媒体需要各种图片素材？这个全能助手帮你搞定Logo设计、海报制作、产品样机等所有视觉需求。",
       "tags": [
-        "AI 绘画",
-        "Logo 设计",
-        "批量生成"
+        "视觉设计",
+        "Logo制作",
+        "品牌设计"
       ],
       "audience": "创作者"
     },
@@ -10332,13 +10332,13 @@
       "stars": 250,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "临时要做个海报\n不会PS又<hl>没素材</hl>\n说一句话描述想法\n高清海报<hl>直接生成</hl>",
-      "title_zh": "文字秒变精美海报",
-      "desc_zh": "设计小白的救星！只要描述你想要的效果，就能生成各种尺寸的海报、logo，质量超高",
+      "poster": "不会PS不会画画\n<hl>想要个logo</hl>咋办\n说出想法秒出图\n海报logo<hl>张口就来</hl>",
+      "title_zh": "AI绘图一句话生成",
+      "desc_zh": "只要描述你想要什么图，AI就能帮你画出来，海报、logo、插画都不在话下",
       "tags": [
+        "AI绘画",
         "设计",
-        "海报",
-        "AI绘画"
+        "创作"
       ],
       "audience": "创作者"
     },
@@ -11153,13 +11153,13 @@
       "stars": 11409,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "录音满是<hl>嗯嗯啊啊</hl>\n还有杂音和停顿？\nAI自动清理音频\n直接输出<hl>电台级</hl>效果",
-      "title_zh": "录音秒变专业级播客",
-      "desc_zh": "自动去掉录音里的口水音、嗯嗯啊啊，还能美化音质，小白也能做出专业播客！",
+      "poster": "播客录了满满的\n\"嗯、啊、那个\"\nAI自动<hl>静音处理</hl>\n<hl>专业级</hl>音质出炉",
+      "title_zh": "录音一键去除口癖杂音",
+      "desc_zh": "AI自动删除录音里的口癖、杂音和空白，让你的播客和视频听起来超专业",
       "tags": [
-        "音频剪辑",
+        "音频处理",
         "播客制作",
-        "录音美化"
+        "录音优化"
       ],
       "audience": "创作者"
     },
@@ -11237,13 +11237,13 @@
       "stars": 570,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "会议录音2小时\n手动整理要<hl>半天</hl>\n丢给AI几分钟\n<hl>分人标注</hl>的文字稿到手",
-      "title_zh": "视频音频秒变文字稿",
-      "desc_zh": "YouTube视频、会议录音都能转成文字，还能自动识别谁在说话",
+      "poster": "2小时会议要整理\n谁说了什么记不清\n<hl>自动转文字</hl>还分说话人\n开会再也不用<hl>疯狂记笔记</hl>",
+      "title_zh": "会议录音变文字稿",
+      "desc_zh": "会议录音、YouTube视频都能转成文字，还能自动标记谁说的话，整理会议纪要超方便",
       "tags": [
-        "语音转文字",
-        "会议记录",
-        "视频转录"
+        "录音转文字",
+        "会议纪要",
+        "视频字幕"
       ],
       "audience": "所有人"
     },
@@ -11355,15 +11355,15 @@
       "stars": 115,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "老板要汇报材料\n<hl>80种语言</hl>任选\nPPT、播客、信息图\n<hl>一键</hl>全搞定",
+      "poster": "老板要你做<hl>汇报PPT</hl>\n还得录个介绍视频\n上传资料选个模板\nPPT+<hl>AI播客</hl>自动生成",
       "title_zh": "资料一键变PPT播客",
-      "desc_zh": "有资料就能自动生成PPT、播客、信息图，支持80多种语言",
+      "desc_zh": "把你的资料自动做成PPT、播客、信息图，80多种语言，presentation再也不愁",
       "tags": [
         "PPT制作",
-        "内容创作",
-        "多语言"
+        "播客生成",
+        "汇报材料"
       ],
-      "audience": "创作者"
+      "audience": "职场人"
     },
     {
       "id": "smp-guia-matthieu-clawfu-skills-skills-audio-transcription-to-content-skill-md",
@@ -11397,13 +11397,13 @@
       "stars": 44,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "会议录屏、网课、播客\n<hl>太长</hl>没时间看？\n丢个链接给AI\n核心内容<hl>秒提取</hl>",
-      "title_zh": "3小时视频3分钟看完",
-      "desc_zh": "再长的视频音频都能给你总结成几句话，上班摸鱼学习神器！",
+      "poster": "2小时会议录音\n没时间重听？\nAI <hl>3分钟</hl>给你\n整理好的<hl>要点总结</hl>",
+      "title_zh": "视频音频秒变文字笔记",
+      "desc_zh": "丢个视频或音频链接，AI马上给你生成重点总结，再也不用花时间重看重听了",
       "tags": [
         "视频总结",
-        "学习效率",
-        "内容提取"
+        "音频笔记",
+        "效率工具"
       ],
       "audience": "所有人"
     },
@@ -11515,13 +11515,13 @@
       "stars": 2,
       "cat": "设计媒体",
       "_source": "skillsmp",
-      "poster": "直播3小时精彩内容\n不知道怎么做成短视频？\nAI自动找<hl>黄金片段</hl>\n连标题文案都给你写好",
-      "title_zh": "1小时录播切成10个爆款短视频",
-      "desc_zh": "把你的长视频自动切成短视频片段，还帮你写好标题和文案，简直是自媒体人的福音！",
+      "poster": "录了1小时直播\n发现有好多<hl>精彩片段</hl>\nAI自动找亮点配字幕\n<hl>10个短视频</hl>素材到手",
+      "title_zh": "一条长视频变10个爆款短片",
+      "desc_zh": "把长视频自动切成多个短视频，还帮你写好标题和字幕，一份内容当十份用！",
       "tags": [
-        "短视频制作",
-        "内容剪辑",
-        "自媒体运营"
+        "短视频",
+        "内容创作",
+        "视频剪辑"
       ],
       "audience": "创作者"
     },
@@ -12105,13 +12105,13 @@
       "stars": 4094,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "谷歌日历、Outlook、公司系统\n三套日程<hl>乱成一团</hl>\nClaude 帮你统一管理\n再也不会<hl>撞会</hl>了",
-      "title_zh": "跨平台日程一键同步",
-      "desc_zh": "终于有工具能把谷歌、Outlook、公司日历全部打通了，再也不用来回切换看时间冲突",
+      "poster": "Google日历、Outlook、CalDAV\n来回切换找<hl>会议时间</hl>\nClaude 帮你统一管理\n<hl>一句话</hl>搞定所有约会",
+      "title_zh": "三个日历统一管理",
+      "desc_zh": "终于不用在三个日历app之间切换了，Claude直接帮你统一管理所有日程，约会议超方便",
       "tags": [
-        "日程管理",
+        "日历管理",
         "会议安排",
-        "效率工具"
+        "时间规划"
       ],
       "audience": "职场人"
     },
@@ -12126,13 +12126,13 @@
       "stars": 4094,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "约会要找<hl>6个人</hl>都有空的时间\n手动对比日历到崩溃\nClaude 直接给你<hl>最佳时段</hl>\n一键发送邀请",
-      "title_zh": "智能会议助手",
-      "desc_zh": "约多人会议再也不用一个个问时间了，直接找到大家都空闲的时段，自动发邀请",
+      "poster": "面试、团队会、一对一\n每种会议<hl>流程</hl>都不同\nClaude 按类型智能安排\n冲突自动避开",
+      "title_zh": "会议冲突自动避开",
+      "desc_zh": "不同类型的会议有不同安排方式，这个工具帮你智能识别会议类型，自动避开时间冲突",
       "tags": [
-        "会议安排",
-        "团队协作",
-        "时间管理"
+        "智能排期",
+        "会议管理",
+        "时间冲突"
       ],
       "audience": "职场人"
     },
@@ -12147,13 +12147,13 @@
       "stars": 791,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "领导突然要<hl>改会议时间</hl>\n要通知一堆人重新安排\nClaude 自动找空档\n<hl>一键重新约</hl>",
-      "title_zh": "Outlook日程智能助手",
-      "desc_zh": "专门为Outlook用户打造，会议冲突检测、智能改期、自动回复邮件邀请，职场必备",
+      "poster": "会议准备、改期、回复邀请\nOutlook日历<hl>琐事一堆</hl>\nClaude 帮你智能处理\n出差协调也能搞定",
+      "title_zh": "Outlook日历智能助理",
+      "desc_zh": "Outlook重度用户必备，会议改期、邀请回复、出差协调这些琐事Claude都能帮你搞定",
       "tags": [
         "Outlook",
         "会议管理",
-        "职场效率"
+        "出差协调"
       ],
       "audience": "职场人"
     },
@@ -12206,13 +12206,13 @@
       "stars": 50,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "手动添加<hl>重复会议</hl>\n设置提醒、调时区\n繁琐到想放弃\nClaude 帮你<hl>批量搞定</hl>",
-      "title_zh": "日历事件批量处理",
-      "desc_zh": "创建重复事件、设置提醒、处理时区这些麻烦事，现在都能一句话搞定",
+      "poster": "\"下周二下午约个会\"\n说人话就能<hl>创建日程</hl>\n支持重复事件和时区\n<hl>ICS文件</hl>直接导入",
+      "title_zh": "日程安排一句话搞定",
+      "desc_zh": "用人话就能创建日程，支持重复事件、时区转换，还能直接导入ICS文件",
       "tags": [
-        "日程管理",
-        "提醒设置",
-        "时区转换"
+        "日程创建",
+        "时区转换",
+        "重复事件"
       ],
       "audience": "所有人"
     },
@@ -12248,13 +12248,13 @@
       "stars": 10,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "会议邀请堆积如山\n接受？拒绝？改时间？\nClaude帮你<hl>批量处理</hl>\n日程安排<hl>井井有条</hl>",
-      "title_zh": "Outlook会议秒处理",
-      "desc_zh": "专门管理Outlook日历的助手，查看、创建、回复会议邀请都能一键搞定",
+      "poster": "<hl>15个</hl>会议邀请待回复\n一个个点太费时间\nClaude 批量处理\n接受、拒绝、<hl>改时间</hl>一气呵成",
+      "title_zh": "Outlook会议批量处理",
+      "desc_zh": "专门优化Outlook日历管理，批量处理会议邀请，查看日程安排都比原生界面快",
       "tags": [
         "Outlook",
-        "会议回复",
-        "日程整理"
+        "会议邀请",
+        "批量处理"
       ],
       "audience": "职场人"
     },
@@ -12827,13 +12827,13 @@
       "stars": 0,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "开会开到头秃\n邮件堆成山\nAI秘书帮你写邮件排日程\n<hl>工作效率</hl>直接起飞",
-      "title_zh": "AI秘书帮你管日程",
-      "desc_zh": "就像有个贴心秘书，帮你写邮件、安排会议、准备议程，再也不怕忘事了",
+      "poster": "邮件堆积如山，会议安排混乱\nAI秘书帮你<hl>自动回复</hl>邮件\n安排会议，整理日程\n<hl>24小时</hl>不下班的贴心助理",
+      "title_zh": "AI秘书全天候待命",
+      "desc_zh": "就像有个超靠谱的秘书，帮你处理邮件、安排会议、管理日程，工作效率直接翻倍。",
       "tags": [
-        "办公助手",
-        "邮件管理",
-        "日程安排"
+        "邮件助手",
+        "日程管理",
+        "职场效率"
       ],
       "audience": "职场人"
     },
@@ -13004,15 +13004,15 @@
       "stars": 22,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "笔记散落各处找不到\n会议记录乱成一团\nAI帮你在Notion里\n<hl>自动建页面</hl>分类整理",
+      "poster": "Notion页面太多找不到\n想法记录太零散\nAI帮你<hl>自动创建</hl>数据库\n分类整理，<hl>秒速</hl>找到想要的内容",
       "title_zh": "Notion笔记自动整理",
-      "desc_zh": "自动在Notion里创建页面和数据库，再也不用手动整理笔记和资料了",
+      "desc_zh": "再也不用手动整理Notion了，AI帮你自动创建页面、分类笔记，想法管理变得超简单。",
       "tags": [
-        "笔记整理",
-        "知识管理",
-        "办公效率"
+        "笔记管理",
+        "知识整理",
+        "Notion"
       ],
-      "audience": "职场人"
+      "audience": "所有人"
     },
     {
       "id": "smp-ericwang915-pythonclaw-pythonclaw-templates-skills-productivity-obsidian-skill-md",
@@ -13025,13 +13025,13 @@
       "stars": 22,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "学过的东西转眼就忘\n重要资料散落各处找不到\n用 Obsidian 建个<hl>第二大脑</hl>\n所有知识<hl>自动关联</hl>随时调用",
-      "title_zh": "知识永远不再丢失",
-      "desc_zh": "把你的笔记、资料、想法都连成一张网，再也不用担心忘记重要信息了",
+      "poster": "想法太多记不住\n灵感一闪就忘记\nObsidian 帮你建个<hl>专属知识库</hl>\n所有想法自动<hl>连成网</hl>",
+      "title_zh": "第二大脑知识库搭建",
+      "desc_zh": "超强大的笔记软件，能把你所有想法、学习笔记自动关联起来，再也不怕忘记重要信息了",
       "tags": [
-        "笔记管理",
-        "知识整理",
-        "第二大脑"
+        "笔记",
+        "知识管理",
+        "学习"
       ],
       "audience": "所有人"
     },
@@ -13067,13 +13067,13 @@
       "stars": 14,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "灵感来了手忙脚乱\n找个笔记本都要半天\nAI直接帮你存到\n苹果备忘录<hl>秒保存</hl>",
-      "title_zh": "苹果备忘录秒速记",
-      "desc_zh": "Mac上最快的记录方式，AI直接帮你在苹果备忘录里分类保存，随时查找",
+      "poster": "Mac备忘录找不到重要内容\n想法记了就忘在哪\nAI帮你<hl>智能搜索</hl>\n自动分类，<hl>秒找</hl>任何笔记",
+      "title_zh": "Mac备忘录智能管理",
+      "desc_zh": "Mac用户专属！让你的备忘录变聪明，再多笔记也能瞬间找到，告别翻箱倒柜找内容。",
       "tags": [
-        "快速记录",
-        "苹果备忘录",
-        "灵感收集"
+        "Mac备忘录",
+        "笔记搜索",
+        "苹果用户"
       ],
       "audience": "所有人"
     },
@@ -13925,13 +13925,13 @@
       "stars": 648,
       "cat": "数据分析",
       "_source": "skillsmp",
-      "poster": "又有客户在群里@你投诉\n<hl>愤怒</hl>情绪满满怎么回？\nAI帮你分析情绪+生成回复\n<hl>专业</hl>话术让客户秒变粉丝",
-      "title_zh": "客户投诉秒变好评",
-      "desc_zh": "再也不怕处理客户投诉了！AI自动分析客户情绪，生成专业回复模板，投诉秒变好评。",
+      "poster": "客户投诉消息99+\n<hl>急坏了</hl>不知道怎么回\nAI帮你写专业回复\n<hl>客户满意</hl>还夸你贴心",
+      "title_zh": "客服回复秒变专业",
+      "desc_zh": "再也不用为客服回复发愁，AI帮你写出既专业又有温度的客服话术，客户满意度直线上升",
       "tags": [
         "客服",
-        "投诉处理",
-        "沟通技巧"
+        "沟通",
+        "职场"
       ],
       "audience": "职场人"
     },
@@ -13961,8 +13961,8 @@
       "slug": "customer-support",
       "name": "customer-support",
       "author": "revfactory",
-      "description": "고객지원 시스템을 FAQ, 응대 매뉴얼, 에스컬레이션 정책, CS 분석 프레임워크로 체계화하는 풀 파이프라인. '고객지원 시스템 만들어줘', 'FAQ 작성해줘', '응대 매뉴얼', 'CS 매뉴얼', '에스컬레이션 정책', '고객응대 스크립트', '컴플레인 대응', '고객 불만 처리', 'CS 운영 체계', '고객서비스 프로세스' 등 ���객지원 체계 구축 전반에 이 스킬을 사용한다. 기존 FAQ나 매뉴얼이 있는 경우에도 보완·개선을 지원한다. 단, CRM/헬프데스크 소프트웨어 개발, 콜센터 인프라 구축, 실시간 챗봇 개발, 상담원 채용은 이 스킬의 범위가 아니다.",
-      "content": "고객지원 시스템을 FAQ, 응대 매뉴얼, 에스컬레이션 정책, CS 분석 프레임워크로 체계화하는 풀 파이프라인. '고객지원 시스템 만들어줘', 'FAQ 작성해줘', '응대 매뉴얼', 'CS 매뉴얼', '에스컬레이션 정책', '고객응대 스크립트', '컴플레인 대응', '고객 불만 처리', 'CS 운영 체계', '고객서비스 프로세스' 등 ���객지원 체계 구축 전반에 이 스킬을 사용한다. 기존 FAQ나 매뉴얼이 있는 경우에도 보완·개선을 지원한다. 단, CRM/헬프데스크 소프트웨어 개발, 콜센터 인프라 구축, 실시간 챗봇 개발, 상담원 채용은 이 스킬의 범위가 아니다.",
+      "description": "고객지원 시스템을 FAQ, 응대 매뉴얼, 에스컬레이션 정책, CS 분석 프레임워크로 체계화하는 풀 파이프라인. '고객지원 시스템 만들어줘', 'FAQ 작성해줘', '응대 매뉴얼', 'CS 매뉴얼', '에스컬레이션 정책', '고객응대 스크립트', '컴플레인 대응', '고객 불만 처리', 'CS 운영 체계', '고객서비스 프로세스' 등 고객지원 체계 구축 전반에 이 스킬을 사용한다. 기존 FAQ나 매뉴얼이 있는 경우에도 보완·개선을 지원한다. 단, CRM/헬프데스크 소프트웨어 개발, 콜센터 인프라 구축, 실시간 챗봇 개발, 상담원 채용은 이 스킬의 범위가 아니다.",
+      "content": "고객지원 시스템을 FAQ, 응대 매뉴얼, 에스컬레이션 정책, CS 분석 프레임워크로 체계화하는 풀 파이프라인. '고객지원 시스템 만들어줘', 'FAQ 작성해줘', '응대 매뉴얼', 'CS 매뉴얼', '에스컬레이션 정책', '고객응대 스크립트', '컴플레인 대응', '고객 불만 처리', 'CS 운영 체계', '고객서비스 프로세스' 등 고객지원 체계 구축 전반에 이 스킬을 사용한다. 기존 FAQ나 매뉴얼이 있는 경우에도 보완·개선을 지원한다. 단, CRM/헬프데스크 소프트웨어 개발, 콜센터 인프라 구축, 실시간 챗봇 개발, 상담원 채용은 이 스킬의 범위가 아니다.",
       "url": "https://github.com/revfactory/harness-100/tree/main/ko/49-customer-support/.claude/skills/customer-support",
       "stars": 556,
       "cat": "其他",
@@ -14022,13 +14022,13 @@
       "stars": 119,
       "cat": "设计媒体",
       "_source": "skillsmp",
-      "poster": "客服团队天天加班\n处理流程乱成一团\n设计<hl>智能分流系统</hl>\n让机器干重复的活",
-      "title_zh": "客服流程全自动化",
-      "desc_zh": "帮你搭建完整的客服体系，从工单分类到处理流程，全部自动化运转",
+      "poster": "每天几百个工单看到头晕\n紧急的漏掉就完蛋\n自动<hl>优先级排序</hl>\n重要工单<hl>绝不遗漏</hl>",
+      "title_zh": "客服工单自动分类",
+      "desc_zh": "客服工单太多处理不过来？这个工具帮你自动分类排优先级，重要客户绝不漏掉",
       "tags": [
-        "客服系统",
-        "流程优化",
-        "自动化"
+        "客服",
+        "工作效率",
+        "管理"
       ],
       "audience": "职场人"
     },
@@ -14060,13 +14060,13 @@
       "stars": 86,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "公司要上线客服系统\n不知道从哪里开始\n帮助中心、智能客服、工单系统\n<hl>一条龙</hl>全给你设计好",
-      "title_zh": "客服系统一站式搭建",
-      "desc_zh": "从零开始帮你规划整套客服系统，让客户自助解决80%的问题",
+      "poster": "公司要建客服部门\n从零开始不知道咋办\n<hl>FAQ</hl>、流程、话术\n整套体系<hl>直接出炉</hl>",
+      "title_zh": "客服体系一键搭建",
+      "desc_zh": "公司要搭建客服体系？从FAQ到应对流程，整套专业客服系统帮你一次性搞定",
       "tags": [
-        "客服搭建",
-        "帮助中心",
-        "智能客服"
+        "客服",
+        "体系搭建",
+        "管理"
       ],
       "audience": "职场人"
     },
@@ -14102,13 +14102,13 @@
       "stars": 60,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "Dynamics 365 又报错了？\n<hl>数据表</hl>配置一团乱\nPower Platform 各种限制\n老司机带你<hl>避开所有坑</hl>",
-      "title_zh": "微软生态开发不踩坑",
-      "desc_zh": "专门处理微软Dynamics和Power Platform的各种技术问题，配置、查询、集成都能搞定",
+      "poster": "又要改企业系统数据？\n一个操作错误<hl>全公司停摆</hl>\nAI帮你规避风险\n安全操作<hl>零事故</hl>",
+      "title_zh": "企业数据库操作不踩坑",
+      "desc_zh": "专门处理企业级数据库操作，帮开发者安全地处理客户数据，避免误操作导致系统崩溃。",
       "tags": [
-        "微软开发",
-        "企业应用",
-        "系统集成"
+        "数据库",
+        "企业系统",
+        "风险控制"
       ],
       "audience": "开发者"
     },
@@ -14250,13 +14250,13 @@
       "stars": 16,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "客户说走就走太突然？\n<hl>流失预测</hl>算法帮你\n提前锁定高危客户\n该打电话的打电话，该送礼的<hl>送礼</hl>",
-      "title_zh": "提前3个月知道谁要跑",
-      "desc_zh": "用AI分析客户行为数据，提前几个月预测谁可能要流失，给你充足时间去挽留",
+      "poster": "客户说走就走？\n其实AI早就看出<hl>苗头</hl>\n使用频率下降、投诉增多\n提前<hl>3个月</hl>给你预警",
+      "title_zh": "提前3个月预测客户流失",
+      "desc_zh": "AI帮你分析客户行为数据，提前几个月预测哪些客户要流失，让你有时间挽回。",
       "tags": [
-        "客户挽留",
-        "销售预警",
-        "商业智能"
+        "客户预警",
+        "销售工具",
+        "流失预测"
       ],
       "audience": "职场人"
     },
@@ -14271,13 +14271,13 @@
       "stars": 16,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "又有大客户突然不续费了？\n<hl>健康评分</hl>提前预警\n红黄绿灯显示客户状态\n流失前3个月就能<hl>提前干预</hl>",
+      "poster": "客户突然不续费了？\n其实早就有<hl>预警信号</hl>\nAI 帮你提前发现\n<hl>风险客户</hl>一个不漏",
       "title_zh": "客户流失风险一目了然",
-      "desc_zh": "帮你给每个客户打健康分，哪些要流失、哪些很稳定，一眼就看出来，再也不会突然丢大客户了",
+      "desc_zh": "用AI分析客户数据，提前预警哪些客户可能要流失，销售再也不用临时抱佛脚了。",
       "tags": [
         "客户管理",
-        "数据分析",
-        "风险预警"
+        "销售预警",
+        "数据分析"
       ],
       "audience": "职场人"
     },
@@ -14735,15 +14735,15 @@
       "stars": 4094,
       "cat": "其他",
       "_source": "skillsmp",
-      "poster": "发票收据堆成山？\n现金流心里没个数？\n<hl>自动记账</hl>整理分类\n月底对账<hl>5分钟搞定</hl>",
-      "title_zh": "小公司记账不求人",
-      "desc_zh": "专为小企业设计的财务管理，发票、支出、现金流都帮你理清楚，不用请会计也能把账做好",
+      "poster": "发票堆成山不知道咋整理？\n<hl>收支流水</hl>乱成一团\nAI帮你自动分类记账\n<hl>账本</hl>清清楚楚",
+      "title_zh": "小企业记账不再头疼",
+      "desc_zh": "专为小企业老板设计，自动整理发票和流水，再也不用熬夜对账了。",
       "tags": [
-        "财务管理",
-        "小企业",
-        "记账报税"
+        "企业记账",
+        "发票管理",
+        "财务助手"
       ],
-      "audience": "职场人"
+      "audience": "所有人"
     },
     {
       "id": "smp-openclaw-skills-skills-alsoforever-finance-bp-core-skill-md",
@@ -15071,13 +15071,13 @@
       "stars": 3,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "出差回来一堆<hl>发票收据</hl>？\n手工整理要半天\n拍照上传自动识别\n<hl>报销表格</hl>一键导出",
-      "title_zh": "差旅报销单自动生成",
-      "desc_zh": "把发票收据拍个照就能自动生成报销单，按类别汇总金额，格式规整直接交财务",
+      "poster": "出差回来一堆<hl>发票</hl>要整理\n手工填报销单要半天\n拍照上传给AI\n<hl>格式完美</hl>的报表直接交",
+      "title_zh": "报销单据5分钟搞定",
+      "desc_zh": "把发票拍照丢给AI，自动生成规范的报销报表，再也不用手工填表格了。",
       "tags": [
-        "报销管理",
-        "发票识别",
-        "财务报表"
+        "报销助手",
+        "发票整理",
+        "职场工具"
       ],
       "audience": "职场人"
     },
@@ -15298,13 +15298,13 @@
       "stars": 0,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "每月花了多少钱？\n信用卡账单对不上？\n连接<hl>银行账户</hl>自动同步\n支出分类预算提醒<hl>全自动</hl>",
-      "title_zh": "个人账本智能管家",
-      "desc_zh": "连接你的银行卡和信用卡，自动记录每笔收支，还能做预算规划，理财小白也能轻松上手",
+      "poster": "信用卡账单看不懂？\n每月<hl>花了多少</hl>心里没数\nAI连接你的账户\n收支明细<hl>自动分类</hl>",
+      "title_zh": "个人财务一键整理",
+      "desc_zh": "连接你的银行账户和信用卡，自动整理收支记录，让你清楚知道钱都花哪了。",
       "tags": [
         "个人理财",
-        "记账软件",
-        "预算管理"
+        "账单整理",
+        "消费分析"
       ],
       "audience": "所有人"
     },
@@ -15664,13 +15664,13 @@
       "stars": 4094,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "海外客户想用<hl>USDT付款</hl>\n但你的店铺不支持\nPayRam帮你接入加密货币\n<hl>全球收款</hl>无障碍",
-      "title_zh": "店铺支持数字货币收款",
-      "desc_zh": "想让店铺支持比特币、USDT收款？这个工具帮你轻松接入，海外客户付款更方便",
+      "poster": "海外客户想付<hl>USDC</hl>\n你的店铺只能收支付宝\nPayRam 让你的商城\n<hl>秒变</hl>加密货币收银台",
+      "title_zh": "店铺接受数字货币",
+      "desc_zh": "想做全球生意？让你的网店支持比特币、USDC等数字货币付款，抓住更多海外客户。",
       "tags": [
         "数字货币",
-        "电商收款",
-        "全球支付"
+        "电商支付",
+        "跨境电商"
       ],
       "audience": "创作者"
     },
@@ -15685,13 +15685,13 @@
       "stars": 4094,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "库存不够了要补货\n新订单要发货\n<hl>一句话搞定</hl>所有操作\n不用登录后台",
-      "title_zh": "电商店铺语音管理",
-      "desc_zh": "管理网店太繁琐？用语音助手一句话完成库存管理、订单处理，解放双手",
+      "poster": "客户催发货\n要登录后台查订单\n现在微信聊天一样\n<hl>问一句</hl>就能处理",
+      "title_zh": "聊天管店铺后台",
+      "desc_zh": "懒人福音！不用登录各种电商后台，像聊天一样管理你的网店，查库存、处理订单都能语音搞定。",
       "tags": [
-        "店铺管理",
+        "电商管理",
         "语音助手",
-        "电商运营"
+        "店铺运营"
       ],
       "audience": "创作者"
     },
@@ -15706,13 +15706,13 @@
       "stars": 4094,
       "cat": "设计媒体",
       "_source": "skillsmp",
-      "poster": "产品拍照<hl>角度不好看</hl>\n修图技能为零\nAI生成8种专业风格\n直接用于<hl>电商平台</hl>",
-      "title_zh": "商品图片AI秒出图",
-      "desc_zh": "商品图片不够专业？AI帮你生成电商级产品图，8种风格任选，直接用于淘宝、亚马逊",
+      "poster": "产品照片拍得像<hl>淘宝爆款</hl>\n不用请摄影师\n8种风格场景任选\n<hl>专业级</hl>电商图片秒出炉",
+      "title_zh": "商品大片AI生成",
+      "desc_zh": "再也不用为商品拍照发愁！AI帮你生成各种风格的专业电商图片，亚马逊、淘宝都能用。",
       "tags": [
         "商品摄影",
-        "AI修图",
-        "电商图片"
+        "电商图片",
+        "AI设计"
       ],
       "audience": "创作者"
     },
@@ -15853,13 +15853,13 @@
       "stars": 99,
       "cat": "写作创作",
       "_source": "skillsmp",
-      "poster": "上新50个产品\n要写50个商品描述\nAI帮你生成<hl>SEO优化</hl>文案\n直接复制到店铺<hl>转化翻倍</hl>",
-      "title_zh": "商品详情页5分钟搞定",
-      "desc_zh": "卖货的文案不会写？AI帮你生成吸引人的商品描述，关键词、卖点、Call to Action一键搞定",
+      "poster": "店铺上新品\n对着空白页发愁\n丢给 AI 一张图片\n<hl>卖点文案</hl>自动生成",
+      "title_zh": "商品描述30秒写完",
+      "desc_zh": "电商卖家必备！输入产品信息，AI帮你写出专业的商品描述，带关键词优化，转化率更高。",
       "tags": [
-        "电商文案",
-        "商品描述",
-        "SEO优化"
+        "电商运营",
+        "文案写作",
+        "商品描述"
       ],
       "audience": "创作者"
     },
@@ -15979,13 +15979,13 @@
       "stars": 29,
       "cat": "设计媒体",
       "_source": "skillsmp",
-      "poster": "订单库存客户信息\n每天要在后台<hl>切换N个页面</hl>\nAI帮你统一管理\n一句话完成所有操作",
+      "poster": "库存、订单、客户信息\n来回切换页面<hl>累死人</hl>\n现在对话框里\n所有数据<hl>一问就有</hl>",
       "title_zh": "Shopify店铺一键管理",
-      "desc_zh": "Shopify店铺管理太麻烦？用AI助手一句话搞定商品上架、订单处理、库存管理",
+      "desc_zh": "Shopify店主福音！不用登录后台，直接对话就能查订单、管库存、看客户，省时又高效。",
       "tags": [
-        "Shopify管理",
-        "电商运营",
-        "店铺助手"
+        "Shopify",
+        "电商管理",
+        "店铺运营"
       ],
       "audience": "创作者"
     },
@@ -16236,13 +16236,13 @@
       "stars": 2,
       "cat": "营销增长",
       "_source": "skillsmp",
-      "poster": "今天卖了多少钱？\n哪个产品最赚钱？\n不用翻报表<hl>直接问AI</hl>\n销售利润<hl>秒出答案</hl>",
-      "title_zh": "店铺数据一问就知",
-      "desc_zh": "想知道店铺今天赚了多少？哪个产品卖得好？直接问AI，不用自己算报表",
+      "poster": "今天卖了多少钱？\n哪个产品最赚钱？\n不用算Excel表格\n<hl>一问</hl>数据<hl>全知道</hl>",
+      "title_zh": "店铺数据秒懂报告",
+      "desc_zh": "Shopify店主专用数据助手！销售额、利润率、客户分析，复杂报表秒变人话，经营决策更轻松。",
       "tags": [
-        "电商数据",
-        "销售分析",
-        "店铺报表"
+        "数据分析",
+        "店铺运营",
+        "Shopify"
       ],
       "audience": "创作者"
     },
@@ -16623,13 +16623,13 @@
       "stars": 4094,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "熬夜写完Swift代码\n担心<hl>Bug</hl>被用户发现？\nAI帮你逐行检查\n<hl>安心</hl>提交不踩坑",
-      "title_zh": "iOS代码上线前自动体检",
-      "desc_zh": "专门检查Swift代码问题的AI助手，帮你在发布前发现潜在bug，再也不用担心线上出事故了",
+      "poster": "写完测试代码心里没底\n担心漏洞和<hl>性能问题</hl>\nAI帮你逐行检查\n<hl>上线前</hl>自动发现隐患",
+      "title_zh": "Swift测试代码秒检查",
+      "desc_zh": "专门检查Swift测试代码的AI助手，帮你发现代码问题，避免上线后出bug。",
       "tags": [
         "代码检查",
-        "iOS开发",
-        "Bug修复"
+        "Swift",
+        "测试"
       ],
       "audience": "开发者"
     },
@@ -16644,11 +16644,11 @@
       "stars": 4094,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "Rust测试代码写得对吗？\n异步测试怎么优化？\nAI专业<hl>代码审查</hl>\n让测试更<hl>可靠</hl>",
-      "title_zh": "Rust测试代码专业点评",
-      "desc_zh": "Rust测试代码写得不确定？专业AI帮你review，异步测试、单元测试全覆盖",
+      "poster": "Rust 测试写得<hl>对不对</hl>\n异步测试容易出错\nAI 专家帮你\n<hl>逐行</hl>检查优化",
+      "title_zh": "Rust测试代码诊断",
+      "desc_zh": "Rust开发者专用！测试代码写得规不规范，异步、mock、集成测试，AI帮你专业review。",
       "tags": [
-        "Rust开发",
+        "Rust",
         "测试代码",
         "代码审查"
       ],
@@ -16665,13 +16665,13 @@
       "stars": 648,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "网站突然<hl>卡成PPT</hl>\n用户疯狂投诉\nAI瞬间定位性能瓶颈\n<hl>3分钟</hl>恢复丝滑体验",
-      "title_zh": "代码性能问题一秒诊断",
-      "desc_zh": "AI性能专家帮你找出代码哪里慢、哪里卡，自动给出优化建议，让你的程序跑得飞快",
+      "poster": "代码写完不敢直接上线\n怕出<hl>性能问题</hl>被骂\nAI自动检测代码质量\n问题<hl>提前发现</hl>不踩坑",
+      "title_zh": "代码上线前自动体检",
+      "desc_zh": "AI代码审查专家，自动检测性能问题和潜在bug，让你的代码更稳定。",
       "tags": [
-        "性能优化",
         "代码审查",
-        "系统提速"
+        "性能测试",
+        "AI检测"
       ],
       "audience": "开发者"
     },
@@ -16720,13 +16720,13 @@
       "stars": 48,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "写完Go代码准备上线\n担心测试覆盖不全面？\n<hl>自动检查</hl>测试用例\n让你的代码<hl>零bug上线</hl>",
-      "title_zh": "Go代码测试自动检查",
-      "desc_zh": "专门检查Go语言测试代码的质量，帮你发现测试用例的问题，再也不用担心代码上线后出bug了",
+      "poster": "写完测试代码不知道对不对\n担心<hl>测试覆盖</hl>不全被骂\nAI 帮你检查测试逻辑\n<hl>上线前</hl>心里有底",
+      "title_zh": "代码测试自动检查",
+      "desc_zh": "专门检查 Go 语言测试代码的 AI，帮你发现测试写得不规范的地方，避免线上出 bug。",
       "tags": [
-        "Go语言",
-        "代码测试",
-        "质量检查"
+        "代码检查",
+        "测试",
+        "Go语言"
       ],
       "audience": "开发者"
     },
@@ -17485,13 +17485,13 @@
       "stars": 421,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "每次提交代码都要等同事审核\n<hl>半天</hl>才能合并\n现在AI帮你<hl>秒级</hl>检查代码\n发现问题立即提醒",
-      "title_zh": "代码审核自动化",
-      "desc_zh": "终于不用苦等同事审代码了，AI帮你自动检查代码质量，发现问题马上提醒，效率提升10倍",
+      "poster": "提交代码等同事审核\n一等就是<hl>半天</hl>\n现在 AI 秒速检查\n<hl>自动</hl>发现问题给建议",
+      "title_zh": "代码审核机器人",
+      "desc_zh": "GitHub 上的 AI 助手，自动审核代码、分类问题，再也不用等同事有空了",
       "tags": [
         "代码审核",
-        "自动化",
-        "效率"
+        "GitHub",
+        "自动化"
       ],
       "audience": "开发者"
     },
@@ -17527,13 +17527,13 @@
       "stars": 81,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "每天在GitHub上<hl>重复操作</hl>\n创建仓库、处理issue、发布版本\n现在一行命令全搞定\n<hl>省时</hl>又省心",
-      "title_zh": "GitHub操作一键搞定",
-      "desc_zh": "GitHub的命令行神器，创建仓库、管理issue、发布版本都能一键完成，比网页操作快100倍",
+      "poster": "网页版 GitHub <hl>太慢</hl>\n命令行几秒搞定\n创建仓库、提 PR、看问题\n全在<hl>终端</hl>里完成",
+      "title_zh": "GitHub命令行神器",
+      "desc_zh": "GitHub 官方命令行工具，创建仓库、管理 PR 都能在终端搞定，比网页快多了",
       "tags": [
         "GitHub",
         "命令行",
-        "效率"
+        "效率工具"
       ],
       "audience": "开发者"
     },
@@ -18293,13 +18293,13 @@
       "stars": 27719,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "产品经理又催接口进度\n<hl>FastAPI</hl> + NestJS 标准模板\n数据验证、错误处理\n<hl>一键生成</hl>直接上线",
-      "title_zh": "接口开发30分钟搞定",
-      "desc_zh": "专门帮开发者快速搭建后端接口的，验证、认证、文档全套模板，省掉重复写代码的时间",
+      "poster": "写完接口心里没底\n会不会<hl>线上出bug</hl>\nClaude 帮你检查\n<hl>安全稳定</hl>才上线",
+      "title_zh": "接口上线前自动体检",
+      "desc_zh": "写接口总是担心出问题？Claude 帮你检查代码规范、安全性和稳定性，像有个资深后端在旁边把关。",
       "tags": [
-        "后端开发",
-        "接口设计",
-        "开发效率"
+        "接口开发",
+        "代码检查",
+        "后端开发"
       ],
       "audience": "开发者"
     },
@@ -18382,13 +18382,13 @@
       "stars": 24,
       "cat": "办公提效",
       "_source": "skillsmp",
-      "poster": "客户催着要接口文档\n手写<hl>OpenAPI</hl>要写到手抽筋\nClaude直接生成标准文档\n<hl>专业级</hl>质量秒交付",
-      "title_zh": "API文档一键生成",
-      "desc_zh": "API开发全流程助手，帮你设计接口、生成文档、写测试用例，让后端开发变得轻松高效",
+      "poster": "写完接口还要<hl>手写文档</hl>\n让 Claude 直接生成\nOpenAPI 规范文档\n前端对接<hl>零沟通成本</hl>",
+      "title_zh": "接口文档自动生成",
+      "desc_zh": "专业接口开发顾问，自动生成标准文档，让前后端对接像聊天一样简单",
       "tags": [
         "API文档",
         "接口设计",
-        "开发效率"
+        "开发工具"
       ],
       "audience": "开发者"
     },
@@ -18471,13 +18471,13 @@
       "stars": 7,
       "cat": "开发工具",
       "_source": "skillsmp",
-      "poster": "写了个接口担心<hl>漏洞百出</hl>\n用户一多就崩溃\nClaude 帮你检查安全认证\n<hl>稳定运行</hl>不踩坑",
-      "title_zh": "接口上线前自动体检",
-      "desc_zh": "帮你写接口时自动加上安全验证、限流保护这些，避免上线后被攻击或者崩溃",
+      "poster": "后端接口又被前端吐槽了？\n权限认证、限流、版本控制\n<hl>一套标准</hl>全搞定\n再也不怕接口<hl>出问题</hl>",
+      "title_zh": "接口代码自动体检",
+      "desc_zh": "专门教你写规范接口的助手，认证、限流、测试一条龙，让你的接口像大厂一样专业。",
       "tags": [
         "接口开发",
-        "安全防护",
-        "系统稳定"
+        "后端开发",
+        "代码规范"
       ],
       "audience": "开发者"
     },
