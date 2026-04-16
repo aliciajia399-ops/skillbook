@@ -902,15 +902,14 @@ ${entries}
    Settings Panel
    ════════════════════════════════════════ */
 let settingsOpen = false;
-
 function toggleSettings(){
   settingsOpen = !settingsOpen;
   document.getElementById('settingsPanel').classList.toggle('open', settingsOpen);
   document.getElementById('panelOverlay').classList.toggle('open', settingsOpen);
+  document.getElementById('panelOverlay').style.pointerEvents = settingsOpen ? 'auto' : 'none';
   document.getElementById('settingsBtn').classList.toggle('active', settingsOpen);
   if(settingsOpen){ checkSavedKey(); checkSmpKey(); renderSources(); }
 }
-
 // ── API Provider & Key Management ──
 const PROVIDERS = {
   anthropic: {
