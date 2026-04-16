@@ -683,7 +683,8 @@ function render(){
 
 // ── Modal ──
 function openSmpModal(id){
-  const s=smpResults.find(x=>x.id===id);
+  let s=smpResults.find(x=>x.id===id);
+  if(!s) s=ALL.find(x=>x.id===id);
   if(!s)return;
   document.getElementById('modal').innerHTML=`
     <div class="mp" style="background:${s.theme.bg};color:${s.theme.fg}">
@@ -711,7 +712,8 @@ function openSmpModal(id){
 }
 
 function openModal(id){
-  const s=ALL.find(x=>x.id===id);
+  let s=ALL.find(x=>x.id===id);
+  if(!s) s=smpResults.find(x=>x.id===id);
   if(!s)return;
   document.getElementById('modal').innerHTML=`
     <div class="mp" style="background:${s.theme.bg};color:${s.theme.fg}">
