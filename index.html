@@ -512,7 +512,7 @@ let ALL=[], activeCat='推荐', query='', dataVersion=null;
 let smpResults=[], smpSearching=false;
 
 // ── Data Load ──
-function loadData() {
+function loadData() {   // 先用缓存快速显示   const local = localStorage.getItem('skillbook_data');   if (local) {     try { processData(JSON.parse(local)); } catch(e) {}   }   // 后台检查远程更新   fetch('./public/data/skills.json')     .then(r => r.json())     .then(data => {       const localData = local ? JSON.parse(local) : null;       if (!localData || data.total !== localData.total || data.last_updated !== localData.last_updated) {         console.log('🔄 发现远程更新:', data.total, 'skills,', data.last_updated);         processData(data);         localStorage.setItem('skillbook_data', JSON.stringify(data));       }     })     .catch(() => {       if (!local) {         document.getElementById('feed').innerHTML = '<div class="empty"><div class="em">📦</div><p>暂无数据</p><p style="margin-top:8px;font-size:13px">点击右上角 ⚙ 打开设置，从 GitHub 抓取数据</p></div>';       }     }); } {
   const local = localStorage.getItem('skillbook_data');
   if (local) {
     try { processData(JSON.parse(local)); return; } catch(e) {}
