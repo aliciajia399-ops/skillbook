@@ -512,12 +512,24 @@ let ALL=[], activeCat='推荐', query='', dataVersion=null;
 let smpResults=[], smpSearching=false;
 
 // ── Data Load ──
+// fetch 带重试 + 禁用缓存：GitHub Pages 偶发 ERR_CONNECTION_CLOSED 时能恢复
+function fetchFresh(url, retries=3, delay=600){
+  const u = url + (url.includes('?') ? '&' : '?') + '_=' + Date.now();
+  return fetch(u, {cache: 'no-store'}).then(r=>{
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r;
+  }).catch(e=>{
+    if(retries<=1) throw e;
+    return new Promise(res=>setTimeout(res, delay)).then(()=>fetchFresh(url, retries-1, delay*2));
+  });
+}
+
 function loadData() {
   const local = localStorage.getItem('skillbook_data');
   if (local) {
     try { processData(JSON.parse(local)); } catch(e) {}
   }
-  fetch('./public/data/skills.json')
+  fetchFresh('./public/data/skills.json')
     .then(r=>r.json())
     .then(data=>{
       const localData = local ? JSON.parse(local) : null;
@@ -527,7 +539,8 @@ function loadData() {
         localStorage.setItem('skillbook_data', JSON.stringify(data));
       }
     })
-    .catch(()=>{
+    .catch((e)=>{
+      console.warn('远程数据拉取失败（已重试 3 次）:', e && e.message);
       if(!local){
         document.getElementById('feed').innerHTML='<div class="empty"><div class="em">📦</div><p>暂无数据</p><p style="margin-top:8px;font-size:13px">点击右上角 ⚙ 打开设置，从 GitHub 抓取数据</p></div>';
       }
