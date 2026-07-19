@@ -114,9 +114,12 @@ Awesome Lists 自动发现 ───────────┘            AI �
 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 1000+ 社区聚合 |
 | [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) | 1400+ 可安装库 |
 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 社区精选 |
+| [Xquik-dev/x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper/tree/master/skills) | X/Twitter 数据研究 Skills |
 | [skills.sh](https://skills.sh) | 每日热门 Trending |
 | [SkillsMP](https://skillsmp.com) | 840K+ 搜索引擎 |
 | + 自动发现 | 从 Awesome Lists 解析新仓库 |
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
 
 ### 本地开发
 
