@@ -155,7 +155,7 @@ async function main() {
   console.log('  SkillBook Auto-Poster');
   console.log('═══════════════════════════════════');
   console.log(`  Provider: ${PROVIDER}`);
-  console.log(`  API Key 前8位: ${API_KEY.slice(0, 8)}...`);  // ← 修复: 打印前8位方便排查 key 问题
+  console.log('  API Key: configured');
   console.log(`  Batch: ${BATCH_SIZE} / delay ${BATCH_DELAY}ms`);
   console.log(`  Mode: ${FORCE_ALL ? '全部重新生成' : '仅补缺'}`);
 
