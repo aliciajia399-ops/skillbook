@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}   # ← 修复1: 用 PAT 而不是默认 GITHUB_TOKEN，有写权限
+          # 使用 actions/checkout 默认的 github.token；上方 contents: write 已提供推送权限
           fetch-depth: 0                  # ← 修复2: 完整历史，rebase 需要
 
       - name: Setup Node.js
@@ -44,7 +44,7 @@ jobs:
 
       - name: 📦 Fetch Skills from GitHub + SkillsMP
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ github.token }}
           SKILLSMP_API_KEY: ${{ secrets.SKILLSMP_API_KEY }}
         run: |
           ARGS=""
@@ -83,12 +83,10 @@ jobs:
           "
 
       - name: 💾 Commit & Push
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "SkillBook Bot"
           git config user.email "bot@skillbook.dev"
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}  # ← 修复4: 明确用 PAT 认证推送
+          # checkout 已配置内置 github.token，直接使用 origin 进行 pull/push
           git add public/data/skills.json
 
           if git diff --staged --quiet; then
