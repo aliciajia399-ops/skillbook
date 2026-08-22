@@ -54,6 +54,7 @@ const SOURCES = [
   { owner:'travisvn', repo:'awesome-claude-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:true },
   { owner:'sickn33', repo:'antigravity-awesome-skills', branch:'main', path:'skills', mode:'deep-scan', enabled:true },
   { owner:'BehiSecc', repo:'awesome-claude-skills', branch:'main', path:'', mode:'skills-dir', enabled:true },
+  { owner:'Xquik-dev', repo:'x-twitter-scraper', branch:'master', path:'skills', mode:'skills-dir', enabled:true },
 
   // ═══ 可选（手动启用）═══
   { owner:'google-labs-code', repo:'agent-skills', branch:'main', path:'skills', mode:'skills-dir', enabled:false },
